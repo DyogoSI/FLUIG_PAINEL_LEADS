@@ -306,6 +306,7 @@
     vertical-align: top; 
 }
 
+.painel-leads-widget tr.hoverable { cursor: pointer; }
 .painel-leads-widget tr.hoverable:hover { background-color: #ffffff; }
 .painel-leads-widget .font-bold-name { font-weight: 600; color: #111827; }
 
@@ -436,6 +437,9 @@
     margin-bottom: 10px; 
 }
 
+.painel-leads-widget .tipo-registro-option input.lead-tipo-registro { width: auto; margin-bottom: 0; accent-color: #2563eb; }
+.painel-leads-widget .tipo-registro-option.selecionado { border-color: #2563eb; background-color: #eff6ff; color: #1d4ed8; }
+
 /* Campo ID sempre somente leitura (numeração automática sequencial) */
 .painel-leads-widget .form-section input.lead-id[readonly] {
     background-color: #f1f5f9;
@@ -459,4 +463,5 @@
     margin-bottom: 10px;
 }
 
-.painel-leads-widget .modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.painel-leads-widget .modal-footer { display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 24px; }
+.painel-leads-widget .modal-footer > button { flex-shrink: 1; min-width: 0; white-space: normal; text-align: center; }
