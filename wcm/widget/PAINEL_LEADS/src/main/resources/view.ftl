@@ -19,7 +19,7 @@
                 <div class="header-badge btn-reset" title="Clique para limpar pesquisas" style="cursor: pointer;">                  
                     <i class="fa-solid fa-rotate-right" style="margin-right: 6px;"></i><span class="badge-total-leads">Leads: 0</span>           
                 </div>            
-                <select class="header-badge select-limite dropdown-select">        
+                <select name="limite" class="header-badge select-limite dropdown-select">
                     <option value="10" style="color: black;">Exibir: 10</option>     
                     <option value="25" style="color: black;">Exibir: 25</option>             
                     <option value="50" style="color: black;">Exibir: 50</option>                                          
@@ -84,7 +84,7 @@
                 
                 <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 220px;">                          
                     <label style="font-weight: 600; color: #1f2937; white-space: nowrap;">Status:</label>                          
-                    <select class="filter-status" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
+                    <select name="filtroStatus" class="filter-status" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
                         <option value="todos">Todos</option>                          
                         <option value="novo">Novo</option>                          
                         <option value="contato">Contato</option>                          
@@ -94,7 +94,7 @@
 
                 <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 220px;">                          
                     <label style="font-weight: 600; color: #1f2937; white-space: nowrap;">Método:</label>                          
-                    <select class="filter-method" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
+                    <select name="filtroMetodo" class="filter-method" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
                         <option value="todos">Todos</option>                          
                         <option value="manual">Manual</option>                          
                         <option value="diagnostico">Integração Diagnóstico</option>                          
@@ -103,7 +103,7 @@
                        
                 <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 200px;">                          
                     <label style="font-weight: 600; color: #1f2937; white-space: nowrap;">Coluna:</label>                          
-                    <select class="filter-column" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
+                    <select name="filtroColuna" class="filter-column" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
                         <option value="todos">Todas as Colunas</option>                          
                         <option value="idContato">ID</option>                          
                         <option value="nomeContato">Nome</option>                          
@@ -117,7 +117,7 @@
 
                 <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 200px;">
                     <label style="font-weight: 600; color: #1f2937; white-space: nowrap;">Tipo Registro:</label>
-                    <select class="filter-tipo-registro" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">
+                    <select name="filtroTipoRegistro" class="filter-tipo-registro" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">
                         <option value="todos">Todos</option>
                         <option value="cliente">Cliente</option>
                         <option value="parceiro">Parceiro</option>
@@ -167,6 +167,7 @@
                                <input type="checkbox" class="chk-select-all" style="cursor: pointer; width: 15px; height: 15px;">                                                          
                             </th>     
                             <th class="th-sortable" data-campo="idContato" style="cursor: pointer;">ID <i class="fa-solid fa-sort-down sort-icon" style="margin-left: 4px; color: #2563eb; font-size: 11px;"></i></th>
+                            <th style="width: 110px; text-align: center;" title="Tipo de Registro">Tipo</th>
                             <th class="th-sortable" data-campo="nomeEmpresa" style="cursor: pointer;">Nome <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
                             <th class="th-sortable" data-campo="email" style="cursor: pointer;">Email <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
                             <th class="th-sortable" data-campo="telefone" style="cursor: pointer;">Telefone <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
@@ -174,7 +175,7 @@
                         </tr>                         
                     </thead>        
                     <tbody class="table-body">          
-                        <tr class="table-empty-row"><td colspan="6" style="text-align: center; padding: 30px;">Nenhum registro encontrado</td></tr>                                          
+                        <tr class="table-empty-row"><td colspan="7" style="text-align: center; padding: 30px;">Nenhum registro encontrado</td></tr>                                          
                     </tbody>                                  
                  </table>                          
             </div>                          
@@ -217,10 +218,10 @@
  
                 <div class="form-section">                       
                     <h4>Status do Funil</h4>  
-                    <select class="lead-origem" required>             
+                    <select name="leadOrigem" class="lead-origem" required>
                         <option value="Site">Site</option><option value="Redes">Redes</option>                 
                     </select>         
-                    <select class="lead-status" required>                        
+                    <select name="leadStatus" class="lead-status" required>
                         <option value="Novo">Novo</option><option value="Contato">Contato</option><option value="Convertido">Convertido</option>                            
                     </select>    
                 </div>                  

@@ -23,6 +23,7 @@ var PainelLeadsWidget = SuperWidget.extend({
     // carregamento completo dos leads toda vez que abrir/atualizar o painel.
     chaveCacheLeads: 'painelLeadsCache_v1',
     cacheLeadsDebounceTimer: null,
+    chaveContadorIdLead: 'painelLeadsContadorId_v1',
 
     init: function() {
         this.bindEvents();
@@ -224,15 +225,32 @@ var PainelLeadsWidget = SuperWidget.extend({
 
         if (idDiagnostico) this.exibirEtiquetaDiagnostico(idDiagnostico);
 
-        if (form.empresa) dom.find('.empresa-nome').val(form.empresa);
+        var empresaNome = form.empresa || form.nome_empresa || form.razao_social;
+        var contatoNome = form.nome_contato || form.nome || form.contato;
+        var contatoEmail = form.email_contato || form.email;
+
+        if (empresaNome) dom.find('.empresa-nome').val(empresaNome);
         if (form.cnpj || form.cnpj_empresa) dom.find('.empresa-cnpj').val(form.cnpj || form.cnpj_empresa);
         if (form.company_site) dom.find('.empresa-site').val(form.company_site);
-        if (form.nome_contato) dom.find('.lead-nome').val(form.nome_contato);
+        if (contatoNome) dom.find('.lead-nome').val(contatoNome);
+        if (contatoEmail) dom.find('.lead-email').val(contatoEmail);
         if (form.telefone) dom.find('.lead-telefone').val(form.telefone);
         if (form.user_role) dom.find('.lead-cargo').val(form.user_role);
         if (form.linkedin || form.linkedin_contato) dom.find('.lead-linkedin').val(form.linkedin || form.linkedin_contato);
-        
-        FLUIGC.toast({ title: 'Sucesso:', message: 'Dados da empresa e contato preenchidos com sucesso!', type: 'success' });
+
+        this.verificarEmailDuplicadoNoModal();
+
+        var faltando = [];
+        if (!empresaNome) faltando.push('Empresa');
+        if (!contatoNome) faltando.push('Nome do contato');
+        if (!contatoEmail) faltando.push('Email');
+        if (!form.telefone) faltando.push('Telefone');
+
+        if (faltando.length > 0) {
+            FLUIGC.toast({ title: 'Atenção:', message: 'Diagnóstico não trouxe os dados: ' + faltando.join(', ') + '. Preencha manualmente antes de salvar.', type: 'warning' });
+        } else {
+            FLUIGC.toast({ title: 'Sucesso:', message: 'Dados da empresa e contato preenchidos com sucesso!', type: 'success' });
+        }
     },
 
     exibirEtiquetaDiagnostico: function(idDiagnostico) {
@@ -500,46 +518,71 @@ var PainelLeadsWidget = SuperWidget.extend({
     buscarRestanteBackground: function() {
         var that = this;
         that.mostrarBarraCarregamento();
-        
+        that.buscarTodosOsRegistrosSemTruncar(5000, 0);
+    },
+
+    // O dataset "DSleads" retorna uma linha por VERSAO de cada documento (todo o
+    // historico de edicoes), nao uma linha por lead. Isso significa que o total de
+    // linhas brutas cresce muito mais rapido que a quantidade de leads unicos, e um
+    // "limit" fixo pode ser atingido (truncando o restante dos registros) mesmo que a
+    // quantidade real de leads seja pequena. Por isso, se a resposta vier com
+    // exatamente o "limit" pedido, ainda pode haver mais linhas cortadas: dobramos o
+    // limite e buscamos de novo, ate a resposta vir menor que o pedido (prova de que
+    // veio tudo) ou atingirmos um teto de seguranca.
+    buscarTodosOsRegistrosSemTruncar: function(limiteAtual, tentativa) {
+        var that = this;
+        var MAX_TENTATIVAS = 6;
+
         $.ajax({
             type: "GET",
-            url: "/api/public/ecm/dataset/search?datasetId=" + this.nomeDatasetLeads + "&limit=5000",
+            url: "/api/public/ecm/dataset/search?datasetId=" + this.nomeDatasetLeads + "&limit=" + limiteAtual,
             success: function(data) {
                 var valores = data.content || [];
-                var total = valores.length;
-                
-                if (total === 0) {
-                    that.ocultarBarraCarregamento();
+
+                if (valores.length >= limiteAtual && tentativa < MAX_TENTATIVAS) {
+                    that.buscarTodosOsRegistrosSemTruncar(limiteAtual * 2, tentativa + 1);
                     return;
                 }
-                
-                var linhasPorDocumento = {};
-                var ordemDocumentos = [];
-                var linhasSemDocumento = [];
-                
-                valores.forEach(function(row) {
-                    var ativo = row["metadata#active"];
-                    if (ativo === false || String(ativo).toLowerCase() === "false" || String(ativo) === "0") return;
-                    var documentId = row["metadata#id"] || row["documentid"] || row["id"];
-                    var version = parseInt(row["metadata#version"] || row["version"], 10) || 0;
-                    
-                    if (!documentId) { linhasSemDocumento.push(row); return; }
-                    var existente = linhasPorDocumento[String(documentId)];
-                    var versaoExistente = existente ? (parseInt(existente["metadata#version"] || existente["version"], 10) || 0) : -1;
-                    if (!existente) { ordemDocumentos.push(String(documentId)); }
-                    if (!existente || version >= versaoExistente) { linhasPorDocumento[String(documentId)] = row; }
-                });
-                
-                var linhasAtuais = ordemDocumentos.map(function(documentId) { return linhasPorDocumento[documentId]; }).concat(linhasSemDocumento);
-                
-                that.todosOsLeadsMemoria = []; 
-                that.processarEmLotes(linhasAtuais, 0, 500); 
+
+                that.processarRestanteRecebido(valores);
             },
             error: function(err) {
                 that.ocultarBarraCarregamento();
                 console.error("Erro no carregamento background", err);
             }
         });
+    },
+
+    processarRestanteRecebido: function(valores) {
+        var that = this;
+        var total = valores.length;
+
+        if (total === 0) {
+            that.ocultarBarraCarregamento();
+            return;
+        }
+
+        var linhasPorDocumento = {};
+        var ordemDocumentos = [];
+        var linhasSemDocumento = [];
+
+        valores.forEach(function(row) {
+            var ativo = row["metadata#active"];
+            if (ativo === false || String(ativo).toLowerCase() === "false" || String(ativo) === "0") return;
+            var documentId = row["metadata#id"] || row["documentid"] || row["id"];
+            var version = parseInt(row["metadata#version"] || row["version"], 10) || 0;
+
+            if (!documentId) { linhasSemDocumento.push(row); return; }
+            var existente = linhasPorDocumento[String(documentId)];
+            var versaoExistente = existente ? (parseInt(existente["metadata#version"] || existente["version"], 10) || 0) : -1;
+            if (!existente) { ordemDocumentos.push(String(documentId)); }
+            if (!existente || version >= versaoExistente) { linhasPorDocumento[String(documentId)] = row; }
+        });
+
+        var linhasAtuais = ordemDocumentos.map(function(documentId) { return linhasPorDocumento[documentId]; }).concat(linhasSemDocumento);
+
+        that.todosOsLeadsMemoria = [];
+        that.processarEmLotes(linhasAtuais, 0, 500);
     },
 
     processarEmLotes: function(linhas, index, tamanhoLote) {
@@ -672,6 +715,34 @@ var PainelLeadsWidget = SuperWidget.extend({
         return duplicado;
     },
 
+    // Gera o proximo ID de contato sem nunca reutilizar um numero ja usado antes,
+    // mesmo que o lead que tinha o maior ID tenha sido excluido. O maior ID ja
+    // emitido fica guardado no localStorage e so cresce, nunca retrocede.
+    obterProximoIdContato: function() {
+        var maiorId = 0;
+        this.todosOsLeadsMemoria.forEach(function(l) {
+            if (l && l.idContato) {
+                var isFallback = (String(l.idContato) === String(l.documentId));
+                if (!isFallback) {
+                    var numStr = String(l.idContato).replace(/\D/g, '');
+                    if (numStr) {
+                        var num = parseInt(numStr, 10);
+                        if (num > maiorId) maiorId = num;
+                    }
+                }
+            }
+        });
+
+        try {
+            var salvo = parseInt(window.localStorage.getItem(this.chaveContadorIdLead), 10);
+            if (!isNaN(salvo) && salvo > maiorId) { maiorId = salvo; }
+        } catch(e) { }
+
+        var proximoId = maiorId + 1;
+        try { window.localStorage.setItem(this.chaveContadorIdLead, String(proximoId)); } catch(e) { }
+        return String(proximoId);
+    },
+
     salvarLead: function() {
         var dom = this.DOM;
         var leadAnterior = this.modoEdicao ? this.linhaEmEdicao.data('lead') : null;
@@ -702,20 +773,7 @@ var PainelLeadsWidget = SuperWidget.extend({
 
         var idContatoValor = dom.find('.lead-id').val();
         if (idContatoValor === 'Automático' || !idContatoValor) {
-            var maxId = 0;
-            this.todosOsLeadsMemoria.forEach(function(l) {
-                if (l && l.idContato) {
-                    var isFallback = (String(l.idContato) === String(l.documentId));
-                    if (!isFallback) {
-                        var numStr = String(l.idContato).replace(/\D/g, '');
-                        if (numStr) {
-                            var num = parseInt(numStr, 10);
-                            if (num > maxId) maxId = num;
-                        }
-                    }
-                }
-            });
-            idContatoValor = String(maxId + 1);
+            idContatoValor = this.obterProximoIdContato();
         }
 
         var leadObj = {
@@ -976,6 +1034,11 @@ var PainelLeadsWidget = SuperWidget.extend({
         }
 
         var visualFonte = '<div style="margin-top: 8px; display: flex; align-items: center;"><div style="font-size: 11px; color: ' + corTexto + '; display: inline-flex; align-items: center; background-color: ' + corFundo + '; border: 1px solid ' + corBorda + '; padding: 2px 8px; border-radius: 12px; font-weight: 500; gap: 6px;">' + iconFnt + ' ' + lead.fonteInsercao + idDiagNaLinha + '</div>' + linkDiagnostico + '</div>';
+        var tipoRegistroLead = this.obterTipoRegistroLead(lead);
+        var visualTipoRegistro = tipoRegistroLead === 'Parceiro'
+            ? '<div style="font-size: 11px; color: #065f46; display: inline-flex; align-items: center; background-color: #ecfdf5; border: 1px solid #a7f3d0; padding: 2px 8px; border-radius: 12px; font-weight: 500; gap: 6px; white-space: nowrap;"><i class="fa-solid fa-handshake"></i> Parceiro</div>'
+            : '<div style="font-size: 11px; color: #111827; display: inline-flex; align-items: center; background-color: #f3f4f6; border: 1px solid #e5e7eb; padding: 2px 8px; border-radius: 12px; font-weight: 500; gap: 6px; white-space: nowrap;"><i class="fa-solid fa-user"></i> Cliente</div>';
+
         var visualExtras = "";
         if (lead.dados_extras && lead.dados_extras !== "") {
             try {
@@ -991,6 +1054,7 @@ var PainelLeadsWidget = SuperWidget.extend({
         tr.html(
             '<td class="col-checkbox" style="' + checkboxStyle + ' vertical-align: middle; text-align: center; width: 45px;"><input type="checkbox" class="chk-lead-select" style="cursor:pointer; width: 15px; height: 15px;"></td>' +
             '<td style="vertical-align: top; padding-top: 16px; font-weight: 500;">' + displayId + '</td>' +
+            '<td style="vertical-align: middle; text-align: center; width: 110px;" title="Tipo de Registro: ' + tipoRegistroLead + '">' + visualTipoRegistro + '</td>' +
             '<td style="vertical-align: top; padding-top: 14px; width: 25%;">' + visualEmpresa + '<div class="font-bold-name" style="display: flex; align-items: center; font-size: 13px; margin-top: 6px; font-weight: 400; color: #6b7280;">' + displayNome + displayLinkedin + '</div>' + visualCargo + visualExtras + visualFonte + '</td>' +
             '<td style="vertical-align: top; padding-top: 16px;">' + displayEmail + '</td>' +
             '<td style="vertical-align: top; padding-top: 16px;">' + displayTelefone + '</td>' +
@@ -1182,18 +1246,8 @@ var PainelLeadsWidget = SuperWidget.extend({
         try {
             var leadsParaImportar = [];
             var inicio = idxLinhaCabecalho > -1 ? idxLinhaCabecalho + 1 : 0;
-            var leadsIgnoradosPorEmail = 0; 
-            var maxId = 0;
-            
-            this.todosOsLeadsMemoria.forEach(function(l) {
-                if (l && l.idContato) {
-                    var isFallback = (String(l.idContato) === String(l.documentId));
-                    if (!isFallback) {
-                        var numStr = String(l.idContato).replace(/\D/g, '');
-                        if (numStr) { var num = parseInt(numStr, 10); if (num > maxId) maxId = num; }
-                    }
-                }
-            });
+            var leadsIgnoradosPorEmail = 0;
+            var maxId = parseInt(this.obterProximoIdContato(), 10) - 1;
 
             for (var i = inicio; i < jsonDaPlanilha.length; i++) {
                 var colunas = jsonDaPlanilha[i];
@@ -1242,6 +1296,9 @@ var PainelLeadsWidget = SuperWidget.extend({
             });
 
             for (var j = 0; j < leadsParaImportar.length; j++) { maxId++; leadsParaImportar[j].idContato = String(maxId); }
+            if (leadsParaImportar.length > 0) {
+                try { window.localStorage.setItem(this.chaveContadorIdLead, String(maxId)); } catch(e) { }
+            }
 
             if (leadsParaImportar.length > 0) { that.importacaoEmLoteAPI(leadsParaImportar, 0, leadsIgnoradosPorEmail); } 
             else {
