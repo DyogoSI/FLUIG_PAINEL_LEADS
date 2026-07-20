@@ -431,6 +431,9 @@ var PainelLeadsWidget = SuperWidget.extend({
     },
 
     carregarCacheLeads: function() {
+        // TEMP: localStorage desativado para teste de nova funcionalidade. Reativar depois.
+        return null;
+        /*
         try {
             var bruto = window.localStorage.getItem(this.chaveCacheLeads);
             if (!bruto) return null;
@@ -441,15 +444,20 @@ var PainelLeadsWidget = SuperWidget.extend({
             console.error("Erro ao ler cache local dos leads", e);
             return null;
         }
+        */
     },
 
     salvarCacheLeads: function() {
+        // TEMP: localStorage desativado para teste de nova funcionalidade. Reativar depois.
+        return;
+        /*
         try {
             var payload = JSON.stringify({ leads: this.todosOsLeadsMemoria, salvoEm: Date.now() });
             window.localStorage.setItem(this.chaveCacheLeads, payload);
         } catch(e) {
             console.error("Erro ao salvar cache local dos leads", e);
         }
+        */
     },
 
     agendarSalvarCacheLeads: function() {
@@ -733,13 +741,17 @@ var PainelLeadsWidget = SuperWidget.extend({
             }
         });
 
+        // TEMP: localStorage desativado para teste de nova funcionalidade. Reativar depois.
+        /*
         try {
             var salvo = parseInt(window.localStorage.getItem(this.chaveContadorIdLead), 10);
             if (!isNaN(salvo) && salvo > maiorId) { maiorId = salvo; }
         } catch(e) { }
+        */
 
         var proximoId = maiorId + 1;
-        try { window.localStorage.setItem(this.chaveContadorIdLead, String(proximoId)); } catch(e) { }
+        // TEMP: localStorage desativado para teste de nova funcionalidade. Reativar depois.
+        // try { window.localStorage.setItem(this.chaveContadorIdLead, String(proximoId)); } catch(e) { }
         return String(proximoId);
     },
 
@@ -1002,12 +1014,14 @@ var PainelLeadsWidget = SuperWidget.extend({
         var displayEmpresa = isValid(lead.nomeEmpresa) ? lead.nomeEmpresa : txtPreencher;
         var displayEmail = isValid(lead.email) ? lead.email : txtPreencher;
         var displayTelefone = isValid(lead.telefone) ? lead.telefone : txtPreencher;
-        var displaySite = isValid(siteLimpo) ? '<a href="' + (siteLimpo.startsWith('http') ? siteLimpo : 'https://' + siteLimpo) + '" target="_blank" style="color: #2563eb; text-decoration: underline; max-width: 140px; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="' + siteLimpo + '">' + siteLimpo.replace(/^https?:\/\//, '').replace(/^www\./, '') + '</a>' : txtPreencher;
-        var displayLinkedin = isValid(linkedinLimpo) ? '<a href="' + (linkedinLimpo.startsWith('http') ? linkedinLimpo : 'https://' + linkedinLimpo) + '" target="_blank" style="color: #0a66c2; margin-left: 8px; font-size: 16px; text-decoration: none;" title="Abrir LinkedIn"><i class="fa-brands fa-linkedin"></i></a>' : '<span style="color: #9ca3af; font-style: italic; margin-left: 8px; font-size: 12px; font-weight: normal; display: inline-flex; align-items: center; gap: 4px;" title="LinkedIn não preenchido"><i class="fa-brands fa-linkedin" style="color: #cbd5e1; font-size: 14px;"></i> Preencher</span>';
-            
+        var displaySite = isValid(siteLimpo) ? '<div style="font-size: 11px; color: #2563eb; margin-top: 2px; margin-left: 16px;"><i class="fa-solid fa-globe" style="font-size: 10px; margin-right: 4px; color: #9ca3af;"></i><a href="' + (siteLimpo.startsWith('http') ? siteLimpo : 'https://' + siteLimpo) + '" target="_blank" style="color: #2563eb; text-decoration: underline;" title="' + siteLimpo + '">' + siteLimpo.replace(/^https?:\/\//, '').replace(/^www\./, '') + '</a></div>' : '<div style="font-size: 11px; color: #9ca3af; font-style: italic; margin-top: 2px; margin-left: 16px;">Site: Preencher</div>';
+        var displayLinkedin = isValid(linkedinLimpo) ? '<a href="' + (linkedinLimpo.startsWith('http') ? linkedinLimpo : 'https://' + linkedinLimpo) + '" target="_blank" style="color: #0a66c2; margin-left: 8px; font-size: 16px; text-decoration: none;" title="Abrir LinkedIn"><i class="fa-brands fa-linkedin"></i></a>' : '<span style="margin-left: 8px;" title="LinkedIn não preenchido"><i class="fa-brands fa-linkedin" style="color: #cbd5e1; font-size: 16px;"></i></span>';
+
         var visualCargo = '<div style="font-size: 12px; color: #6b7280; font-weight: normal; margin-top: 4px;"><i class="fa-solid fa-briefcase" style="font-size: 11px; margin-right: 4px;"></i>' + displayCargo + '</div>';
         var infoCnpj = isValid(lead.cnpj) ? '<div style="font-size: 11px; color: #6b7280; margin-top: 2px; margin-left: 16px;"><i class="fa-solid fa-id-card" style="font-size: 10px; margin-right: 4px; color: #9ca3af;"></i>CNPJ: ' + lead.cnpj + '</div>' : '<div style="font-size: 11px; color: #9ca3af; font-style: italic; margin-top: 2px; margin-left: 16px;">CNPJ: Preencher</div>';
-        var visualEmpresa = '<div style="font-size: 15px; color: #111827; font-weight: 700; margin-top: 0px;"><i class="fa-regular fa-building" style="font-size: 12px; margin-right: 4px; color: #d97706;"></i>' + displayEmpresa + '</div>' + infoCnpj;
+        var visualEmpresa = '<div style="font-size: 15px; color: #111827; font-weight: 700; margin-top: 0px; display: flex; align-items: center;"><i class="fa-regular fa-building" style="font-size: 12px; margin-right: 4px; color: #d97706;"></i>' + displayEmpresa + displayLinkedin + '</div>' + infoCnpj + displaySite;
+        var visualEmail = '<div style="font-size: 11px; color: #6b7280; margin-top: 2px; margin-left: 16px;"><i class="fa-solid fa-envelope" style="font-size: 10px; margin-right: 4px; color: #9ca3af;"></i>' + displayEmail + '</div>';
+        var visualContato = '<div style="font-size: 15px; color: #111827; font-weight: 700; margin-top: 0px;"><i class="fa-solid fa-user" style="font-size: 12px; margin-right: 4px; color: #6366f1;"></i>' + displayNome + '</div>' + visualCargo + visualEmail;
         
         var isManual = lead.fonteInsercao === 'Manualmente';
         var isDiag = lead.fonteInsercao === 'Diagnóstico';
@@ -1033,7 +1047,7 @@ var PainelLeadsWidget = SuperWidget.extend({
             } catch(e) { }
         }
 
-        var visualFonte = '<div style="margin-top: 8px; display: flex; align-items: center;"><div style="font-size: 11px; color: ' + corTexto + '; display: inline-flex; align-items: center; background-color: ' + corFundo + '; border: 1px solid ' + corBorda + '; padding: 2px 8px; border-radius: 12px; font-weight: 500; gap: 6px;">' + iconFnt + ' ' + lead.fonteInsercao + idDiagNaLinha + '</div>' + linkDiagnostico + '</div>';
+        var visualFonte = '<div style="margin-top: 6px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;"><div style="font-size: 11px; color: ' + corTexto + '; display: inline-flex; align-items: center; background-color: ' + corFundo + '; border: 1px solid ' + corBorda + '; padding: 2px 8px; border-radius: 12px; font-weight: 500; gap: 6px; white-space: nowrap;">' + iconFnt + ' ' + lead.fonteInsercao + idDiagNaLinha + '</div>' + linkDiagnostico + '</div>';
         var tipoRegistroLead = this.obterTipoRegistroLead(lead);
         var visualTipoRegistro = tipoRegistroLead === 'Parceiro'
             ? '<div style="font-size: 11px; color: #065f46; display: inline-flex; align-items: center; background-color: #ecfdf5; border: 1px solid #a7f3d0; padding: 2px 8px; border-radius: 12px; font-weight: 500; gap: 6px; white-space: nowrap;"><i class="fa-solid fa-handshake"></i> Parceiro</div>'
@@ -1053,12 +1067,14 @@ var PainelLeadsWidget = SuperWidget.extend({
         
         tr.html(
             '<td class="col-checkbox" style="' + checkboxStyle + ' vertical-align: middle; text-align: center; width: 45px;"><input type="checkbox" class="chk-lead-select" style="cursor:pointer; width: 15px; height: 15px;"></td>' +
-            '<td style="vertical-align: top; padding-top: 16px; font-weight: 500;">' + displayId + '</td>' +
-            '<td style="vertical-align: middle; text-align: center; width: 110px;" title="Tipo de Registro: ' + tipoRegistroLead + '">' + visualTipoRegistro + '</td>' +
-            '<td style="vertical-align: top; padding-top: 14px; width: 25%;">' + visualEmpresa + '<div class="font-bold-name" style="display: flex; align-items: center; font-size: 13px; margin-top: 6px; font-weight: 400; color: #6b7280;">' + displayNome + displayLinkedin + '</div>' + visualCargo + visualExtras + visualFonte + '</td>' +
-            '<td style="vertical-align: top; padding-top: 16px;">' + displayEmail + '</td>' +
-            '<td style="vertical-align: top; padding-top: 16px;">' + displayTelefone + '</td>' +
-            '<td style="vertical-align: top; padding-top: 16px;">' + displaySite + '</td>'
+            '<td style="vertical-align: middle; text-align: center; padding-top: 14px; width: 160px; font-weight: 500;" title="Tipo de Registro: ' + tipoRegistroLead + ' | Origem: ' + lead.fonteInsercao + '">' +
+                '<div>' + displayId + '</div>' +
+                '<div style="margin-top: 6px; display: flex; justify-content: center;">' + visualTipoRegistro + '</div>' +
+                visualFonte +
+            '</td>' +
+            '<td style="vertical-align: top; padding-top: 14px; width: 25%;">' + visualEmpresa + '</td>' +
+            '<td style="vertical-align: top; padding-top: 14px;">' + visualContato + visualExtras + '</td>' +
+            '<td style="vertical-align: top; padding-top: 16px;">' + displayTelefone + '</td>'
         );
     },
 
@@ -1296,9 +1312,12 @@ var PainelLeadsWidget = SuperWidget.extend({
             });
 
             for (var j = 0; j < leadsParaImportar.length; j++) { maxId++; leadsParaImportar[j].idContato = String(maxId); }
+            // TEMP: localStorage desativado para teste de nova funcionalidade. Reativar depois.
+            /*
             if (leadsParaImportar.length > 0) {
                 try { window.localStorage.setItem(this.chaveContadorIdLead, String(maxId)); } catch(e) { }
             }
+            */
 
             if (leadsParaImportar.length > 0) { that.importacaoEmLoteAPI(leadsParaImportar, 0, leadsIgnoradosPorEmail); } 
             else {

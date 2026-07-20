@@ -105,9 +105,9 @@
                     <label style="font-weight: 600; color: #1f2937; white-space: nowrap;">Coluna:</label>                          
                     <select name="filtroColuna" class="filter-column" style="flex: 1; width: 100%; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; text-overflow: ellipsis;">                          
                         <option value="todos">Todas as Colunas</option>                          
-                        <option value="idContato">ID</option>                          
-                        <option value="nomeContato">Nome</option>                          
-                        <option value="email">Email</option>                          
+                        <option value="idContato">ID</option>
+                        <option value="nomeContato">Contato</option>
+                        <option value="email">Email</option>
                         <option value="telefone">Telefone</option>                          
                         <option value="nomeEmpresa">Empresa</option>                          
                         <option value="cnpj">CNPJ</option>                          
@@ -166,16 +166,14 @@
                             <th class="col-checkbox" style="display: none; width: 45px; text-align: center;">                                                                  
                                <input type="checkbox" class="chk-select-all" style="cursor: pointer; width: 15px; height: 15px;">                                                          
                             </th>     
-                            <th class="th-sortable" data-campo="idContato" style="cursor: pointer;">ID <i class="fa-solid fa-sort-down sort-icon" style="margin-left: 4px; color: #2563eb; font-size: 11px;"></i></th>
-                            <th style="width: 110px; text-align: center;" title="Tipo de Registro">Tipo</th>
-                            <th class="th-sortable" data-campo="nomeEmpresa" style="cursor: pointer;">Nome <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
-                            <th class="th-sortable" data-campo="email" style="cursor: pointer;">Email <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
+                            <th class="th-sortable" data-campo="idContato" style="cursor: pointer; width: 160px; text-align: center;">ID <i class="fa-solid fa-sort-down sort-icon" style="margin-left: 4px; color: #2563eb; font-size: 11px;"></i></th>
+                            <th class="th-sortable" data-campo="nomeEmpresa" style="cursor: pointer;">Empresa <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
+                            <th class="th-sortable" data-campo="nomeContato" style="cursor: pointer;">Contato <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
                             <th class="th-sortable" data-campo="telefone" style="cursor: pointer;">Telefone <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
-                            <th class="th-sortable" data-campo="site" style="cursor: pointer;">Site <i class="fa-solid fa-sort sort-icon" style="margin-left: 4px; color: #94a3b8; font-size: 11px;"></i></th>
-                        </tr>                         
-                    </thead>        
-                    <tbody class="table-body">          
-                        <tr class="table-empty-row"><td colspan="7" style="text-align: center; padding: 30px;">Nenhum registro encontrado</td></tr>                                          
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr class="table-empty-row"><td colspan="5" style="text-align: center; padding: 30px;">Nenhum registro encontrado</td></tr>
                     </tbody>                                  
                  </table>                          
             </div>                          
