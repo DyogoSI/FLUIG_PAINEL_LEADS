@@ -11,7 +11,7 @@ function createDataset(fields, constraints, sortFields) {
     // ADICIONE AQUI OS IDs REAIS DO SEU AMBIENTE FLUIG
     // "2" -> ID da pasta onde os registros (cards) do formulário serão salvos
     // "540" -> ID do formulário base que você exportou no Passo 1
-    dataset.addRow(new Array("1554", "1555")); 
+    dataset.addRow(new Array("13426", "13427")); 
     
     return dataset;
 }
