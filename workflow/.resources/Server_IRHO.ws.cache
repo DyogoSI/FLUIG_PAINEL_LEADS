@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_202" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <string>volume</string>
+   <array class="java.lang.String" length="1">
+    <void index="0">
+     <string>Default</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>mecanismoGrupo</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Usuario integracao pagina publica</string>
+      </void>
+      <void property="groupId">
+       <string>IntegraocaoExterna</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>expediente</string>
+   <array class="java.lang.String" length="1">
+    <void index="0">
+     <string>Default</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>processosServidor</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Listar Tarefas</string>
+      </void>
+      <void property="processId">
+       <string>FLUIGADHOC</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Solicitações  Gerais</string>
+      </void>
+      <void property="processId">
+       <string>IRHO-001</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Movimentação de Pessoal</string>
+      </void>
+      <void property="processId">
+       <string>IRHO-002</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Afastamento</string>
+      </void>
+      <void property="processId">
+       <string>IRHO-003</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Desligamento</string>
+      </void>
+      <void property="processId">
+       <string>IRHO-004</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Solicitação Ferias </string>
+      </void>
+      <void property="processId">
+       <string>IRHO-005</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>Processo Comercial - Funil de Vendas</string>
+      </void>
+      <void property="processId">
+       <string>IRHO-LEADS-001</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>PROCESSO_RH_DIAGNOSTICO</string>
+      </void>
+      <void property="processId">
+       <string>PROCESSO_RH_DIAGNOSTICO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
+      <void property="companyId">
+       <int>1</int>
+      </void>
+      <void property="processDescription">
+       <string>validador_bancario</string>
+      </void>
+      <void property="processId">
+       <string>validador_bancario</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>camposFormulario, documentoId = 13467</string>
+   <array class="java.lang.String" length="32">
+    <void index="0">
+     <string>acao_atividade</string>
+    </void>
+    <void index="1">
+     <string>atividade_atual</string>
+    </void>
+    <void index="2">
+     <string>class_autoridade</string>
+    </void>
+    <void index="3">
+     <string>class_comunicacao</string>
+    </void>
+    <void index="4">
+     <string>class_interesse</string>
+    </void>
+    <void index="5">
+     <string>class_necessidades</string>
+    </void>
+    <void index="6">
+     <string>class_orcamento</string>
+    </void>
+    <void index="7">
+     <string>class_timeline</string>
+    </void>
+    <void index="8">
+     <string>contato_cargo</string>
+    </void>
+    <void index="9">
+     <string>contato_email</string>
+    </void>
+    <void index="10">
+     <string>contato_linkedin</string>
+    </void>
+    <void index="11">
+     <string>contato_nome</string>
+    </void>
+    <void index="12">
+     <string>contato_telefone</string>
+    </void>
+    <void index="13">
+     <string>crm_origem</string>
+    </void>
+    <void index="14">
+     <string>data_fim_contato</string>
+    </void>
+    <void index="15">
+     <string>data_inicio_contato</string>
+    </void>
+    <void index="16">
+     <string>empresa_cnpj</string>
+    </void>
+    <void index="17">
+     <string>empresa_nome</string>
+    </void>
+    <void index="18">
+     <string>lead_id_referencia</string>
+    </void>
+    <void index="19">
+     <string>modo_formulario</string>
+    </void>
+    <void index="20">
+     <string>numero_solicitacao</string>
+    </void>
+    <void index="21">
+     <string>status_lead</string>
+    </void>
+    <void index="22">
+     <string>tent_data</string>
+    </void>
+    <void index="23">
+     <string>tent_descricao</string>
+    </void>
+    <void index="24">
+     <string>tent_hora</string>
+    </void>
+    <void index="25">
+     <string>tent_id</string>
+    </void>
+    <void index="26">
+     <string>tent_meio</string>
+    </void>
+    <void index="27">
+     <string>tent_numero</string>
+    </void>
+    <void index="28">
+     <string>tent_ordem</string>
+    </void>
+    <void index="29">
+     <string>total_tentativas</string>
+    </void>
+    <void index="30">
+     <string>ultima_tent_data</string>
+    </void>
+    <void index="31">
+     <string>ultima_tent_meio</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>mecanismoPapel</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>admin</string>
+      </void>
+      <void property="roleId">
+       <string>admin</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>mecanismo</string>
+   <array class="[Ljava.lang.Object;" length="9">
+    <void index="0">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Associação</string>
+      </void>
+      <void index="1">
+       <string>Associado</string>
+      </void>
+     </array>
+    </void>
+    <void index="1">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Campo de Formulário</string>
+      </void>
+      <void index="1">
+       <string>Campo Formulário</string>
+      </void>
+     </array>
+    </void>
+    <void index="2">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Executor de Atividade</string>
+      </void>
+      <void index="1">
+       <string>Executor Atividade</string>
+      </void>
+     </array>
+    </void>
+    <void index="3">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Grupo</string>
+      </void>
+      <void index="1">
+       <string>Grupo</string>
+      </void>
+     </array>
+    </void>
+    <void index="4">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Grupos do Colaborador</string>
+      </void>
+      <void index="1">
+       <string>Grupos Colaborador</string>
+      </void>
+     </array>
+    </void>
+    <void index="5">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Papel</string>
+      </void>
+      <void index="1">
+       <string>Papel</string>
+      </void>
+     </array>
+    </void>
+    <void index="6">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição para um Grupo</string>
+      </void>
+      <void index="1">
+       <string>Pool Grupo</string>
+      </void>
+     </array>
+    </void>
+    <void index="7">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição para um Papel</string>
+      </void>
+      <void index="1">
+       <string>Pool Papel</string>
+      </void>
+     </array>
+    </void>
+    <void index="8">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Usuário</string>
+      </void>
+      <void index="1">
+       <string>Usuário</string>
+      </void>
+     </array>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>forms</string>
+   <object class="java.util.LinkedList">
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>FLUIGADHOC</string>
+      </void>
+      <void property="documentId">
+       <int>3</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>FLUIGADHOCPROCESS</string>
+      </void>
+      <void property="documentId">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>Validador Cnab Bancário</string>
+      </void>
+      <void property="documentId">
+       <int>5</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>form_leads_rh</string>
+      </void>
+      <void property="documentId">
+       <int>6</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>cronograma</string>
+      </void>
+      <void property="documentId">
+       <int>540</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>Solicitacoes Gerais </string>
+      </void>
+      <void property="documentId">
+       <int>744</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>Solicitacao Ferias</string>
+      </void>
+      <void property="documentId">
+       <int>745</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>movimentacao pessoal</string>
+      </void>
+      <void property="documentId">
+       <int>747</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>desligamento</string>
+      </void>
+      <void property="documentId">
+       <int>748</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>Afastamento </string>
+      </void>
+      <void property="documentId">
+       <int>749</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>FORM PAINEL DE LEADS</string>
+      </void>
+      <void property="documentId">
+       <int>1555</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>Forms-Dados-RHTracker</string>
+      </void>
+      <void property="documentId">
+       <int>9357</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>controle_painel</string>
+      </void>
+      <void property="documentId">
+       <int>13427</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="documentDescription">
+       <string>form_qualificação</string>
+      </void>
+      <void property="documentId">
+       <int>13467</int>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

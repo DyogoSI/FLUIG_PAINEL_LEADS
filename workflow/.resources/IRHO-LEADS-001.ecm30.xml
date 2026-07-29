@@ -2,9 +2,9 @@
   <ProcessDefinition>
     <processDefinitionPK>
       <companyId>1</companyId>
-      <processId>formulario qualificação</processId>
+      <processId>IRHO-LEADS-001</processId>
     </processDefinitionPK>
-    <processDescription>Processo painel de leads</processDescription>
+    <processDescription>Processo Comercial - Funil de Vendas</processDescription>
     <instruction></instruction>
     <active>true</active>
     <publicProcess>false</publicProcess>
@@ -27,8 +27,8 @@
   <ProcessDefinitionVersion>
     <processDefinitionVersionPK>
       <companyId>1</companyId>
-      <processId>Processo painel de leads</processId>
-      <version>3</version>
+      <processId>Processo Comercial - Funil de Vendas</processId>
+      <version>5</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>13467</formId>
@@ -50,9 +50,9 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>formulario qualificação</processId>
+        <processId>IRHO-LEADS-001</processId>
         <version>1</version>
-        <sequence>2</sequence>
+        <sequence>6</sequence>
       </processStatePK>
       <stateName>Início</stateName>
       <stateDescription>Início</stateDescription>
@@ -76,8 +76,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>180</positionX>
-      <positionY>171</positionY>
+      <positionX>105</positionX>
+      <positionY>130</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -100,9 +100,61 @@
     <ProcessState>
       <processStatePK>
         <companyId>1</companyId>
-        <processId>formulario qualificação</processId>
+        <processId>IRHO-LEADS-001</processId>
         <version>1</version>
-        <sequence>3</sequence>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Tentativa de Contato</stateName>
+      <stateDescription>Tentativa de Contato</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;guilherme-af&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>285</positionX>
+      <positionY>105</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <sequence>5</sequence>
       </processStatePK>
       <stateName>Fim</stateName>
       <stateDescription>Fim</stateDescription>
@@ -126,8 +178,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>530</positionX>
-      <positionY>171</positionY>
+      <positionX>1005</positionX>
+      <positionY>130</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -150,14 +202,31 @@
     <ProcessLink>
       <processLinkPK>
         <companyId>1</companyId>
-        <processId>formulario qualificação</processId>
+        <processId>IRHO-LEADS-001</processId>
         <version>1</version>
-        <linkSequence>4</linkSequence>
+        <linkSequence>7</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>2</initialStateSequence>
-      <finalStateSequence>3</finalStateSequence>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <linkSequence>8</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>6</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -166,23 +235,379 @@
     </ProcessLink>
   </list>
   <list/>
-  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId) {&#xd;
+    log.info(&#xd;
+        &quot;&gt;&gt;&gt; [IRHO-LEADS] afterProcessCreate&quot;&#xd;
+        + &quot; | Solicitação criada: &quot;&#xd;
+        + processId&#xd;
+    );&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>var ATIVIDADE_TENTATIVA_CONTATO = 4;&#xd;
+&#xd;
+function beforeTaskSave(&#xd;
+    colleagueId,&#xd;
+    nextSequenceId,&#xd;
+    userList&#xd;
+) {&#xd;
+    var numSolicitacao =&#xd;
+        getValue(&quot;WKNumProces&quot;);&#xd;
+&#xd;
+    var atividadeAtual = parseInt(&#xd;
+        getValue(&quot;WKNumState&quot;),&#xd;
+        10&#xd;
+    );&#xd;
+&#xd;
+    var completandoAtividade =&#xd;
+        tarefaEstaSendoConcluida();&#xd;
+&#xd;
+    var prefixoLog =&#xd;
+        &quot;&gt;&gt;&gt; [IRHO-LEADS] beforeTaskSave&quot;;&#xd;
+&#xd;
+    log.info(&#xd;
+        prefixoLog&#xd;
+        + &quot; | Solicitação: &quot;&#xd;
+        + numSolicitacao&#xd;
+        + &quot; | Atividade atual: &quot;&#xd;
+        + atividadeAtual&#xd;
+        + &quot; | Destino: &quot;&#xd;
+        + nextSequenceId&#xd;
+        + &quot; | Completando: &quot;&#xd;
+        + completandoAtividade&#xd;
+        + &quot; | Usuário: &quot;&#xd;
+        + colleagueId&#xd;
+    );&#xd;
+&#xd;
+    if (&#xd;
+        atividadeAtual&#xd;
+        != ATIVIDADE_TENTATIVA_CONTATO&#xd;
+    ) {&#xd;
+        return;&#xd;
+    }&#xd;
+&#xd;
+    /*&#xd;
+     * A validação dos campos e da tabela pai x filho&#xd;
+     * ocorre no validateForm.js.&#xd;
+     *&#xd;
+     * Este evento apenas registra qual ação foi executada.&#xd;
+     */&#xd;
+    hAPI.setCardValue(&#xd;
+        &quot;acao_atividade&quot;,&#xd;
+        completandoAtividade&#xd;
+            ? &quot;MOVIMENTAR&quot;&#xd;
+            : &quot;SALVAR&quot;&#xd;
+    );&#xd;
+}&#xd;
+&#xd;
+function tarefaEstaSendoConcluida() {&#xd;
+    var valor = getValue(&#xd;
+        &quot;WKCompletTask&quot;&#xd;
+    );&#xd;
+&#xd;
+    return valor === true&#xd;
+        || String(valor).toLowerCase()&#xd;
+            == &quot;true&quot;;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>var ATIVIDADE_TENTATIVA_CONTATO = 4;&#xd;
+var TABELA_TENTATIVAS = &quot;tbTentativasContato&quot;;&#xd;
+&#xd;
+function afterTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+    var numSolicitacao = getValue(&quot;WKNumProces&quot;);&#xd;
+    var atividadeAtual = parseInt(getValue(&quot;WKNumState&quot;), 10);&#xd;
+    var completandoAtividade = tarefaEstaSendoConcluida();&#xd;
+    var prefixoLog = &quot;&gt;&gt;&gt; [IRHO-LEADS] afterTaskSave&quot;;&#xd;
+&#xd;
+    log.info(&#xd;
+        prefixoLog&#xd;
+        + &quot; | Solicitação: &quot;&#xd;
+        + numSolicitacao&#xd;
+        + &quot; | Atividade atual: &quot;&#xd;
+        + atividadeAtual&#xd;
+        + &quot; | Destino: &quot;&#xd;
+        + nextSequenceId&#xd;
+        + &quot; | Completando: &quot;&#xd;
+        + completandoAtividade&#xd;
+    );&#xd;
+&#xd;
+    if (atividadeAtual != ATIVIDADE_TENTATIVA_CONTATO) {&#xd;
+        return;&#xd;
+    }&#xd;
+&#xd;
+    try {&#xd;
+        var dataHoraAtual = formatarDataHoraAtual();&#xd;
+&#xd;
+        hAPI.setCardValue(&#xd;
+            &quot;atividade_atual&quot;,&#xd;
+            String(atividadeAtual)&#xd;
+        );&#xd;
+&#xd;
+        if (texto(hAPI.getCardValue(&quot;numero_solicitacao&quot;)) == &quot;&quot;) {&#xd;
+            hAPI.setCardValue(&#xd;
+                &quot;numero_solicitacao&quot;,&#xd;
+                String(numSolicitacao)&#xd;
+            );&#xd;
+        }&#xd;
+&#xd;
+        if (texto(hAPI.getCardValue(&quot;data_inicio_contato&quot;)) == &quot;&quot;) {&#xd;
+            hAPI.setCardValue(&#xd;
+                &quot;data_inicio_contato&quot;,&#xd;
+                dataHoraAtual&#xd;
+            );&#xd;
+        }&#xd;
+        var resumo = calcularResumoTentativas();&#xd;
+&#xd;
+        hAPI.setCardValue(&#xd;
+            &quot;total_tentativas&quot;,&#xd;
+            String(resumo.total)&#xd;
+        );&#xd;
+&#xd;
+&#xd;
+&#xd;
+        hAPI.setCardValue(&#xd;
+            &quot;ultima_tent_data&quot;,&#xd;
+            resumo.ultimaData&#xd;
+        );&#xd;
+&#xd;
+        hAPI.setCardValue(&#xd;
+            &quot;ultima_tent_meio&quot;,&#xd;
+            resumo.ultimoMeio&#xd;
+        );&#xd;
+&#xd;
+        hAPI.setCardValue(&#xd;
+            &quot;acao_atividade&quot;,&#xd;
+            completandoAtividade ? &quot;MOVIMENTAR&quot; : &quot;SALVAR&quot;&#xd;
+        );&#xd;
+&#xd;
+        if (completandoAtividade) {&#xd;
+            hAPI.setCardValue(&#xd;
+                &quot;status_lead&quot;,&#xd;
+                &quot;CONTATO_FINALIZADO&quot;&#xd;
+            );&#xd;
+&#xd;
+            if (texto(hAPI.getCardValue(&quot;data_fim_contato&quot;)) == &quot;&quot;) {&#xd;
+                hAPI.setCardValue(&#xd;
+                    &quot;data_fim_contato&quot;,&#xd;
+                    formatarDataHoraAtual()&#xd;
+                );&#xd;
+            }&#xd;
+        } else {&#xd;
+            hAPI.setCardValue(&#xd;
+                &quot;status_lead&quot;,&#xd;
+                &quot;EM_CONTATO&quot;&#xd;
+            );&#xd;
+        }&#xd;
+&#xd;
+        log.info(&#xd;
+            prefixoLog&#xd;
+            + &quot; | Resumo atualizado. Total: &quot;&#xd;
+            + resumo.total&#xd;
+            + &quot; | Último meio: &quot;&#xd;
+            + resumo.ultimoMeio&#xd;
+            + &quot; | Última data: &quot;&#xd;
+            + resumo.ultimaData&#xd;
+        );&#xd;
+    } catch (e) {&#xd;
+        log.error(&#xd;
+            prefixoLog&#xd;
+            + &quot; | Erro ao atualizar o resumo da solicitação &quot;&#xd;
+            + numSolicitacao&#xd;
+            + &quot;: &quot;&#xd;
+            + e&#xd;
+        );&#xd;
+&#xd;
+        throw e;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function calcularResumoTentativas() {&#xd;
+    var indices = obterIndicesTentativas();&#xd;
+    var ultimaOrdem = -1;&#xd;
+    var ultimaData = &quot;&quot;;&#xd;
+    var ultimoMeio = &quot;&quot;;&#xd;
+&#xd;
+    for (var i = 0; i &lt; indices.length; i++) {&#xd;
+        var indice = indices[i];&#xd;
+&#xd;
+        var ordem = parseInt(&#xd;
+            hAPI.getCardValue(&quot;tent_ordem___&quot; + indice),&#xd;
+            10&#xd;
+        );&#xd;
+&#xd;
+        if (isNaN(ordem)) {&#xd;
+            ordem = i + 1;&#xd;
+        }&#xd;
+&#xd;
+        if (ordem &gt;= ultimaOrdem) {&#xd;
+            ultimaOrdem = ordem;&#xd;
+&#xd;
+            ultimaData = texto(&#xd;
+                hAPI.getCardValue(&quot;tent_data___&quot; + indice)&#xd;
+            );&#xd;
+&#xd;
+            ultimoMeio = texto(&#xd;
+                hAPI.getCardValue(&quot;tent_meio___&quot; + indice)&#xd;
+            );&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+    return {&#xd;
+        total: indices.length,&#xd;
+        ultimaData: ultimaData,&#xd;
+        ultimoMeio: ultimoMeio&#xd;
+    };&#xd;
+}&#xd;
+&#xd;
+function obterIndicesTentativas() {&#xd;
+    var resultado = [];&#xd;
+    var indices = hAPI.getChildrenIndexes(TABELA_TENTATIVAS);&#xd;
+&#xd;
+    if (indices == null) {&#xd;
+        return resultado;&#xd;
+    }&#xd;
+&#xd;
+    for (var i = 0; i &lt; indices.size(); i++) {&#xd;
+        resultado.push(String(indices.get(i)));&#xd;
+    }&#xd;
+&#xd;
+    return resultado;&#xd;
+}&#xd;
+&#xd;
+function tarefaEstaSendoConcluida() {&#xd;
+    var valor = getValue(&quot;WKCompletTask&quot;);&#xd;
+&#xd;
+    return (&#xd;
+        valor === true&#xd;
+        || String(valor).toLowerCase() == &quot;true&quot;&#xd;
+    );&#xd;
+}&#xd;
+&#xd;
+function texto(valor) {&#xd;
+    if (valor == null) {&#xd;
+        return &quot;&quot;;&#xd;
+    }&#xd;
+&#xd;
+    return String(valor).replace(/^\s+|\s+$/g, &quot;&quot;);&#xd;
+}&#xd;
+&#xd;
+function formatarDataHoraAtual() {&#xd;
+    var formato = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);&#xd;
+    return formato.format(new java.util.Date());&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeStateEntry</eventId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeStateEntry(sequenceId) {&#xd;
+    var numeroSolicitacao = getValue(&quot;WKNumProces&quot;);&#xd;
+&#xd;
+    log.info(&#xd;
+        &quot;&gt;&gt;&gt; [IRHO-LEADS] beforeStateEntry&quot;&#xd;
+        + &quot; | Solicitação: &quot;&#xd;
+        + numeroSolicitacao&#xd;
+        + &quot; | Destino: &quot;&#xd;
+        + sequenceId&#xd;
+    );&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskCreate</eventId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskCreate(colleagueId) {&#xd;
+    var atividadeAtual = parseInt(getValue(&quot;WKNumState&quot;), 10);&#xd;
+    var numeroSolicitacao = getValue(&quot;WKNumProces&quot;);&#xd;
+&#xd;
+    log.info(&#xd;
+        &quot;&gt;&gt;&gt; [IRHO-LEADS] afterTaskCreate&quot;&#xd;
+        + &quot; | Solicitação: &quot;&#xd;
+        + numeroSolicitacao&#xd;
+        + &quot; | Atividade: &quot;&#xd;
+        + atividadeAtual&#xd;
+        + &quot; | Responsável: &quot;&#xd;
+        + colleagueId&#xd;
+    );&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
   <list/>
   <list>
     <SwimLane>
-      <color>FFFFFF</color>
-      <height>271</height>
-      <width>691</width>
-      <positionX>90</positionX>
-      <positionY>50</positionY>
-      <stateName>Pool</stateName>
+      <color>A5B8D8</color>
+      <height>221</height>
+      <width>1261</width>
+      <positionX>0</positionX>
+      <positionY>35</positionY>
+      <stateName>Funil Cliente</stateName>
       <type>1</type>
       <parentSequence>0</parentSequence>
       <swimLanePK>
         <companyId>1</companyId>
-        <processId>formulario qualificação</processId>
+        <processId>IRHO-LEADS-001</processId>
         <version>1</version>
         <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>FFA87D</color>
+      <height>221</height>
+      <width>1261</width>
+      <positionX>0</positionX>
+      <positionY>255</positionY>
+      <stateName>Funil Parceiro</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>221</height>
+      <width>1261</width>
+      <positionX>0</positionX>
+      <positionY>475</positionY>
+      <stateName>Lead Perdido</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <sequence>3</sequence>
       </swimLanePK>
     </SwimLane>
   </list>

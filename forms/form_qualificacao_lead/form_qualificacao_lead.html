@@ -1,518 +1,583 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Qualificação de Lead - IRHO</title>
+    <title>Monitoramento de Lead - IRHO</title>
     <meta charset="utf-8">
 
-    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="form_qualificacao_lead.css">
 
-    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
-    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js">
+    </script>
 
-    <style>
-        /* =========================================
-           RESET E BACKGROUND - GUIA DE DESIGN UI/UX
-        ========================================= */
-        :root {
-            --nz-green: #138a43;
-            --nz-green-dark: #0f5f2f;
-            --nz-green-soft: #eaf7ef;
-            --nz-blue: #24aee4;
-            --nz-black: #050505;
-            --nz-text: #2f3a40;
-            --nz-muted: #8d9aa3;
-            --nz-border: #dfe5e8;
-            --nz-border-soft: #edf0f2;
-            --nz-bg: #ffffff;
-            --nz-card-bg: #ffffff;
-            --nz-field-bg: #ffffff;
-            --nz-field-disabled: #e9eeee;
-            --nz-warning-bg: #fff9dd;
-            --nz-warning-border: #f0a429;
-            --nz-warning-text: #8a6728;
-            --nz-danger: #e53935;
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js">
+    </script>
 
-            /* Cores da Logo IRHO */
-            --irho-orange: #FA5C05;
-            --irho-orange-dark: #CA4300;
-        }
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js">
+    </script>
 
-        * { box-sizing: border-box; }
-        body, html {
-            background: var(--nz-bg) !important;
-            min-height: 100vh;
-            font-family: 'Inter', 'Roboto', sans-serif !important;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        form { width: 100%; margin: 0 auto; }
-
-        /* =========================================
-           ESTRUTURA GERAL (SIDEBAR + MAIN)
-        ========================================= */
-        .nz-form-layout {
-            display: flex !important;
-            gap: 26px !important;
-            align-items: flex-start !important;
-            width: 100% !important;
-            min-height: 100vh !important;
-            padding: 26px !important;
-            box-sizing: border-box !important;
-        }
-
-        .nz-main-content {
-            flex: 1 !important;
-            min-width: 0 !important;
-            width: auto !important;
-            /* Compensa o espaço da barra congelada (340px de largura + 26px de gap) */
-            margin-left: 366px !important; 
-        }
-
-        /* =========================================
-           SIDEBAR LATERAL CONGELADA (FIXED)
-        ========================================= */
-        .nz-sidebar {
-            width: 340px !important;
-            height: calc(100vh - 52px) !important;
-            background: linear-gradient(180deg, var(--irho-orange), var(--irho-orange-dark)) !important;
-            color: #ffffff !important;
-            border-radius: 18px !important;
-            padding: 26px 26px 24px !important;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
-            box-sizing: border-box !important;
-
-            /* CONGELAMENTO NA TELA */
-            position: fixed !important;
-            top: 26px !important;
-            left: 26px !important;
-            z-index: 99 !important;
-            overflow-y: auto !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-        }
-
-        .nz-sidebar::-webkit-scrollbar { width: 0; background: transparent; }
-
-        .nz-sidebar-header {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            margin-bottom: 30px !important;
-            width: 100% !important;
-        }
-
-        .nz-sidebar-brand-box {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 14px !important;
-            padding: 24px 16px 16px !important;
-            width: 100% !important;
-            text-align: center !important;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
-        }
-
-        .nz-sidebar-logo {
-            width: 150px !important;
-            max-width: 100% !important;
-            height: auto !important;
-            object-fit: contain !important;
-            margin-bottom: 12px !important;
-            display: inline-block !important;
-        }
-
-        .nz-sidebar-title {
-            color: #ffffff !important;
-            font-size: 15px !important;
-            font-weight: 500 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            opacity: 0.95 !important;
-            display: block !important;
-        }
-
-        .nz-sidebar-menu {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2px !important;
-            width: 100% !important;
-        }
-
-        .nz-sidebar-menu a {
-            display: block !important;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-size: 16px !important;
-            font-weight: 400 !important;
-            line-height: 1.25 !important;
-            padding: 11px 0 11px 16px !important;
-            border-left: 3px solid transparent !important;
-            opacity: 0.94 !important;
-            transition: all 0.2s ease !important;
-            width: 100% !important;
-        }
-
-        .nz-sidebar-menu a.active, .nz-sidebar-menu a:hover {
-            font-weight: 400 !important;
-            border-left-color: #ffffff !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            opacity: 1 !important;
-        }
-
-        .nz-sidebar-footer {
-            margin-top: auto !important;
-            padding-top: 20px !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            width: 100% !important;
-        }
-
-        .nz-footer-credits {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2px !important;
-        }
-
-        .nz-credits-text {
-            font-size: 12px !important;
-            color: rgba(255, 255, 255, 0.9) !important;
-            font-weight: 500 !important;
-            display: block !important;
-        }
-
-        .nz-credits-img {
-            height: 24px !important;
-            width: auto !important;
-            margin-top: 2px !important;
-            object-fit: contain !important;
-            display: block !important;
-        }
-
-        .nz-sidebar-social {
-            display: flex !important;
-            gap: 10px !important;
-            align-items: center !important;
-        }
-
-        .nz-sidebar-social a {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            text-decoration: none !important;
-            transition: opacity 0.2s ease !important;
-            opacity: 0.9 !important;
-        }
-
-        .nz-sidebar-social a:hover { opacity: 1 !important; }
-
-        .nz-sidebar-social svg {
-            width: 24px !important;
-            height: 24px !important;
-            fill: #ffffff !important;
-        }
-
-        /* =========================================
-           SISTEMA DE GRID E RESPONSIVIDADE
-        ========================================= */
-        .container-fluid { width: 100%; padding: 0; }
-        .row { display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; }
-        .col-md-3 { flex: 0 0 25%; max-width: 25%; padding: 0 15px; }
-        .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; padding: 0 15px; }
-        .col-md-6 { flex: 0 0 50%; max-width: 50%; padding: 0 15px; }
-        .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding: 0 15px; }
-        .col-md-12 { flex: 0 0 100%; max-width: 100%; padding: 0 15px; }
-        .form-group { margin-bottom: 24px; width: 100%; }
-
-        @media (max-width: 768px) {
-            .col-md-3, .col-md-4, .col-md-6, .col-md-8, .col-md-12 { flex: 0 0 100%; max-width: 100%; }
-
-            .nz-form-layout { flex-direction: column !important; gap: 20px !important; padding: 15px !important; }
-            .nz-sidebar { position: relative !important; top: 0 !important; left: 0 !important; width: 100% !important; height: auto !important; min-height: unset !important; margin-bottom: 0px !important; z-index: 1 !important; }
-            .nz-main-content { margin-left: 0 !important; width: 100% !important; }
-        }
-
-        /* =========================================
-           ESTILO DOS PAINÉIS
-        ========================================= */
-        .page-header { display: none !important; }
-
-        .panel {
-            background: var(--nz-card-bg) !important;
-            border: 1px solid var(--nz-border) !important;
-            border-radius: 16px !important;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
-            margin-bottom: 34px !important;
-            overflow: hidden;
-            display: block;
-            width: 100%;
-        }
-
-        .panel-heading {
-            min-height: 86px;
-            padding: 0 34px !important;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            border-bottom: 1px solid var(--nz-border) !important;
-            background: transparent !important;
-        }
-
-        .panel-title {
-            color: var(--nz-black) !important;
-            font-size: 21px !important;
-            font-weight: 400 !important;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            display: flex;
-            align-items: center;
-            margin: 0;
-            width: 100%;
-        }
-
-        .panel-body { padding: 26px 34px 34px !important; }
-
-        .panel-title .flaticon {
-            margin-right: 16px;
-            font-size: 26px !important;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        /* =========================================
-           FORMULÁRIOS E INPUTS
-        ========================================= */
-        label {
-            display: block;
-            color: var(--nz-text) !important;
-            font-size: 13px !important;
-            font-weight: 400 !important;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 9px !important;
-        }
-        .label-obrigatorio::after { content: " *"; color: var(--nz-danger) !important; font-weight: 400; }
-
-        .form-control {
-            height: 48px !important;
-            background: var(--nz-field-bg) !important;
-            border: 1px solid var(--nz-border) !important;
-            border-radius: 7px !important;
-            color: var(--nz-text) !important;
-            font-size: 15px !important;
-            box-shadow: none !important;
-            transition: all 0.2s ease !important;
-            width: 100%;
-            padding: 0 16px !important;
-        }
-        textarea.form-control { height: auto !important; min-height: 100px !important; padding: 14px !important; resize: vertical; }
-        select.form-control { cursor: pointer; }
-
-        .form-control:focus {
-            background: #ffffff !important;
-            border-color: var(--nz-green) !important;
-            box-shadow: 0 0 0 3px rgba(19, 138, 67, 0.12) !important;
-            outline: none !important;
-        }
-
-        .form-control[readonly], .form-control[disabled] {
-            background: var(--nz-field-disabled) !important;
-            color: #8d9aa3 !important;
-            border-color: var(--nz-border) !important;
-            cursor: not-allowed;
-        }
-
-        /* Radios/Checkboxes no padrão "check-movimento" */
-        .check-movimento { display: flex; align-items: center; margin-top: 4px; margin-bottom: 10px; }
-        .check-movimento input { margin: 0; margin-right: 8px; width: 16px; height: 16px; cursor: pointer; }
-        .check-movimento label { margin: 0; font-size: 13px; color: var(--nz-text); text-transform: uppercase; font-weight: 400; cursor: pointer; display: flex; align-items: center; }
-
-        /* Destaque da Classificação Final do Lead */
-        .painel-classificacao-final {
-            border-left: 5px solid var(--irho-orange) !important;
-        }
-        .label-destaque {
-            color: var(--irho-orange) !important;
-            font-weight: 700 !important;
-        }
-    </style>
+    <script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8">
+    </script>
 </head>
+
 <body>
     <div class="fluig-style-guide">
-        <form name="form" role="form">
+        <form name="form" role="form" autocomplete="off">
 
-            <!-- Campo Oculto para Integração -->
+            <!-- Contexto do processo e integração -->
             <input type="hidden" name="lead_id_referencia" id="lead_id_referencia">
+            <input type="hidden" name="atividade_atual" id="atividade_atual">
+            <input type="hidden" name="modo_formulario" id="modo_formulario">
+            <input type="hidden" name="acao_atividade" id="acao_atividade">
 
-            <div class="nz-form-layout">
+            <!-- Resumo persistido para workflow, CRM e painéis -->
+            <input type="hidden" name="numero_solicitacao" id="numero_solicitacao">
+            <input type="hidden" name="status_lead" id="status_lead">
+            <input type="hidden" name="data_inicio_contato" id="data_inicio_contato">
+            <input type="hidden" name="data_fim_contato" id="data_fim_contato">
+            <input type="hidden" name="total_tentativas" id="total_tentativas">
+            <input type="hidden" name="ultima_tent_data" id="ultima_tent_data">
+            <input type="hidden" name="ultima_tent_meio" id="ultima_tent_meio">
 
-                <aside class="nz-sidebar">
-                    <div class="nz-sidebar-header">
-                        <div class="nz-sidebar-brand-box">
-                            <img src="IRHO-BRANCO.png" class="nz-sidebar-logo" alt="IRHO">
-                            <span class="nz-sidebar-title">Qualificação de Lead</span>
+            <div class="lead-form-layout">
+
+                <aside class="lead-sidebar">
+                    <div class="lead-sidebar-header">
+                        <div class="lead-sidebar-brand">
+                            <img src="IRHO-BRANCO.png" class="lead-sidebar-logo" alt="IRHO">
+
+                            <span class="lead-sidebar-title">
+                                Monitoramento de Lead
+                            </span>
                         </div>
                     </div>
-                    <nav class="nz-sidebar-menu">
-                        <a href="#painelEmpresaContato" class="active">Empresa e Contato</a>
-                        <a href="#painelTentativas">Controle de Tentativas</a>
-                        <a href="#painelQualificacao">Qualificação Básica</a>
-                        <a href="#painelClassificacao">Mapeamento e Classificação</a>
+
+                    <nav class="lead-sidebar-menu" aria-label="Seções do formulário">
+                        <a href="#painelEmpresaContato" class="active">
+                            Empresa e contato
+                        </a>
+
+                        <a href="#painelTentativas" class="lead-hidden">
+                            Tentativas de contato
+                        </a>
+
+                        <a href="#painelAcoes">
+                            Ações da atividade
+                        </a>
+
+                        <a href="#painelClassificacao" class="lead-hidden">
+                            Classificação Lead
+                        </a>
                     </nav>
-                    <div class="nz-sidebar-footer">
-                        <div class="nz-footer-credits">
-                            <span class="nz-credits-text">Desenvolvido por</span>
-                            <img src="LOGO-OPERACIONAL-BRANCA.png" alt="Interhativa Operacional" class="nz-credits-img">
-                        </div>
-                        <div class="nz-sidebar-social">
-                            <a href="#" target="_blank" title="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                            </a>
-                            <a href="#" target="_blank" title="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-                            </a>
+
+                    <div class="lead-sidebar-footer">
+                        <div class="lead-footer-credits">
+                            <span class="lead-credits-text">Desenvolvido por</span>
+
+                            <img src="LOGO-OPERACIONAL-BRANCA.png" alt="Interhativa Operacional"
+                                class="lead-credits-img">
                         </div>
                     </div>
                 </aside>
 
-                <main class="nz-main-content">
+                <main class="lead-main-content">
                     <div class="container-fluid">
 
-                        <!-- SEÇÃO 1: Informações da Empresa/Contato -->
-                        <div class="panel panel-default" id="painelEmpresaContato">
+                        <!-- =========================================
+                             EMPRESA E CONTATO
+                        ========================================== -->
+                        <section class="panel panel-default lead-panel" id="painelEmpresaContato">
+
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="flaticon flaticon-company"></i> Empresa e Contato</h3>
+                                <h2 class="panel-title">
+                                    <i class="flaticon flaticon-company"></i>
+                                    Empresa e contato
+                                </h2>
                             </div>
+
                             <div class="panel-body">
+                                <div class="lead-info-message">
+                                    Os dados abaixo são recebidos automaticamente
+                                    pelo CRM no início da solicitação.
+                                </div>
+
                                 <div class="row">
-                                    <div class="col-md-4 form-group">
+                                    <div class="col-md-6 form-group">
                                         <label for="empresa_nome">Empresa</label>
-                                        <input type="text" name="empresa_nome" id="empresa_nome" class="form-control" readonly>
+                                        <input type="text" name="empresa_nome" id="empresa_nome" class="form-control"
+                                            readonly>
                                     </div>
+
+                                    <div class="col-md-3 form-group">
+                                        <label for="empresa_cnpj">CNPJ</label>
+                                        <input type="text" name="empresa_cnpj" id="empresa_cnpj" class="form-control"
+                                            readonly>
+                                    </div>
+
+                                    <div class="col-md-3 form-group">
+                                        <label for="crm_origem">Origem do lead</label>
+                                        <input type="text" name="crm_origem" id="crm_origem" class="form-control"
+                                            readonly>
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-md-4 form-group">
                                         <label for="contato_nome">Contato</label>
-                                        <input type="text" name="contato_nome" id="contato_nome" class="form-control" readonly>
+                                        <input type="text" name="contato_nome" id="contato_nome" class="form-control"
+                                            readonly>
                                     </div>
+
                                     <div class="col-md-4 form-group">
                                         <label for="contato_cargo">Cargo</label>
-                                        <input type="text" name="contato_cargo" id="contato_cargo" class="form-control" readonly>
+                                        <input type="text" name="contato_cargo" id="contato_cargo" class="form-control"
+                                            readonly>
+                                    </div>
+
+                                    <div class="col-md-4 form-group">
+                                        <label for="contato_email">E-mail</label>
+                                        <input type="text" name="contato_email" id="contato_email" class="form-control"
+                                            readonly>
                                     </div>
                                 </div>
-                                <!-- Adicione aqui Email, Telefone, LinkedIn, etc... -->
-                            </div>
-                        </div>
 
-                        <!-- SEÇÃO 2 & 3: Tentativas e Filtro Rápido -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="panel panel-default" id="painelTentativas">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"><i class="flaticon flaticon-phone"></i> Controle de Tentativas</h3>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="contato_telefone">Telefone</label>
+                                        <input type="text" name="contato_telefone" id="contato_telefone"
+                                            class="form-control" readonly>
                                     </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label>Número da Tentativa</label>
-                                            <div class="check-movimento"><label><input type="radio" name="numero_tentativa" value="1"> 1ª Tentativa</label></div>
-                                            <div class="check-movimento"><label><input type="radio" name="numero_tentativa" value="2"> 2ª Tentativa</label></div>
-                                            <div class="check-movimento"><label><input type="radio" name="numero_tentativa" value="3"> 3ª Tentativa</label></div>
-                                            <div class="check-movimento"><label><input type="radio" name="numero_tentativa" value="4+"> 4ª+ Tentativa</label></div>
-                                        </div>
-                                        <!-- Adicione Tipo de Contato e Data -->
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="panel panel-default" id="painelQualificacao">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"><i class="flaticon flaticon-question"></i> Qualificação Básica</h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <!-- Perguntas fechadas (Selects ou Radios) -->
-                                        <div class="form-group">
-                                            <label for="qualif_perfil">Perfil ideal de cliente (ICP)?</label>
-                                            <select name="qualif_perfil" id="qualif_perfil" class="form-control">
-                                                <option value=""></option>
-                                                <option value="Sim">Sim</option>
-                                                <option value="Nao">Não</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="contato_linkedin">LinkedIn</label>
+                                        <input type="text" name="contato_linkedin" id="contato_linkedin"
+                                            class="form-control" readonly>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
 
-                        <!-- SEÇÃO 4: Classificação (BANT / SPIN) -->
-                        <div class="panel panel-default" id="painelClassificacao">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="flaticon flaticon-assignment-ind"></i> Mapeamento e Classificação</h3>
+                        <!-- =========================================
+                             TENTATIVAS DE CONTATO
+                        ========================================== -->
+                        <section class="panel panel-default lead-panel lead-hidden" id="painelTentativas">
+
+                            <div class="panel-heading lead-panel-heading-actions">
+                                <div>
+                                    <h2 class="panel-title">
+                                        <i class="flaticon flaticon-phone"></i>
+                                        Tentativas de contato
+                                    </h2>
+
+                                    <p class="lead-panel-subtitle">
+                                        Registre cada abordagem realizada sem substituir
+                                        as tentativas anteriores.
+                                    </p>
+                                </div>
+
+                                <button type="button" id="btnAdicionarTentativa" class="btn btn-primary lead-btn-add">
+                                    <i class="flaticon flaticon-add-plus"></i>
+                                    Adicionar tentativa
+                                </button>
                             </div>
+
                             <div class="panel-body">
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="interesse_inicial">1. Interesse Inicial (Produto/Serviço)</label>
-                                        <textarea name="interesse_inicial" id="interesse_inicial" class="form-control" rows="2"></textarea>
+                                <div id="tentativasEstadoVazio" class="lead-empty-state">
+
+                                    <div class="lead-empty-icon">
+                                        <i class="flaticon flaticon-phone"></i>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="necessidades_desafios">2. Necessidades e Desafios</label>
-                                        <textarea name="necessidades_desafios" id="necessidades_desafios" class="form-control" rows="2"></textarea>
-                                    </div>
+
+                                    <strong>Nenhuma tentativa registrada.</strong>
+
+                                    <span>
+                                        Clique em “Adicionar tentativa” para criar
+                                        o primeiro registro de contato.
+                                    </span>
                                 </div>
-                                <!-- Adicione Orçamento, Timeline, Autoridade, etc... -->
 
-                                <hr style="border-top: 1px dashed var(--nz-border); margin: 30px 0;">
+                                <!--
+                                    Tabela pai x filho.
 
-                                <div class="row">
-                                    <div class="form-group col-md-4 col-md-offset-4 painel-classificacao-final" style="padding: 20px 15px; margin-left: 33.333333%;">
-                                        <label for="classificacao_lead" class="label-destaque">Classificação Final do Lead</label>
-                                        <select name="classificacao_lead" id="classificacao_lead" class="form-control input-lg">
-                                            <option value=""></option>
-                                            <option value="SQL">SQL (Sales Qualified Lead)</option>
-                                            <option value="Nutricao">Nutrição (Reaquecimento)</option>
-                                            <option value="Inapto">Inapto (Perdido)</option>
-                                        </select>
+                                    Cada linha é apresentada visualmente como um card.
+                                    Os campos permanecem dentro da tabela para garantir
+                                    a persistência nativa no formulário e no dataset.
+                                -->
+                                <table tablename="tbTentativasContato" id="tbTentativasContato" noaddbutton="true"
+                                    nodeletebutton="true" class="lead-child-table">
+
+                                    <thead class="lead-hidden">
+                                        <tr>
+                                            <th>Tentativa de contato</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="lead-attempt-row">
+                                            <td>
+                                                <article class="lead-attempt-card">
+
+                                                    <input type="hidden" name="tent_id" id="tent_id">
+
+                                                    <input type="hidden" name="tent_ordem" id="tent_ordem">
+
+                                                    <div class="lead-attempt-header">
+                                                        <div class="lead-attempt-title">
+                                                            <span class="lead-attempt-number-label">
+                                                                Tentativa
+                                                            </span>
+
+                                                            <input type="text" name="tent_numero" id="tent_numero"
+                                                                class="lead-attempt-number" readonly>
+                                                        </div>
+
+                                                        <button type="button" class="btn btn-link lead-btn-remove"
+                                                            data-action="remover-tentativa" title="Remover tentativa"
+                                                            aria-label="Remover tentativa">
+                                                            <i class="flaticon flaticon-trash"></i>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-group">
+                                                            <label for="tent_meio" class="label-obrigatorio">
+                                                                Meio de contato
+                                                            </label>
+
+                                                            <select name="tent_meio" id="tent_meio"
+                                                                class="form-control">
+                                                                <option value=""></option>
+                                                                <option value="EMAIL">E-mail</option>
+                                                                <option value="LINKEDIN">LinkedIn</option>
+                                                                <option value="WHATSAPP">WhatsApp</option>
+                                                                <option value="TELEFONE">Telefone</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-md-4 form-group">
+                                                            <label for="tent_data" class="label-obrigatorio">
+                                                                Data
+                                                            </label>
+
+                                                            <input type="text" name="tent_data" id="tent_data"
+                                                                class="form-control" maxlength="10" inputmode="numeric"
+                                                                placeholder="dd/mm/aaaa">
+                                                        </div>
+
+                                                        <div class="col-md-4 form-group">
+                                                            <label for="tent_hora">Horário</label>
+
+                                                            <input type="text" name="tent_hora" id="tent_hora"
+                                                                class="form-control" maxlength="5" inputmode="numeric"
+                                                                placeholder="hh:mm">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group lead-form-group-last">
+                                                        <label for="tent_descricao" class="label-obrigatorio">
+                                                            Informações da tentativa
+                                                        </label>
+
+                                                        <textarea name="tent_descricao" id="tent_descricao"
+                                                            class="form-control" rows="4" maxlength="2000"
+                                                            placeholder="Descreva como foi a tentativa de contato, se houve retorno e quais foram os próximos passos."></textarea>
+
+                                                        <div class="lead-field-hint">
+                                                            Limite de 2.000 caracteres.
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- =========================================
+                             AÇÕES DA ATIVIDADE
+                        ========================================== -->
+                        <section class="panel panel-default lead-panel lead-actions-panel" id="painelAcoes">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <i class="flaticon flaticon-check-circle"></i>
+                                    Ações da atividade
+                                </h2>
+                            </div>
+
+                            <div class="panel-body">
+                                <p class="lead-actions-intro">
+                                    Escolha como deseja continuar após registrar
+                                    as tentativas de contato.
+                                </p>
+
+                                <div class="lead-action-grid">
+                                    <button type="button" id="btnSalvarContinuar"
+                                        class="lead-action-option lead-action-save lead-hidden">
+
+                                        <span class="lead-action-icon">
+                                            <i class="flaticon flaticon-save"></i>
+                                        </span>
+
+                                        <span class="lead-action-content">
+                                            <strong>Salvar e continuar depois</strong>
+
+                                            <span>
+                                                Grava as informações e mantém a solicitação
+                                                na atividade 8 – Tentativa de contato.
+                                            </span>
+                                        </span>
+                                    </button>
+
+                                    <button type="button" id="btnConcluirAtividade"
+                                        class="lead-action-option lead-action-complete">
+
+                                        <span class="lead-action-icon">
+                                            <i class="flaticon flaticon-check"></i>
+                                        </span>
+
+                                        <span class="lead-action-content">
+                                            <strong>Concluir e avançar</strong>
+
+                                            <span>
+                                                Valida os registros e abre a movimentação
+                                                para encerrar o fluxo.
+                                            </span>
+                                        </span>
+                                    </button>
+                                </div>
+
+                                <div id="mensagemAcaoAtividade" class="lead-action-feedback" role="status"
+                                    aria-live="polite">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- =========================================
+     CLASSIFICAÇÃO DO LEAD
+========================================== -->
+                        <section class="panel panel-default lead-panel lead-classification-panel lead-hidden"
+                            id="painelClassificacao">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <i class="flaticon flaticon-assignment"></i>
+                                    Classificação Lead
+                                </h2>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="lead-info-message">
+                                    Preencha todas as informações abaixo antes de movimentar
+                                    a solicitação para a próxima etapa.
+                                </div>
+
+                                <div class="lead-classification-grid">
+
+                                    <!-- 1. Interesse Inicial -->
+                                    <div class="lead-question-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">1</span>
+
+                                            <div>
+                                                <label for="class_interesse" class="label-obrigatorio">
+                                                    Interesse Inicial
+                                                </label>
+
+                                                <p>
+                                                    Identifique o produto ou serviço de interesse.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="class_interesse" id="class_interesse" class="form-control"
+                                            rows="5" maxlength="2000"
+                                            placeholder="Descreva o produto ou serviço pelo qual o lead demonstrou interesse."></textarea>
+
+                                        <div class="lead-field-hint">
+                                            Limite de 2.000 caracteres.
+                                        </div>
+                                    </div>
+
+                                    <!-- 2. Necessidades e Desafios -->
+                                    <div class="lead-question-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">2</span>
+
+                                            <div>
+                                                <label for="class_necessidades" class="label-obrigatorio">
+                                                    Necessidades e Desafios
+                                                </label>
+
+                                                <p>
+                                                    Compreenda as principais necessidades ou desafios
+                                                    que o lead enfrenta.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="class_necessidades" id="class_necessidades" class="form-control"
+                                            rows="5" maxlength="2000"
+                                            placeholder="Descreva as necessidades, dores ou desafios apresentados pelo lead."></textarea>
+
+                                        <div class="lead-field-hint">
+                                            Limite de 2.000 caracteres.
+                                        </div>
+                                    </div>
+
+                                    <!-- 3. Orçamento Disponível -->
+                                    <div class="lead-question-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">3</span>
+
+                                            <div>
+                                                <label for="class_orcamento" class="label-obrigatorio">
+                                                    Orçamento Disponível
+                                                </label>
+
+                                                <p>
+                                                    Registre uma ideia do orçamento ou da disposição
+                                                    para investimento.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="class_orcamento" id="class_orcamento" class="form-control"
+                                            rows="5" maxlength="2000"
+                                            placeholder="Descreva o orçamento informado ou a disposição para investimento."></textarea>
+
+                                        <div class="lead-field-hint">
+                                            Limite de 2.000 caracteres.
+                                        </div>
+                                    </div>
+
+                                    <!-- 4. Timeline de Decisão -->
+                                    <div class="lead-question-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">4</span>
+
+                                            <div>
+                                                <label for="class_timeline" class="label-obrigatorio">
+                                                    Timeline de Decisão
+                                                </label>
+
+                                                <p>
+                                                    Informe o prazo em que o lead pretende tomar
+                                                    uma decisão.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="class_timeline" id="class_timeline" class="form-control"
+                                            rows="5" maxlength="2000"
+                                            placeholder="Descreva o prazo, previsão ou urgência para a tomada de decisão."></textarea>
+
+                                        <div class="lead-field-hint">
+                                            Limite de 2.000 caracteres.
+                                        </div>
+                                    </div>
+
+                                    <!-- 5. Autoridade de Decisão -->
+                                    <div class="lead-question-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">5</span>
+
+                                            <div>
+                                                <label for="class_autoridade" class="label-obrigatorio">
+                                                    Autoridade de Decisão
+                                                </label>
+
+                                                <p>
+                                                    Confirme se o contato possui poder de decisão ou
+                                                    influência no processo de compra.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="class_autoridade" id="class_autoridade" class="form-control"
+                                            rows="5" maxlength="2000"
+                                            placeholder="Descreva o papel do contato na decisão e quem mais participa do processo."></textarea>
+
+                                        <div class="lead-field-hint">
+                                            Limite de 2.000 caracteres.
+                                        </div>
+                                    </div>
+
+                                    <!-- 6. Preferências de Comunicação -->
+                                    <div class="lead-question-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">6</span>
+
+                                            <div>
+                                                <label for="class_comunicacao" class="label-obrigatorio">
+                                                    Preferências de Comunicação
+                                                </label>
+
+                                                <p>
+                                                    Registre o método e o horário preferidos para
+                                                    contatos futuros.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="class_comunicacao" id="class_comunicacao" class="form-control"
+                                            rows="5" maxlength="2000"
+                                            placeholder="Informe o canal, período e horário preferidos para novos contatos."></textarea>
+
+                                        <div class="lead-field-hint">
+                                            Limite de 2.000 caracteres.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="lead-classification-footer">
+                                    <button type="button" id="btnMovimentarClassificacao"
+                                        class="lead-action-option lead-action-complete lead-classification-submit">
+
+                                        <span class="lead-action-icon">
+                                            <i class="flaticon flaticon-check"></i>
+                                        </span>
+
+                                        <span class="lead-action-content">
+                                            <strong>Movimentar atividade</strong>
+
+                                            <span>
+                                                Valida a classificação e abre a movimentação
+                                                nativa do Fluig.
+                                            </span>
+                                        </span>
+                                    </button>
+
+                                    <div id="mensagemClassificacao" class="lead-action-feedback" role="status"
+                                        aria-live="polite">
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
 
                     </div>
                 </main>
-
             </div>
         </form>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // INTERATIVIDADE DA SIDEBAR MENU E SCROLL SUAVE
-            $('.nz-sidebar-menu a').on('click', function(e) {
-                e.preventDefault(); // Impede o salto padrão do HTML
-                
-                // Remove a classe active de todos e adiciona no item clicado
-                $('.nz-sidebar-menu a').removeClass('active');
-                $(this).addClass('active');
-                
-                var target = $(this).attr('href');
-                if(target && $(target).length) {
-                    // O valor "- 100" é o offset. Ele faz o scroll parar 100px antes do topo.
-                    // Isso evita que o cabeçalho do Fluig cubra o título do painel.
-                    $('html, body').animate({ scrollTop: $(target).offset().top - 100 }, 500);
-                }
-            });
-        });
-    </script>
+    <!--
+        O Fluig achata os arquivos do formulário durante a publicação.
+        Por isso, os módulos ficam todos na raiz e usam prefixos claros.
+    -->
+    <script type="text/javascript" src="form_contexto.js"></script>
+    <script type="text/javascript" src="form_dados.js"></script>
+    <script type="text/javascript" src="form_navegacao.js"></script>
+    <script type="text/javascript" src="form_tentativas.js"></script>
+    <script type="text/javascript" src="form_visibilidade.js"></script>
+    <script type="text/javascript" src="form_bloqueios.js"></script>
+    <script type="text/javascript" src="form_obrigatoriedade.js"></script>
+    <script type="text/javascript" src="form_classificacao.js"></script>
+    <script type="text/javascript" src="form_salvamento.js"></script>
+    <script type="text/javascript" src="form_init.js"></script>
 </body>
+
 </html>
