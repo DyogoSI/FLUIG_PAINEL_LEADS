@@ -59,6 +59,45 @@ IRHOLeads.Salvamento = (function () {
     function concluirAtividade() {
         var atividadeAtual = IRHOLeads.Contexto.atividadeAtual();
 
+        if (IRHOLeads.Contexto.ehEtapaInicial()) {
+            var errosFunil = IRHOLeads.Funil.validar();
+
+            if (errosFunil.length > 0) {
+                $("#acao_atividade").val("");
+                $("#acao_fluxo_comercial").val("");
+
+                $("#mensagemDefinicaoFunil")
+                    .removeClass("is-success")
+                    .addClass("is-visible is-error")
+                    .html(errosFunil.join("<br>"));
+
+                mostrarFeedback(errosFunil.join("<br>"), "error");
+                return;
+            }
+
+            movimentarAtividade();
+            return;
+        }
+
+        if (IRHOLeads.Contexto.ehLeadPerdido()) {
+            var errosRecuperacao = IRHOLeads.Recuperacao.validar();
+
+            if (errosRecuperacao.length > 0) {
+                $("#mensagemRecuperacao")
+                    .addClass("is-visible is-error")
+                    .html(errosRecuperacao.join("<br>"));
+
+                mostrarFeedback(
+                    errosRecuperacao.join("<br>"),
+                    "error"
+                );
+                return;
+            }
+
+            movimentarAtividade();
+            return;
+        }
+
         if (
             atividadeAtual
             === IRHOLeads.Contexto.ATIVIDADE_TENTATIVA_CONTATO
@@ -98,9 +137,33 @@ IRHOLeads.Salvamento = (function () {
         movimentarAtividade();
     }
 
-    function movimentarAtividade() {
+    function movimentarComDestino(destinoFluxo) {
+        $("#acao_fluxo_comercial").val(destinoFluxo);
         $("#acao_atividade").val("MOVIMENTAR");
         acionarAcaoNativa("enviar");
+    }
+
+    function movimentarAtividade() {
+        movimentarComDestino("AVANCAR");
+    }
+
+    function movimentarLeadPerdido() {
+        var erros = IRHOLeads.Obrigatoriedade.validarPerda();
+
+        if (
+            IRHOLeads.Contexto.ehTentativaContato()
+        ) {
+            erros = erros.concat(
+                IRHOLeads.Obrigatoriedade.validarTentativas(false)
+            );
+        }
+
+        if (erros.length > 0) {
+            mostrarFeedback(erros.join("<br>"), "error");
+            return;
+        }
+
+        movimentarComDestino("LEAD_PERDIDO");
     }
 
     function acionarSalvarNativo() {
@@ -670,7 +733,8 @@ IRHOLeads.Salvamento = (function () {
         $(
             "#btnSalvarContinuar, "
             + "#btnConcluirAtividade, "
-            + "#btnMovimentarClassificacao"
+            + "#btnMovimentarClassificacao, "
+            + "#btnLeadPerdido"
         )
             .prop("disabled", processando)
             .attr(
@@ -716,6 +780,9 @@ IRHOLeads.Salvamento = (function () {
             concluirAtividade,
 
         movimentarAtividade:
-            movimentarAtividade
+            movimentarAtividade,
+
+        movimentarLeadPerdido:
+            movimentarLeadPerdido
     };
 }());

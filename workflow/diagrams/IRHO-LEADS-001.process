@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms">
-  <pi:Diagram visible="true" gridUnit="10" diagramTypeId="BPMNdiagram" name="IRHO-LEADS-001" snapToGrid="true" showGuides="true" pictogramLinks="/0/@children.2/@link /0/@children.1/@link /0/@children.0/@link /0/@children.3/@link /0/@children.4/@link /0/@children.5/@link /0/@connections.0/@link /0/@children.6/@link /0/@connections.1/@link /0/@children.7/@link /0/@children.8/@link /0/@children.9/@link /0/@connections.2/@link /0/@children.10/@link /0/@connections.3/@link /0/@children.11/@link /0/@children.12/@link /0/@connections.4/@link /0/@children.13/@link /0/@connections.5/@link /0/@children.14/@link /0/@children.15/@link /0/@children.16/@link /0/@connections.6/@link /0/@connections.7/@link /0/@connections.8/@link /0/@connections.9/@link /0/@children.17/@link /0/@children.18/@link /0/@connections.10/@link /0/@connections.11/@link /0/@connections.12/@link /0/@children.19/@link /0/@children.20/@link /0/@connections.13/@link /0/@connections.14/@link /0/@children.21/@link /0/@children.22/@link /0/@children.23/@link /0/@connections.15/@link /0/@connections.16/@link /0/@children.24/@link /0/@connections.17/@link /0/@children.25/@link /0/@connections.18/@link /0/@children.26/@link /0/@connections.19/@link /0/@children.27/@link /0/@connections.20/@link /0/@children.28/@link /0/@connections.21/@link /0/@children.29/@link /0/@connections.22/@link /0/@children.30/@link /0/@children.31/@link /0/@children.32/@link /0/@connections.23/@link /0/@connections.24/@link /0/@connections.25/@link /0/@children.33/@link" version="0.11.0">
+  <pi:Diagram visible="true" gridUnit="10" diagramTypeId="BPMNdiagram" name="IRHO-LEADS-001" snapToGrid="true" showGuides="true" pictogramLinks="/0/@children.2/@link /0/@children.1/@link /0/@children.0/@link /0/@children.3/@link /0/@children.4/@link /0/@children.5/@link /0/@connections.0/@link /0/@children.6/@link /0/@connections.1/@link /0/@children.7/@link /0/@children.8/@link /0/@children.9/@link /0/@connections.2/@link /0/@children.10/@link /0/@connections.3/@link /0/@children.11/@link /0/@children.12/@link /0/@children.13/@link /0/@connections.4/@link /0/@children.14/@link /0/@children.15/@link /0/@children.16/@link /0/@connections.5/@link /0/@connections.6/@link /0/@connections.7/@link /0/@connections.8/@link /0/@children.17/@link /0/@children.18/@link /0/@connections.9/@link /0/@connections.10/@link /0/@connections.11/@link /0/@children.19/@link /0/@children.20/@link /0/@connections.12/@link /0/@connections.13/@link /0/@children.21/@link /0/@children.22/@link /0/@children.23/@link /0/@connections.14/@link /0/@connections.15/@link /0/@children.24/@link /0/@connections.16/@link /0/@children.25/@link /0/@connections.17/@link /0/@children.26/@link /0/@connections.18/@link /0/@children.27/@link /0/@connections.19/@link /0/@children.28/@link /0/@connections.20/@link /0/@children.29/@link /0/@connections.21/@link /0/@children.30/@link /0/@children.31/@link /0/@children.32/@link /0/@connections.22/@link /0/@connections.23/@link /0/@connections.24/@link /0/@children.33/@link /0/@children.34/@link /0/@connections.25/@link /0/@connections.26/@link /0/@connections.27/@link" version="0.11.0">
     <graphicsAlgorithm xsi:type="al:Rectangle" background="/0/@styles.7/@renderingStyle/@adaptedGradientColoredAreas/@adaptedGradientColoredAreas.0/@gradientColor.2/@end/@color" foreground="/0/@colors.0" width="1000" height="1000"/>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
       <graphicsAlgorithm xsi:type="al:Rectangle" background="/0/@colors.10" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" width="671" height="256" x="1160" y="10" style="/0/@styles.47"/>
@@ -39,9 +39,9 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="85" x="165" y="351"/>
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="85" x="180" y="348"/>
       <link businessObjects="task4"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.6" incomingConnections="/0/@connections.2 /0/@connections.23"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.5" incomingConnections="/0/@connections.2 /0/@connections.22"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.3/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -57,7 +57,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="3" transparency="0.0" width="35" height="35" style="/0/@styles.51"/>
       </graphicsAlgorithm>
       <link businessObjects="endevent5"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.5"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.4"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.4/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -118,11 +118,11 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1215" y="376">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1270" y="373">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.61"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelink14"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.4"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.26"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.8/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -139,7 +139,7 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="55" y="376">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="50" y="373">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.62"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive15"/>
@@ -179,31 +179,31 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="104" x="585" y="342"/>
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="104" x="510" y="339"/>
       <link businessObjects="task19"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.8" incomingConnections="/0/@connections.7 /0/@connections.24"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.7" incomingConnections="/0/@connections.6 /0/@connections.23"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.11/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="104" style="/0/@styles.74" cornerHeight="5" cornerWidth="5"/>
+        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="106" height="104" style="/0/@styles.74" cornerHeight="5" cornerWidth="5"/>
       </children>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="95" height="94" x="5" y="5" style="/0/@styles.75" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Oportunidade Gerada"/>
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="96" height="94" x="5" y="5" style="/0/@styles.75" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Oportunidade Gerada"/>
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="85" x="1025" y="351"/>
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="85" x="890" y="348"/>
       <link businessObjects="task21"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.4" incomingConnections="/0/@connections.9 /0/@connections.25"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.25" incomingConnections="/0/@connections.8 /0/@connections.24"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.12/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="85" style="/0/@styles.77" cornerHeight="5" cornerWidth="5"/>
+        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="106" height="85" style="/0/@styles.77" cornerHeight="5" cornerWidth="5"/>
       </children>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="95" height="75" x="5" y="5" style="/0/@styles.78" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Proposta comercial"/>
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="96" height="75" x="5" y="5" style="/0/@styles.78" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Proposta comercial"/>
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
@@ -211,7 +211,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.81"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive24"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.5"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.4"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.13/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -228,21 +228,21 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="85" x="1320" y="98"/>
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="85" x="1320" y="98"/>
       <link businessObjects="task26"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.13" incomingConnections="/0/@connections.10"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.12" incomingConnections="/0/@connections.9"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.14/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="85" style="/0/@styles.83" cornerHeight="5" cornerWidth="5"/>
+        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="106" height="85" style="/0/@styles.83" cornerHeight="5" cornerWidth="5"/>
       </children>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="95" height="75" x="5" y="5" style="/0/@styles.84" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Lead Perdido"/>
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="96" height="75" x="5" y="5" style="/0/@styles.84" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Lead Perdido"/>
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="117" x="395" y="335">
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="117" x="370" y="332">
         <graphicsAlgorithmChildren xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" width="60" height="60" style="/0/@styles.85">
           <points y="30"/>
           <points x="30"/>
@@ -252,7 +252,7 @@
         </graphicsAlgorithmChildren>
       </graphicsAlgorithm>
       <link businessObjects="exclusivegateway27"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.7 /0/@connections.11" incomingConnections="/0/@connections.6"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.6 /0/@connections.10" incomingConnections="/0/@connections.5"/>
       <anchors xsi:type="pi:ChopboxAnchor"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.15/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.1">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
@@ -266,7 +266,7 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="117" x="825" y="335">
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="117" x="700" y="332">
         <graphicsAlgorithmChildren xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" width="60" height="60" style="/0/@styles.87">
           <points y="30"/>
           <points x="30"/>
@@ -276,7 +276,7 @@
         </graphicsAlgorithmChildren>
       </graphicsAlgorithm>
       <link businessObjects="exclusivegateway28"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.9 /0/@connections.12" incomingConnections="/0/@connections.8"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.8 /0/@connections.11" incomingConnections="/0/@connections.7"/>
       <anchors xsi:type="pi:ChopboxAnchor"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.16/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.1">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
@@ -294,7 +294,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.93"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelink33"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.11 /0/@connections.12"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.10 /0/@connections.11 /0/@connections.27"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.17/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -315,7 +315,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.94"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive34"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.10"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.9"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.18/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -332,7 +332,7 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="98" x="1500" y="82">
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="98" x="1500" y="92">
         <graphicsAlgorithmChildren xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" width="60" height="60" style="/0/@styles.107">
           <points y="30"/>
           <points x="30"/>
@@ -342,7 +342,7 @@
         </graphicsAlgorithmChildren>
       </graphicsAlgorithm>
       <link businessObjects="exclusivegateway38"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.14" incomingConnections="/0/@connections.13"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.13" incomingConnections="/0/@connections.12"/>
       <anchors xsi:type="pi:ChopboxAnchor"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.19/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.1">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
@@ -360,7 +360,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.109"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelink39"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.14 /0/@connections.19"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.13 /0/@connections.18"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.20/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -387,7 +387,7 @@
         </graphicsAlgorithmChildren>
       </graphicsAlgorithm>
       <link businessObjects="exclusivegateway42"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.15 /0/@connections.16 /0/@connections.17" incomingConnections="/0/@connections.18"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.14 /0/@connections.15 /0/@connections.16" incomingConnections="/0/@connections.17"/>
       <anchors xsi:type="pi:ChopboxAnchor"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.21/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.1">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
@@ -401,11 +401,11 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1600" y="290">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1600" y="310">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.114"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelink43"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.16 /0/@connections.20"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.15 /0/@connections.19"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.22/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -422,11 +422,11 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1600" y="368">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1600" y="373">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.115"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelink44"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.15 /0/@connections.21"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.14 /0/@connections.20"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.23/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -447,7 +447,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.118"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelink47"/>
-      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.17 /0/@connections.22"/>
+      <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="/0/@connections.16 /0/@connections.21"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.24/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -468,7 +468,7 @@
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.120"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive49"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.18"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.17"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.25/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -485,9 +485,9 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" lineVisible="false" transparency="0.0" width="135" height="55" x="1670" y="280" style="/0/@styles.122" cornerHeight="5" cornerWidth="5"/>
+      <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" lineVisible="false" transparency="0.0" width="135" height="55" x="1670" y="300" style="/0/@styles.122" cornerHeight="5" cornerWidth="5"/>
       <link businessObjects="annotationtask51"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.20"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.19"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.26/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -506,12 +506,12 @@
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
       <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" lineVisible="false" transparency="0.0" width="105" height="55" x="1710" y="20" style="/0/@styles.125" cornerHeight="5" cornerWidth="5"/>
       <link businessObjects="annotationtask53"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.19"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.18"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.27/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="95" height="55" x="10" y="13" font="/0/@fonts.1" verticalAlignment="ALIGNMENT_MIDDLE" value="Cliente"/>
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="55" x="10" y="13" font="/0/@fonts.1" verticalAlignment="ALIGNMENT_MIDDLE" value="Cliente&#xA;"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm xsi:type="al:Polyline" lineWidth="1" filled="false" transparency="0.0">
@@ -523,9 +523,9 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" lineVisible="false" transparency="0.0" width="135" height="55" x="1670" y="358" style="/0/@styles.127" cornerHeight="5" cornerWidth="5"/>
+      <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" lineVisible="false" transparency="0.0" width="135" height="55" x="1670" y="363" style="/0/@styles.127" cornerHeight="5" cornerWidth="5"/>
       <link businessObjects="annotationtask55"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.21"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.20"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.28/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -544,7 +544,7 @@
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
       <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" lineVisible="false" transparency="0.0" width="135" height="55" x="1670" y="430" style="/0/@styles.129" cornerHeight="5" cornerWidth="5"/>
       <link businessObjects="annotationtask57"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.22"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.21"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.29/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -561,11 +561,11 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="200" y="450">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="180" y="460">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.131"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive59"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.23"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.22"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.30/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -582,11 +582,11 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="620" y="460">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="510" y="460">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.132"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive60"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.24"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.23"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.31/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -603,11 +603,11 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="1060" y="460">
+      <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="890" y="460">
         <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="/0/@styles.133"/>
       </graphicsAlgorithm>
       <link businessObjects="intermediatelinkreceive61"/>
-      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.25"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.24"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.32/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
@@ -640,6 +640,30 @@
           <points y="55"/>
           <points x="20" y="55"/>
         </graphicsAlgorithm>
+      </children>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="60" height="117" x="1090" y="332">
+        <graphicsAlgorithmChildren xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" width="60" height="60" style="/0/@styles.138">
+          <points y="30"/>
+          <points x="30"/>
+          <points x="60" y="30"/>
+          <points x="30" y="60"/>
+          <points y="30"/>
+        </graphicsAlgorithmChildren>
+      </graphicsAlgorithm>
+      <link businessObjects="exclusivegateway66"/>
+      <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.26 /0/@connections.27" incomingConnections="/0/@connections.25"/>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+      <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.34/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.1">
+        <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
+      </anchors>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+      <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.34/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.93">
+        <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="60" height="57" y="60" style="/0/@styles.139" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Desti&#xA;no&#xA;"/>
       </children>
     </children>
     <styles foreground="/0/@colors.1" lineWidth="2" id="BPMN-CLASS">
@@ -3744,6 +3768,26 @@
     <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
     <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
     <styles background="/0/@colors.11" id="ANNOTATION"/>
+    <styles foreground="/0/@colors.3" id="GATEWAY">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="GATEWAY" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color red="250" green="251" blue="252"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color red="255" green="255" blue="204"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.5/@anchors.0" end="/0/@children.6/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
       <link businessObjects="flow8"/>
@@ -3773,6 +3817,7 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="210" y="42"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.9/@anchors.0" end="/0/@children.3/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -3796,21 +3841,6 @@
         <graphicsAlgorithm xsi:type="al:Text" lineWidth="1" filled="false" transparency="0.0" x="10" style="/0/@styles.70" font="/0/@fonts.0" value=""/>
       </connectionDecorators>
       <connectionDecorators visible="true" locationRelative="true" location="1.0"/>
-    </connections>
-    <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.12/@anchors.0" end="/0/@children.8/@anchors.0">
-      <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
-      <link businessObjects="flow23"/>
-      <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">
-        <graphicsAlgorithm xsi:type="al:Text" lineWidth="1" filled="false" transparency="0.0" x="10" style="/0/@styles.80" font="/0/@fonts.0" value=""/>
-      </connectionDecorators>
-      <connectionDecorators visible="true" locationRelative="true" location="1.0">
-        <graphicsAlgorithm xsi:type="al:Polygon" background="/0/@colors.3" foreground="/0/@colors.3" lineWidth="1" filled="true" transparency="0.0" style="/0/@styles.5">
-          <points x="-10" y="-5" before="3" after="3"/>
-          <points/>
-          <points x="-10" y="5" before="3" after="3"/>
-          <points x="-8" before="3" after="3"/>
-        </graphicsAlgorithm>
-      </connectionDecorators>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.13/@anchors.0" end="/0/@children.4/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -3916,9 +3946,9 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
-      <bendpoints x="427" y="295"/>
+      <bendpoints x="400" y="295"/>
       <bendpoints x="872" y="295"/>
-      <bendpoints x="1340" y="295"/>
+      <bendpoints x="1337" y="295"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.16/@anchors.0" end="/0/@children.17/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -3934,8 +3964,9 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
-      <bendpoints x="856" y="289"/>
-      <bendpoints x="1337" y="289"/>
+      <bendpoints x="729" y="295"/>
+      <bendpoints x="1033" y="295"/>
+      <bendpoints x="1337" y="295"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.14/@anchors.0" end="/0/@children.19/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -3966,6 +3997,7 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="1533" y="47"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.21/@anchors.0" end="/0/@children.23/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -3996,6 +4028,8 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="1577" y="390"/>
+      <bendpoints x="1577" y="326"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.21/@anchors.0" end="/0/@children.24/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -4011,6 +4045,8 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="1577" y="390"/>
+      <bendpoints x="1577" y="456"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.25/@anchors.0" end="/0/@children.21/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -4073,6 +4109,7 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="233" y="477"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.31/@anchors.0" end="/0/@children.11/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -4088,6 +4125,9 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="545" y="477"/>
+      <bendpoints x="545" y="477"/>
+      <bendpoints x="562" y="477"/>
     </connections>
     <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.32/@anchors.0" end="/0/@children.12/@anchors.0">
       <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
@@ -4103,6 +4143,54 @@
           <points x="-8" before="3" after="3"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="942" y="474"/>
+    </connections>
+    <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.12/@anchors.0" end="/0/@children.34/@anchors.0">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
+      <link businessObjects="flow67"/>
+      <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">
+        <graphicsAlgorithm xsi:type="al:Text" lineWidth="1" filled="false" transparency="0.0" x="10" style="/0/@styles.140" font="/0/@fonts.0" value=""/>
+      </connectionDecorators>
+      <connectionDecorators visible="true" locationRelative="true" location="1.0">
+        <graphicsAlgorithm xsi:type="al:Polygon" background="/0/@colors.3" foreground="/0/@colors.3" lineWidth="1" filled="true" transparency="0.0" style="/0/@styles.5">
+          <points x="-10" y="-5" before="3" after="3"/>
+          <points/>
+          <points x="-10" y="5" before="3" after="3"/>
+          <points x="-8" before="3" after="3"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
+    <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.34/@anchors.0" end="/0/@children.8/@anchors.0">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
+      <link businessObjects="flow68"/>
+      <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">
+        <graphicsAlgorithm xsi:type="al:Text" lineWidth="1" filled="false" transparency="0.0" x="10" style="/0/@styles.141" font="/0/@fonts.0" value=""/>
+      </connectionDecorators>
+      <connectionDecorators visible="true" locationRelative="true" location="1.0">
+        <graphicsAlgorithm xsi:type="al:Polygon" background="/0/@colors.3" foreground="/0/@colors.3" lineWidth="1" filled="true" transparency="0.0" style="/0/@styles.5">
+          <points x="-10" y="-5" before="3" after="3"/>
+          <points/>
+          <points x="-10" y="5" before="3" after="3"/>
+          <points x="-8" before="3" after="3"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
+    <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="/0/@children.34/@anchors.0" end="/0/@children.17/@anchors.0">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="/0/@colors.3" lineWidth="1" filled="false" transparency="0.0"/>
+      <link businessObjects="flow69"/>
+      <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">
+        <graphicsAlgorithm xsi:type="al:Text" lineWidth="1" filled="false" transparency="0.0" x="10" style="/0/@styles.142" font="/0/@fonts.0" value=""/>
+      </connectionDecorators>
+      <connectionDecorators visible="true" locationRelative="true" location="1.0">
+        <graphicsAlgorithm xsi:type="al:Polygon" background="/0/@colors.3" foreground="/0/@colors.3" lineWidth="1" filled="true" transparency="0.0" style="/0/@styles.5">
+          <points x="-10" y="-5" before="3" after="3"/>
+          <points/>
+          <points x="-10" y="5" before="3" after="3"/>
+          <points x="-8" before="3" after="3"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+      <bendpoints x="1118" y="295"/>
+      <bendpoints x="1337" y="295"/>
     </connections>
     <colors red="227" green="238" blue="249"/>
     <colors red="25" green="25" blue="112"/>
@@ -4131,7 +4219,7 @@
     <fonts name="Arial" size="8"/>
     <fonts name="Arial" size="8" bold="true"/>
   </pi:Diagram>
-  <bpmn2:BpmnProcess id="IRHO-LEADS-001" name="Processo Comercial - Funil de Vendas" serverId="Server_IRHO" version="5" author="" extendedFields="&lt;list/>" cardIndex="13467" formSource="server" category="" volume="Default" expedient="Default" instruction="" keyWord="" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true" formType="ECM_FORM_BUILDER"/>
+  <bpmn2:BpmnProcess id="IRHO-LEADS-001" name="Processo Comercial - Funil de Vendas" serverId="Server_IRHO" version="20" author="" extendedFields="&lt;list/>" cardIndex="13467" formSource="server" category="" volume="Default" expedient="Default" instruction="" keyWord="" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true" formType="ECM_FORM_BUILDER"/>
   <bpmn2:BpmnPool id="bpmnpool1" name="Funil Cliente" cores="A5B8D8"/>
   <bpmn2:BpmnPool id="bpmnpool2" name="Conector" cores="D1DDE0"/>
   <bpmn2:BpmnPool id="bpmnpool3" name="Funil Recupera&#xe7;&#xe3;o" cores="C0C0C0"/>
@@ -4139,57 +4227,60 @@
   <bpmn2:BpmnEndEvent id="endevent5" name="Fim" incoming="flow25" type="60" signalId="0"/>
   <bpmn2:BpmnStartEvent id="startevent6" name="In&#xed;cio" outgoing="flow8" type="10" signalId="0" expediente="" selecionaColaboradores="1" esforcoCalculo="0"/>
   <bpmn2:SequenceFlow id="flow8" name="" sourceRef="startevent6" targetRef="exclusivegateway9" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
-  <bpmn2:BpmnGateway id="exclusivegateway9" name="Funil?" incoming="flow8" outgoing="flow10" type="120" condition="&lt;list/>"/>
-  <bpmn2:SequenceFlow id="flow10" name="" sourceRef="exclusivegateway9" targetRef="intermediatelink11" atividadeFluxo=""/>
+  <bpmn2:BpmnGateway id="exclusivegateway9" name="Funil?" incoming="flow8" outgoing="flow10" type="120" condition="&lt;list>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>1&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;funil_destino&amp;quot;) == &amp;quot;CLIENTE&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink11&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;&lt;/list>"/>
+  <bpmn2:SequenceFlow id="flow10" name="" sourceRef="exclusivegateway9" targetRef="intermediatelink11" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink11" name="Funil Cliente" incoming="flow18 flow10" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive15"/>
-  <bpmn2:BpmnIntermediateEvent id="intermediatelink14" name="Finalizador Funil Cliente" incoming="flow23" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive24"/>
+  <bpmn2:BpmnIntermediateEvent id="intermediatelink14" name="Finalizador Funil Cliente" incoming="flow68" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive24"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive15" name="Inicio Funil Cliente" outgoing="flow16" type="42" sequenceAttached="0" signalId="0"/>
-  <bpmn2:SequenceFlow id="flow16" name="" sourceRef="intermediatelinkreceive15" targetRef="task4" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow16" name="" sourceRef="intermediatelinkreceive15" targetRef="task4" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnAnnotation id="annotationtask17" name="Funil Cliente" outgoing="flow18" type="0"/>
-  <bpmn2:SequenceFlow id="flow18" name="" sourceRef="annotationtask17" targetRef="intermediatelink11" atividadeFluxo=""/>
-  <bpmn2:BpmnTask id="task19" name="Oportunidade Gerada" incoming="flow30 flow63" outgoing="flow31" type="80" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
-  <bpmn2:BpmnTask id="task21" name="Proposta comercial" incoming="flow32 flow64" outgoing="flow23" type="80" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
-  <bpmn2:SequenceFlow id="flow23" name="" sourceRef="task21" targetRef="intermediatelink14" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow18" name="" sourceRef="annotationtask17" targetRef="intermediatelink11" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:BpmnTask id="task19" name="Oportunidade Gerada" incoming="flow30 flow63" outgoing="flow31" type="80" managerMechanism="Usu&#xe1;rio" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerColleague>&#xA;  &lt;colleagueId>guilherme-af&lt;/colleagueId>&#xA;  &lt;mechanismName>Usu&#xe1;rio&lt;/mechanismName>&#xA;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerColleague>" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
+  <bpmn2:BpmnTask id="task21" name="Proposta comercial" incoming="flow32 flow64" outgoing="flow67" type="80" managerMechanism="Usu&#xe1;rio" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerColleague>&#xA;  &lt;colleagueId>guilherme-af&lt;/colleagueId>&#xA;  &lt;mechanismName>Usu&#xe1;rio&lt;/mechanismName>&#xA;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerColleague>" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive24" name="Finalizador" outgoing="flow25" type="42" sequenceAttached="0" signalId="0"/>
-  <bpmn2:SequenceFlow id="flow25" name="" sourceRef="intermediatelinkreceive24" targetRef="endevent5" atividadeFluxo=""/>
-  <bpmn2:BpmnTask id="task26" name="Lead Perdido" incoming="flow35" outgoing="flow40" type="80" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
-  <bpmn2:BpmnGateway id="exclusivegateway27" name="Destino" incoming="flow29" outgoing="flow30 flow36" type="120" condition="&lt;list/>"/>
-  <bpmn2:BpmnGateway id="exclusivegateway28" name="Destino" incoming="flow31" outgoing="flow32 flow37" type="120" condition="&lt;list/>"/>
-  <bpmn2:SequenceFlow id="flow29" name="" sourceRef="task4" targetRef="exclusivegateway27" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow30" name="" sourceRef="exclusivegateway27" targetRef="task19" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow31" name="" sourceRef="task19" targetRef="exclusivegateway28" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow32" name="" sourceRef="exclusivegateway28" targetRef="task21" atividadeFluxo=""/>
-  <bpmn2:BpmnIntermediateEvent id="intermediatelink33" name="Funil Recupera&#xe7;&#xe3;o" incoming="flow36 flow37" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive34"/>
+  <bpmn2:SequenceFlow id="flow25" name="" sourceRef="intermediatelinkreceive24" targetRef="endevent5" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:BpmnTask id="task26" name="Lead Perdido" incoming="flow35" outgoing="flow40" type="80" managerMechanism="Usu&#xe1;rio" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerColleague>&#xA;  &lt;colleagueId>guilherme-af&lt;/colleagueId>&#xA;  &lt;mechanismName>Usu&#xe1;rio&lt;/mechanismName>&#xA;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerColleague>" loopType="0" authNotify="true" expediente="" selecionaColaboradores="1" esforcoCalculo="0" executionAttempts="0" frequency="0"/>
+  <bpmn2:BpmnGateway id="exclusivegateway27" name="Destino" incoming="flow29" outgoing="flow30 flow36" type="120" condition="&lt;list>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>1&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;acao_fluxo_comercial&amp;quot;) == &amp;quot;LEAD_PERDIDO&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink33&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>2&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;acao_fluxo_comercial&amp;quot;) == &amp;quot;AVANCAR&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>task19&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;&lt;/list>"/>
+  <bpmn2:BpmnGateway id="exclusivegateway28" name="Destino" incoming="flow31" outgoing="flow32 flow37" type="120" condition="&lt;list>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>1&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;acao_fluxo_comercial&amp;quot;) == &amp;quot;LEAD_PERDIDO&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink33&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>2&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;acao_fluxo_comercial&amp;quot;) == &amp;quot;AVANCAR&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>task21&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;&lt;/list>"/>
+  <bpmn2:SequenceFlow id="flow29" name="" sourceRef="task4" targetRef="exclusivegateway27" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow30" name="" sourceRef="exclusivegateway27" targetRef="task19" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow31" name="" sourceRef="task19" targetRef="exclusivegateway28" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow32" name="" sourceRef="exclusivegateway28" targetRef="task21" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:BpmnIntermediateEvent id="intermediatelink33" name="Funil Recupera&#xe7;&#xe3;o" incoming="flow36 flow37 flow69" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive34"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive34" name="Funil Recupera&#xe7;&#xe3;o" outgoing="flow35" type="42" sequenceAttached="0" signalId="0"/>
-  <bpmn2:SequenceFlow id="flow35" name="" sourceRef="intermediatelinkreceive34" targetRef="task26" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow36" name="" sourceRef="exclusivegateway27" targetRef="intermediatelink33" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow37" name="" sourceRef="exclusivegateway28" targetRef="intermediatelink33" atividadeFluxo=""/>
-  <bpmn2:BpmnGateway id="exclusivegateway38" name="Funil?" incoming="flow40" outgoing="flow41" type="120" condition="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow35" name="" sourceRef="intermediatelinkreceive34" targetRef="task26" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow36" name="" sourceRef="exclusivegateway27" targetRef="intermediatelink33" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow37" name="" sourceRef="exclusivegateway28" targetRef="intermediatelink33" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:BpmnGateway id="exclusivegateway38" name="Funil?" incoming="flow40" outgoing="flow41" type="120" condition="&lt;list>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>1&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;funil_origem_perda&amp;quot;) == &amp;quot;CLIENTE&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink39&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;&lt;/list>"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink39" name="Recupera&#xe7;&#xe3;o Cliente" incoming="flow41 flow52" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive49"/>
-  <bpmn2:SequenceFlow id="flow40" name="" sourceRef="task26" targetRef="exclusivegateway38" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow41" name="" sourceRef="exclusivegateway38" targetRef="intermediatelink39" atividadeFluxo=""/>
-  <bpmn2:BpmnGateway id="exclusivegateway42" name="Recupera&#xe7;&#xe3;o" incoming="flow50" outgoing="flow45 flow46 flow48" type="120" condition="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow40" name="" sourceRef="task26" targetRef="exclusivegateway38" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow41" name="" sourceRef="exclusivegateway38" targetRef="intermediatelink39" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:BpmnGateway id="exclusivegateway42" name="Recupera&#xe7;&#xe3;o" incoming="flow50" outgoing="flow45 flow46 flow48" type="120" condition="&lt;list>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>1&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;atividade_recuperacao&amp;quot;) == &amp;quot;4&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink43&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>2&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;atividade_recuperacao&amp;quot;) == &amp;quot;19&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink44&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>3&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;atividade_recuperacao&amp;quot;) == &amp;quot;21&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink47&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;&lt;/list>"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink43" name="Tentativa de Contato" incoming="flow46 flow54" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive59"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink44" name="Oportunidade Gerada" incoming="flow45 flow56" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive60"/>
-  <bpmn2:SequenceFlow id="flow45" name="" sourceRef="exclusivegateway42" targetRef="intermediatelink44" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow46" name="" sourceRef="exclusivegateway42" targetRef="intermediatelink43" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow45" name="" sourceRef="exclusivegateway42" targetRef="intermediatelink44" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow46" name="" sourceRef="exclusivegateway42" targetRef="intermediatelink43" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink47" name="Proposta Comercial" incoming="flow48 flow58" type="36" sequenceAttached="0" signalId="0" linkId="intermediatelinkreceive61"/>
-  <bpmn2:SequenceFlow id="flow48" name="" sourceRef="exclusivegateway42" targetRef="intermediatelink47" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow48" name="" sourceRef="exclusivegateway42" targetRef="intermediatelink47" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive49" name="Recupera&#xe7;&#xe3;o Cliente" outgoing="flow50" type="42" sequenceAttached="0" signalId="0"/>
-  <bpmn2:SequenceFlow id="flow50" name="" sourceRef="intermediatelinkreceive49" targetRef="exclusivegateway42" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow50" name="" sourceRef="intermediatelinkreceive49" targetRef="exclusivegateway42" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnAnnotation id="annotationtask51" name="Contato" outgoing="flow54" type="0"/>
-  <bpmn2:SequenceFlow id="flow52" name="" sourceRef="annotationtask53" targetRef="intermediatelink39" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow52" name="" sourceRef="annotationtask53" targetRef="intermediatelink39" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnAnnotation id="annotationtask53" name="Cliente" outgoing="flow52" type="0"/>
-  <bpmn2:SequenceFlow id="flow54" name="" sourceRef="annotationtask51" targetRef="intermediatelink43" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow54" name="" sourceRef="annotationtask51" targetRef="intermediatelink43" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnAnnotation id="annotationtask55" name="Oportunidade" outgoing="flow56" type="0"/>
-  <bpmn2:SequenceFlow id="flow56" name="" sourceRef="annotationtask55" targetRef="intermediatelink44" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow56" name="" sourceRef="annotationtask55" targetRef="intermediatelink44" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnAnnotation id="annotationtask57" name="Proposta" outgoing="flow58" type="0"/>
-  <bpmn2:SequenceFlow id="flow58" name="" sourceRef="annotationtask57" targetRef="intermediatelink47" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow58" name="" sourceRef="annotationtask57" targetRef="intermediatelink47" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive59" name="Tentativa de Contato" outgoing="flow62" type="42" sequenceAttached="0" signalId="0"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive60" name="Oportunidade Gerada" outgoing="flow63" type="42" sequenceAttached="0" signalId="0"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive61" name="Proposta comercial" outgoing="flow64" type="42" sequenceAttached="0" signalId="0"/>
-  <bpmn2:SequenceFlow id="flow62" name="" sourceRef="intermediatelinkreceive59" targetRef="task4" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow63" name="" sourceRef="intermediatelinkreceive60" targetRef="task19" atividadeFluxo=""/>
-  <bpmn2:SequenceFlow id="flow64" name="" sourceRef="intermediatelinkreceive61" targetRef="task21" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow62" name="" sourceRef="intermediatelinkreceive59" targetRef="task4" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow63" name="" sourceRef="intermediatelinkreceive60" targetRef="task19" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
+  <bpmn2:SequenceFlow id="flow64" name="" sourceRef="intermediatelinkreceive61" targetRef="task21" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:BpmnAnnotation id="annotationtask65" name="Recupera&#xe7;&#xe3;o" type="0"/>
+  <bpmn2:BpmnGateway id="exclusivegateway66" name="Destino" incoming="flow67" outgoing="flow68 flow69" type="120" condition="&lt;list>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>1&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;acao_fluxo_comercial&amp;quot;) == &amp;quot;LEAD_PERDIDO&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink33&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;  &lt;org.eclipse.bpmn2.impl.ConditionImpl>&#xA;    &lt;order>2&lt;/order>&#xA;    &lt;expression>hAPI.getCardValue(&amp;quot;acao_fluxo_comercial&amp;quot;) == &amp;quot;AVANCAR&amp;quot;&lt;/expression>&#xA;    &lt;targetTask>intermediatelink14&lt;/targetTask>&#xA;    &lt;conditionType>0&lt;/conditionType>&#xA;  &lt;/org.eclipse.bpmn2.impl.ConditionImpl>&#xA;&lt;/list>"/>
+  <bpmn2:SequenceFlow id="flow67" name="" sourceRef="task21" targetRef="exclusivegateway66" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow68" name="" sourceRef="exclusivegateway66" targetRef="intermediatelink14" atividadeFluxo=""/>
+  <bpmn2:SequenceFlow id="flow69" name="" sourceRef="exclusivegateway66" targetRef="intermediatelink33" atividadeFluxo=""/>
 </xmi:XMI>

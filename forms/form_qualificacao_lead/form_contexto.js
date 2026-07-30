@@ -3,7 +3,11 @@ window.IRHOLeads = window.IRHOLeads || {};
 IRHOLeads.Contexto = (function () {
     "use strict";
 
+    var ATIVIDADE_INICIO = 6;
     var ATIVIDADE_TENTATIVA_CONTATO = 4;
+    var ATIVIDADE_OPORTUNIDADE_GERADA = 19;
+    var ATIVIDADE_PROPOSTA_COMERCIAL = 21;
+    var ATIVIDADE_LEAD_PERDIDO = 26;
 
     function valorCampo(nomeCampo) {
         var campo = document.querySelector(
@@ -87,7 +91,7 @@ IRHOLeads.Contexto = (function () {
     function ehEtapaInicial() {
         var atividade = atividadeAtual();
 
-        return atividade === 0 || atividade === 6;
+        return atividade === 0 || atividade === ATIVIDADE_INICIO;
     }
 
     function ehTentativaContato() {
@@ -95,9 +99,33 @@ IRHOLeads.Contexto = (function () {
             === ATIVIDADE_TENTATIVA_CONTATO;
     }
 
+    function ehAtividadeComercial() {
+        var atividade = atividadeAtual();
+
+        return atividade === ATIVIDADE_TENTATIVA_CONTATO
+            || atividade === ATIVIDADE_OPORTUNIDADE_GERADA
+            || atividade === ATIVIDADE_PROPOSTA_COMERCIAL;
+    }
+
+    function ehLeadPerdido() {
+        return atividadeAtual() === ATIVIDADE_LEAD_PERDIDO;
+    }
+
     return {
+        ATIVIDADE_INICIO:
+            ATIVIDADE_INICIO,
+
         ATIVIDADE_TENTATIVA_CONTATO:
             ATIVIDADE_TENTATIVA_CONTATO,
+
+        ATIVIDADE_OPORTUNIDADE_GERADA:
+            ATIVIDADE_OPORTUNIDADE_GERADA,
+
+        ATIVIDADE_PROPOSTA_COMERCIAL:
+            ATIVIDADE_PROPOSTA_COMERCIAL,
+
+        ATIVIDADE_LEAD_PERDIDO:
+            ATIVIDADE_LEAD_PERDIDO,
 
         atividadeAtual:
             atividadeAtual,
@@ -112,6 +140,12 @@ IRHOLeads.Contexto = (function () {
             ehEtapaInicial,
 
         ehTentativaContato:
-            ehTentativaContato
+            ehTentativaContato,
+
+        ehAtividadeComercial:
+            ehAtividadeComercial,
+
+        ehLeadPerdido:
+            ehLeadPerdido
     };
 }());

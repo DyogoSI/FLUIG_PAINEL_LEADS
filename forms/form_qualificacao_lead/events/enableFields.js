@@ -1,5 +1,8 @@
+var EF_ATIVIDADE_INICIO = 6;
 var EF_ATIVIDADE_TENTATIVA_CONTATO = 4;
+var EF_ATIVIDADE_LEAD_PERDIDO = 26;
 var EF_TABELA_TENTATIVAS = "tbTentativasContato";
+var EF_TABELA_HISTORICO_PERDAS = "tbHistoricoPerdas";
 
 function enableFields(form) {
     var atividadeAtual = parseInt(
@@ -8,11 +11,31 @@ function enableFields(form) {
     );
 
     bloquearCamposIntegracao(form);
+    configurarFunil(form, atividadeAtual);
+    configurarRecuperacao(form, atividadeAtual);
+    bloquearHistoricoPerdas(form);
 
     if (atividadeAtual !== EF_ATIVIDADE_TENTATIVA_CONTATO) {
         bloquearHistoricoTentativas(form);
         bloquearClassificacao(form);
     }
+}
+
+function configurarRecuperacao(form, atividadeAtual) {
+    form.setEnabled(
+        "atividade_recuperacao",
+        atividadeAtual === EF_ATIVIDADE_LEAD_PERDIDO,
+        true
+    );
+}
+
+function configurarFunil(form, atividadeAtual) {
+    form.setEnabled(
+        "funil_destino",
+        atividadeAtual === 0
+            || atividadeAtual === EF_ATIVIDADE_INICIO,
+        true
+    );
 }
 
 function bloquearClassificacao(form) {
@@ -68,6 +91,35 @@ function bloquearHistoricoTentativas(form) {
         "tent_data",
         "tent_hora",
         "tent_descricao"
+    ];
+
+    for (var i = 0; i < indices.length; i++) {
+        var indice = indices[i];
+
+        for (var j = 0; j < camposFilhos.length; j++) {
+            form.setEnabled(
+                camposFilhos[j] + "___" + indice,
+                false,
+                true
+            );
+        }
+    }
+}
+
+function bloquearHistoricoPerdas(form) {
+    var indices = form.getChildrenIndexes(
+        EF_TABELA_HISTORICO_PERDAS
+    );
+
+    var camposFilhos = [
+        "perda_id",
+        "perda_ordem",
+        "perda_data_hora",
+        "perda_atividade_codigo",
+        "perda_atividade_nome",
+        "perda_funil",
+        "perda_motivo_codigo",
+        "perda_motivo_texto"
     ];
 
     for (var i = 0; i < indices.length; i++) {

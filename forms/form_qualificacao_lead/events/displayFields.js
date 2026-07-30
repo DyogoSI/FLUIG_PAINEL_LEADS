@@ -11,7 +11,7 @@ function displayFields(form, customHTML) {
         form.getFormMode();
 
     if (isNaN(atividadeAtual)) {
-        atividadeAtual = 0 || atividade === 6;
+        atividadeAtual = 0;
     }
 
     numeroSolicitacao =

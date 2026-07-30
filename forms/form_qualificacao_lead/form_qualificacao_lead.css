@@ -98,6 +98,12 @@ form {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
 }
 
+.lead-lost-mode .lead-sidebar {
+    background: linear-gradient(180deg,
+            #8b979d,
+            #5f6b72) !important;
+}
+
 .lead-sidebar::-webkit-scrollbar {
     width: 0;
     background: transparent;
@@ -368,6 +374,162 @@ form {
 }
 
 /* =========================================================
+   DEFINIÇÃO DO FUNIL
+========================================================= */
+
+.lead-funnel-panel {
+    border-top: 4px solid var(--lead-orange) !important;
+}
+
+.lead-funnel-intro,
+.lead-loss-history-intro {
+    margin: 0 0 22px;
+
+    color: var(--lead-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.lead-funnel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.lead-funnel-option {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    min-height: 112px;
+    margin: 0 !important;
+    padding: 20px;
+
+    text-transform: none;
+    cursor: pointer;
+
+    background: #ffffff;
+    border: 1px solid var(--lead-border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.lead-funnel-option:hover,
+.lead-funnel-option:focus-within {
+    border-color: var(--lead-orange);
+    box-shadow: 0 0 0 3px rgba(250, 92, 5, 0.1);
+}
+
+.lead-funnel-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.lead-funnel-marker {
+    flex: 0 0 20px;
+
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+
+    background: #ffffff;
+    border: 2px solid #aeb9be;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px #ffffff;
+}
+
+.lead-funnel-avatar {
+    display: flex;
+    flex: 0 0 36px;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    color: var(--lead-orange-dark);
+    background: #fce2d2;
+    border: 1px solid rgba(250, 92, 5, 0.5);
+    border-radius: 10px;
+}
+
+.lead-funnel-avatar .fa-user {
+    font-size: 17px;
+}
+
+.lead-recovery-icon {
+    display: flex;
+    flex: 0 0 46px;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.lead-recovery-icon .fa-solid {
+    font-size: 18px;
+}
+
+.lead-recovery-contact {
+    color: var(--lead-green);
+    background: #dcefe4;
+    border-color: rgba(19, 138, 67, 0.45);
+}
+
+.lead-recovery-opportunity {
+    color: var(--lead-orange-dark);
+    background: #fce2d2;
+    border-color: rgba(250, 92, 5, 0.5);
+}
+
+.lead-recovery-proposal {
+    color: #087ba8;
+    background: #dceff6;
+    border-color: rgba(8, 123, 168, 0.45);
+}
+
+.lead-funnel-option input:checked~.lead-funnel-marker {
+    background: var(--lead-orange);
+    border-color: var(--lead-orange);
+}
+
+.lead-funnel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    min-width: 0;
+}
+
+.lead-funnel-content strong {
+    color: var(--lead-text);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.lead-funnel-content span {
+    color: var(--lead-muted);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5;
+    text-transform: none;
+}
+
+.lead-funnel-option input:checked~.lead-funnel-content strong {
+    color: var(--lead-orange-dark);
+}
+
+/* =========================================================
    CAMPOS
 ========================================================= */
 
@@ -586,6 +748,22 @@ select.form-control {
     box-sizing: border-box !important;
 }
 
+#tbTentativasContato .lead-attempt-card.lead-attempt-email {
+    border-left-color: var(--lead-danger) !important;
+}
+
+#tbTentativasContato .lead-attempt-card.lead-attempt-linkedin {
+    border-left-color: #087ba8 !important;
+}
+
+#tbTentativasContato .lead-attempt-card.lead-attempt-whatsapp {
+    border-left-color: var(--lead-green) !important;
+}
+
+#tbTentativasContato .lead-attempt-card.lead-attempt-telefone {
+    border-left-color: #7b3fa1 !important;
+}
+
 #tbTentativasContato .lead-attempt-row:last-child .lead-attempt-card {
     margin-bottom: 0 !important;
 }
@@ -607,6 +785,53 @@ select.form-control {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.lead-attempt-channel-icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+}
+
+.lead-attempt-channel-icon i {
+    font-size: 14px;
+}
+
+.lead-attempt-card.lead-attempt-email .lead-attempt-channel-icon,
+.lead-attempt-card.lead-attempt-linkedin .lead-attempt-channel-icon,
+.lead-attempt-card.lead-attempt-whatsapp .lead-attempt-channel-icon,
+.lead-attempt-card.lead-attempt-telefone .lead-attempt-channel-icon {
+    display: flex;
+}
+
+.lead-attempt-card.lead-attempt-email .lead-attempt-channel-icon {
+    color: var(--lead-danger);
+    background: #fbe0de;
+    border-color: rgba(217, 48, 37, 0.45);
+}
+
+.lead-attempt-card.lead-attempt-linkedin .lead-attempt-channel-icon {
+    color: #087ba8;
+    background: #dceff6;
+    border-color: rgba(8, 123, 168, 0.45);
+}
+
+.lead-attempt-card.lead-attempt-whatsapp .lead-attempt-channel-icon {
+    color: var(--lead-green);
+    background: #dcefe4;
+    border-color: rgba(19, 138, 67, 0.45);
+}
+
+.lead-attempt-card.lead-attempt-telefone .lead-attempt-channel-icon {
+    color: #7b3fa1;
+    background: #eee3f6;
+    border-color: rgba(123, 63, 161, 0.45);
 }
 
 .lead-attempt-number-label {
@@ -716,6 +941,11 @@ select.form-control {
     border-color: var(--lead-green);
 }
 
+.lead-action-lost:hover,
+.lead-action-lost:focus {
+    border-color: var(--lead-danger);
+}
+
 .lead-action-icon {
     display: flex;
     flex: 0 0 46px;
@@ -730,14 +960,40 @@ select.form-control {
     border-radius: 10px;
 }
 
+.lead-action-icon .fa-solid,
+.lead-action-icon .fa-regular {
+    color: inherit;
+    font-size: 19px;
+}
+
 .lead-action-save .lead-action-icon {
     color: #087ba8;
-    background: #e9f7fc;
+    background: #dceff6;
+    border: 1px solid rgba(8, 123, 168, 0.45);
 }
 
 .lead-action-complete .lead-action-icon {
     color: var(--lead-green);
-    background: var(--lead-green-soft);
+    background: #dcefe4;
+    border: 1px solid rgba(19, 138, 67, 0.45);
+}
+
+.lead-action-lost .lead-action-icon {
+    color: var(--lead-danger);
+    background: #fbe0de;
+    border: 1px solid rgba(217, 48, 37, 0.45);
+}
+
+.lead-action-grid .lead-action-lost {
+    order: 1;
+}
+
+.lead-action-grid .lead-action-save {
+    order: 2;
+}
+
+.lead-action-grid .lead-action-complete {
+    order: 3;
 }
 
 .lead-action-content {
@@ -790,6 +1046,55 @@ select.form-control {
 }
 
 /* =========================================================
+   RECUPERAÇÃO DO LEAD
+========================================================= */
+
+.lead-recovery-selection {
+    margin-bottom: 24px;
+    padding: 20px;
+
+    background: #f4f6f7;
+    border: 1px solid var(--lead-border);
+    border-radius: 12px;
+}
+
+.lead-recovery-selection > label {
+    margin-bottom: 6px !important;
+}
+
+.lead-recovery-selection > p {
+    margin: 0 0 18px;
+
+    color: var(--lead-muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.lead-recovery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.lead-recovery-grid .lead-funnel-option {
+    flex-direction: column;
+    gap: 22px;
+
+    min-height: 124px;
+}
+
+.lead-recovery-grid .lead-recovery-icon {
+    flex-basis: 40px;
+
+    width: 40px;
+    height: 40px;
+}
+
+.lead-recovery-grid .lead-recovery-icon .fa-solid {
+    font-size: 17px;
+}
+
+/* =========================================================
    ESTADOS DE TELA
 ========================================================= */
 
@@ -802,6 +1107,112 @@ select.form-control {
 .lead-readonly .lead-btn-remove,
 .lead-readonly .lead-action-grid {
     display: none !important;
+}
+
+/* =========================================================
+   HISTÓRICO DE PERDAS
+========================================================= */
+
+.lead-loss-history-panel {
+    border-top: 4px solid var(--lead-danger) !important;
+}
+
+.lead-loss-empty-icon {
+    color: var(--lead-danger);
+    background: var(--lead-danger-soft);
+}
+
+#tbHistoricoPerdas {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+}
+
+#tbHistoricoPerdas thead {
+    display: none !important;
+}
+
+#tbHistoricoPerdas tbody,
+#tbHistoricoPerdas tbody>tr,
+#tbHistoricoPerdas tbody>tr>td {
+    width: 100% !important;
+}
+
+#tbHistoricoPerdas tbody>tr>td {
+    padding: 0 0 20px !important;
+    border: 0 !important;
+}
+
+#tbHistoricoPerdas tbody>tr:last-child>td {
+    padding-bottom: 0 !important;
+}
+
+.lead-loss-card {
+    width: 100%;
+    padding: 24px;
+
+    background: #fafbfb;
+    border: 1px solid var(--lead-border);
+    border-left: 5px solid var(--lead-danger);
+    border-radius: 12px;
+}
+
+.lead-loss-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid var(--lead-border-soft);
+}
+
+.lead-loss-card-header strong {
+    color: var(--lead-text);
+    font-size: 16px;
+}
+
+.lead-loss-date {
+    color: var(--lead-muted);
+    font-size: 13px;
+}
+
+.lead-loss-card .form-control {
+    cursor: default !important;
+    background: #f0f3f4 !important;
+    box-shadow: none !important;
+}
+
+.lead-loss-card textarea.form-control {
+    resize: none !important;
+}
+
+.lead-loss-modal .form-group {
+    margin-bottom: 0;
+}
+
+.lead-loss-modal-feedback {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 14px;
+
+    color: #8f221b;
+    font-size: 13px;
+
+    background: var(--lead-danger-soft);
+    border: 1px solid rgba(217, 48, 37, 0.22);
+    border-radius: 8px;
+}
+
+.lead-loss-modal-feedback.is-visible {
+    display: block;
 }
 
 /* =========================================================
@@ -981,6 +1392,14 @@ select.form-control {
 }
 
 @media (max-width: 991px) {
+    .lead-recovery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lead-funnel-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .lead-classification-grid {
         grid-template-columns: 1fr;
     }
@@ -992,6 +1411,10 @@ select.form-control {
 
 /* Mobile */
 @media (max-width: 768px) {
+    .lead-funnel-grid {
+        grid-template-columns: 1fr;
+    }
+
     .lead-action-grid {
         flex-direction: column !important;
     }

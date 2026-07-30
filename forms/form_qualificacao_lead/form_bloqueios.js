@@ -12,12 +12,24 @@ IRHOLeads.Bloqueios = (function () {
             && !IRHOLeads.Contexto
                 .ehTentativaContato();
 
+        bloquearHistoricoPerdas();
+
         if (somenteLeitura) {
             $("form")
                 .addClass("lead-readonly");
 
             bloquearTentativas();
+            bloquearFunil();
+            bloquearRecuperacao();
             return;
+        }
+
+        if (!IRHOLeads.Contexto.ehEtapaInicial()) {
+            bloquearFunil();
+        }
+
+        if (!IRHOLeads.Contexto.ehLeadPerdido()) {
+            bloquearRecuperacao();
         }
 
         if (historico) {
@@ -28,8 +40,10 @@ IRHOLeads.Bloqueios = (function () {
         }
     }
 
-    function ehEtapaInicial(atividadeAtual) {
-        return atividade === 0 || atividade === 6;
+    function bloquearFunil() {
+        $('input[name="funil_destino"]')
+            .prop("disabled", true)
+            .attr("tabindex", "-1");
     }
 
     function bloquearTentativas() {
@@ -50,6 +64,19 @@ IRHOLeads.Bloqueios = (function () {
         $("#btnAdicionarTentativa, .lead-btn-remove")
             .addClass("lead-hidden")
             .prop("disabled", true);
+    }
+
+    function bloquearHistoricoPerdas() {
+        $("#tbHistoricoPerdas")
+            .find("input:not([type='hidden']), textarea")
+            .prop("readonly", true)
+            .attr("tabindex", "-1");
+    }
+
+    function bloquearRecuperacao() {
+        $('input[name="atividade_recuperacao"]')
+            .prop("disabled", true)
+            .attr("tabindex", "-1");
     }
 
     return {

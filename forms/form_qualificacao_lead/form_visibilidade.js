@@ -16,24 +16,35 @@ IRHOLeads.Visibilidade = (function () {
 
         if (IRHOLeads.Contexto.ehEtapaInicial()) {
             aplicarEtapaInicial();
-            return;
-        }
-
-        if (IRHOLeads.Contexto.ehTentativaContato()) {
+        } else if (IRHOLeads.Contexto.ehTentativaContato()) {
             aplicarTentativaContato();
-            return;
+        } else {
+            aplicarHistorico();
+
+            if (IRHOLeads.Contexto.ehLeadPerdido()) {
+                aplicarLeadPerdido();
+            } else if (IRHOLeads.Contexto.ehAtividadeComercial()) {
+                aplicarAcoesComerciaisHistorico();
+            }
         }
 
-        aplicarHistorico();
+        aplicarHistoricoPerdas();
+
+        if (IRHOLeads.Contexto.somenteLeitura()) {
+            aplicarSomenteLeitura();
+        }
     }
 
     function restaurarEstadoPadrao() {
         $("form").removeClass(
-            "lead-history-mode lead-readonly"
+            "lead-history-mode lead-readonly lead-lost-mode"
         );
 
         $("#painelAcoes").removeClass("lead-hidden");
         $("#painelTentativas").removeClass("lead-hidden");
+        $("#painelDefinicaoFunil").addClass("lead-hidden");
+        $("#painelHistoricoPerdas").addClass("lead-hidden");
+        $("#painelRecuperacao").addClass("lead-hidden");
 
         $("#painelClassificacao")
             .addClass("lead-hidden")
@@ -43,7 +54,10 @@ IRHOLeads.Visibilidade = (function () {
         $("#btnSalvarContinuar").removeClass("lead-hidden");
         $("#btnConcluirAtividade").removeClass("lead-hidden");
         $("#btnMovimentarClassificacao").removeClass("lead-hidden");
+        $("#btnLeadPerdido").addClass("lead-hidden");
 
+        $(".lead-sidebar-menu a[href='#painelDefinicaoFunil']")
+            .addClass("lead-hidden");
         $(".lead-sidebar-menu a[href='#painelTentativas']")
             .removeClass("lead-hidden");
 
@@ -53,8 +67,19 @@ IRHOLeads.Visibilidade = (function () {
         $(".lead-sidebar-menu a[href='#painelClassificacao']")
             .addClass("lead-hidden");
 
+        $(".lead-sidebar-menu a[href='#painelHistoricoPerdas']")
+            .addClass("lead-hidden");
+
         $(".lead-action-grid")
             .removeClass("lead-action-grid-single");
+
+        $("#btnConcluirAtividade .lead-action-content strong").text(
+            "Concluir e avançar"
+        );
+
+        $("#btnConcluirAtividade .lead-action-content span").text(
+            "Valida os registros e abre a movimentação para encerrar o fluxo."
+        );
 
         $(".lead-panel-subtitle").text(
             "Registre cada abordagem realizada sem substituir as tentativas anteriores."
@@ -62,9 +87,13 @@ IRHOLeads.Visibilidade = (function () {
     }
 
     function aplicarEtapaInicial() {
+        $("#painelDefinicaoFunil").removeClass("lead-hidden");
         $("#painelTentativas").addClass("lead-hidden");
         $("#painelClassificacao").addClass("lead-hidden");
+        $("#painelHistoricoPerdas").addClass("lead-hidden");
 
+        $(".lead-sidebar-menu a[href='#painelDefinicaoFunil']")
+            .removeClass("lead-hidden");
         $(".lead-sidebar-menu a[href='#painelTentativas']")
             .addClass("lead-hidden");
 
@@ -73,6 +102,7 @@ IRHOLeads.Visibilidade = (function () {
 
         $("#btnSalvarContinuar").addClass("lead-hidden");
         $("#btnConcluirAtividade").removeClass("lead-hidden");
+        $("#btnLeadPerdido").addClass("lead-hidden");
 
         $(".lead-action-grid")
             .addClass("lead-action-grid-single");
@@ -100,6 +130,7 @@ IRHOLeads.Visibilidade = (function () {
         $("#btnSalvarContinuar").removeClass("lead-hidden");
         $("#btnConcluirAtividade").removeClass("lead-hidden");
         $("#btnMovimentarClassificacao").removeClass("lead-hidden");
+        $("#btnLeadPerdido").removeClass("lead-hidden");
 
         $(".lead-sidebar-menu a[href='#painelTentativas']")
             .removeClass("lead-hidden");
@@ -131,6 +162,10 @@ IRHOLeads.Visibilidade = (function () {
 
         $("#btnAdicionarTentativa").addClass("lead-hidden");
         $("#btnMovimentarClassificacao").addClass("lead-hidden");
+        $("#btnLeadPerdido").toggleClass(
+            "lead-hidden",
+            !IRHOLeads.Contexto.ehAtividadeComercial()
+        );
 
         $(".lead-sidebar-menu a[href='#painelTentativas']")
             .removeClass("lead-hidden");
@@ -141,6 +176,91 @@ IRHOLeads.Visibilidade = (function () {
         $(".lead-panel-subtitle").text(
             "Histórico das tentativas de contato registradas anteriormente."
         );
+
+    }
+
+    function aplicarLeadPerdido() {
+        $("form").addClass("lead-lost-mode");
+
+        $("#painelClassificacao")
+            .addClass("lead-hidden")
+            .removeClass("lead-classification-history");
+
+        $(".lead-sidebar-menu a[href='#painelClassificacao']")
+            .addClass("lead-hidden");
+
+        $("#painelAcoes").removeClass("lead-hidden");
+        $("#painelRecuperacao").removeClass("lead-hidden");
+        $("#btnSalvarContinuar").addClass("lead-hidden");
+        $("#btnConcluirAtividade").removeClass("lead-hidden");
+        $("#btnMovimentarClassificacao").addClass("lead-hidden");
+        $("#btnLeadPerdido").addClass("lead-hidden");
+
+        $(".lead-action-grid")
+            .addClass("lead-action-grid-single");
+
+        $(".lead-actions-intro").text(
+            "Escolha a atividade comercial na qual o lead será recuperado."
+        );
+
+        $("#btnConcluirAtividade .lead-action-content strong").text(
+            "Recuperar Lead"
+        );
+
+        $("#btnConcluirAtividade .lead-action-content span").text(
+            "Movimenta a solicitação para a atividade selecionada no Funil Cliente."
+        );
+    }
+
+    function aplicarAcoesComerciaisHistorico() {
+        $("#painelAcoes").removeClass("lead-hidden");
+        $("#btnSalvarContinuar").removeClass("lead-hidden");
+        $("#btnConcluirAtividade").removeClass("lead-hidden");
+        $("#btnLeadPerdido").removeClass("lead-hidden");
+
+        $(".lead-actions-intro").text(
+            "Salve para continuar depois, movimente o lead ou registre a perda."
+        );
+
+        $("#btnConcluirAtividade .lead-action-content strong").text(
+            "Movimentar atividade"
+        );
+
+        $("#btnConcluirAtividade .lead-action-content span").text(
+            "Avança a solicitação para a próxima etapa do fluxo comercial."
+        );
+    }
+
+    function aplicarHistoricoPerdas() {
+        var mostrar = IRHOLeads.Contexto.ehLeadPerdido()
+            || (
+                IRHOLeads.Contexto.somenteLeitura()
+                && IRHOLeads.Perdas.possuiHistorico()
+            );
+
+        $("#painelHistoricoPerdas")
+            .toggleClass("lead-hidden", !mostrar);
+
+        $(".lead-sidebar-menu a[href='#painelHistoricoPerdas']")
+            .toggleClass("lead-hidden", !mostrar);
+
+        IRHOLeads.Perdas.atualizarHistorico();
+    }
+
+    function aplicarSomenteLeitura() {
+        $("form").addClass("lead-readonly");
+
+        $("#painelAcoes").addClass("lead-hidden");
+        $("#btnAdicionarTentativa").addClass("lead-hidden");
+        $("#btnSalvarContinuar").addClass("lead-hidden");
+        $("#btnConcluirAtividade").addClass("lead-hidden");
+        $("#btnMovimentarClassificacao").addClass("lead-hidden");
+        $("#btnLeadPerdido").addClass("lead-hidden");
+
+        $(".lead-sidebar-menu a[href='#painelAcoes']")
+            .addClass("lead-hidden");
+
+        ajustarMenuAtivo();
     }
 
     function ajustarMenuAtivo() {

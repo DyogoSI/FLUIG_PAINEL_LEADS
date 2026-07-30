@@ -177,11 +177,37 @@ IRHOLeads.Obrigatoriedade = (function () {
         return erros;
     }
 
+    function validarPerda() {
+        var erros = [];
+        var campos = [
+            "funil_origem_perda",
+            "atividade_origem_perda",
+            "atividade_origem_nome",
+            "motivo_perda_codigo",
+            "motivo_perda_texto",
+            "perda_chave_pendente"
+        ];
+
+        for (var i = 0; i < campos.length; i++) {
+            if ($.trim($("#" + campos[i]).val() || "") === "") {
+                erros.push(
+                    "Os dados da perda estão incompletos. Abra o modal e selecione a justificativa novamente."
+                );
+                break;
+            }
+        }
+
+        return erros;
+    }
+
     return {
         validarTentativas:
             validarTentativas,
 
         validarClassificacao:
-            validarClassificacao
+            validarClassificacao,
+
+        validarPerda:
+            validarPerda
     };
 }());

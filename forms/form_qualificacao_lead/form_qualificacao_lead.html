@@ -5,6 +5,8 @@
     <meta charset="utf-8">
 
     <link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css">
+    <link type="text/css" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link type="text/css" rel="stylesheet" href="form_qualificacao_lead.css">
 
@@ -30,6 +32,13 @@
             <input type="hidden" name="atividade_atual" id="atividade_atual">
             <input type="hidden" name="modo_formulario" id="modo_formulario">
             <input type="hidden" name="acao_atividade" id="acao_atividade">
+            <input type="hidden" name="acao_fluxo_comercial" id="acao_fluxo_comercial">
+            <input type="hidden" name="funil_origem_perda" id="funil_origem_perda">
+            <input type="hidden" name="atividade_origem_perda" id="atividade_origem_perda">
+            <input type="hidden" name="atividade_origem_nome" id="atividade_origem_nome">
+            <input type="hidden" name="motivo_perda_codigo" id="motivo_perda_codigo">
+            <input type="hidden" name="motivo_perda_texto" id="motivo_perda_texto">
+            <input type="hidden" name="perda_chave_pendente" id="perda_chave_pendente">
 
             <!-- Resumo persistido para workflow, CRM e painéis -->
             <input type="hidden" name="numero_solicitacao" id="numero_solicitacao">
@@ -58,6 +67,10 @@
                             Empresa e contato
                         </a>
 
+                        <a href="#painelDefinicaoFunil" class="lead-hidden">
+                            Funil de destino
+                        </a>
+
                         <a href="#painelTentativas" class="lead-hidden">
                             Tentativas de contato
                         </a>
@@ -68,6 +81,10 @@
 
                         <a href="#painelClassificacao" class="lead-hidden">
                             Classificação Lead
+                        </a>
+
+                        <a href="#painelHistoricoPerdas" class="lead-hidden">
+                            Histórico de perdas
                         </a>
                     </nav>
 
@@ -159,6 +176,46 @@
                         </section>
 
                         <!-- =========================================
+                             DEFINIÇÃO DO FUNIL
+                        ========================================== -->
+                        <section class="panel panel-default lead-panel lead-funnel-panel lead-hidden"
+                            id="painelDefinicaoFunil">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <i class="flaticon flaticon-filter"></i>
+                                    Funil de destino
+                                </h2>
+                            </div>
+
+                            <div class="panel-body">
+                                <p class="lead-funnel-intro">
+                                    Selecione o funil que receberá o lead. A escolha é obrigatória.
+                                </p>
+
+                                <div class="lead-funnel-grid">
+                                    <label class="lead-funnel-option" for="funil_destino_cliente">
+                                        <input type="radio" name="funil_destino" id="funil_destino_cliente"
+                                            value="CLIENTE">
+
+                                        <span class="lead-funnel-avatar" aria-hidden="true">
+                                            <i class="fa-regular fa-user"></i>
+                                        </span>
+
+                                        <span class="lead-funnel-content">
+                                            <strong>Funil Cliente</strong>
+                                            <span>Encaminha o lead para o fluxo comercial de clientes.</span>
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div id="mensagemDefinicaoFunil" class="lead-action-feedback" role="status"
+                                    aria-live="polite">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- =========================================
                              TENTATIVAS DE CONTATO
                         ========================================== -->
                         <section class="panel panel-default lead-panel lead-hidden" id="painelTentativas">
@@ -228,6 +285,10 @@
                                                                 Tentativa
                                                             </span>
 
+                                                            <span class="lead-attempt-channel-icon" aria-hidden="true">
+                                                                <i></i>
+                                                            </span>
+
                                                             <input type="text" name="tent_numero" id="tent_numero"
                                                                 class="lead-attempt-number" readonly>
                                                         </div>
@@ -247,7 +308,7 @@
 
                                                             <select name="tent_meio" id="tent_meio"
                                                                 class="form-control">
-                                                                <option value=""></option>
+                                                                <option value="" selected disabled>Selecione...</option>
                                                                 <option value="EMAIL">E-mail</option>
                                                                 <option value="LINKEDIN">LinkedIn</option>
                                                                 <option value="WHATSAPP">WhatsApp</option>
@@ -296,6 +357,96 @@
                         </section>
 
                         <!-- =========================================
+                             HISTÓRICO DE PERDAS
+                        ========================================== -->
+                        <section class="panel panel-default lead-panel lead-loss-history-panel lead-hidden"
+                            id="painelHistoricoPerdas">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <i class="flaticon flaticon-history"></i>
+                                    Histórico de perdas
+                                </h2>
+                            </div>
+
+                            <div class="panel-body">
+                                <p class="lead-loss-history-intro">
+                                    Registros anteriores são preservados e não podem ser alterados ou excluídos.
+                                </p>
+
+                                <div id="perdasEstadoVazio" class="lead-empty-state">
+                                    <div class="lead-empty-icon lead-loss-empty-icon">
+                                        <i class="flaticon flaticon-close"></i>
+                                    </div>
+
+                                    <strong>Nenhuma perda registrada.</strong>
+
+                                    <span>
+                                        O histórico será preenchido quando o lead for enviado para a atividade
+                                        Lead Perdido.
+                                    </span>
+                                </div>
+
+                                <table tablename="tbHistoricoPerdas" id="tbHistoricoPerdas" noaddbutton="true"
+                                    nodeletebutton="true" class="lead-child-table">
+
+                                    <thead class="lead-hidden">
+                                        <tr>
+                                            <th>Perda do lead</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="lead-loss-row">
+                                            <td>
+                                                <article class="lead-loss-card">
+                                                    <input type="hidden" name="perda_id" id="perda_id">
+                                                    <input type="hidden" name="perda_ordem" id="perda_ordem">
+                                                    <input type="hidden" name="perda_atividade_codigo"
+                                                        id="perda_atividade_codigo">
+                                                    <input type="hidden" name="perda_funil" id="perda_funil">
+                                                    <input type="hidden" name="perda_motivo_codigo"
+                                                        id="perda_motivo_codigo">
+
+                                                    <div class="lead-loss-card-header">
+                                                        <strong>
+                                                            Perda
+                                                            <span class="lead-loss-order"
+                                                                data-loss-field="perda_ordem"></span>
+                                                        </strong>
+
+                                                        <span class="lead-loss-date"
+                                                            data-loss-field="perda_data_hora"></span>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6 form-group">
+                                                            <label for="perda_data_hora">Data e hora</label>
+                                                            <input type="text" name="perda_data_hora"
+                                                                id="perda_data_hora" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-md-6 form-group">
+                                                            <label for="perda_atividade_nome">Atividade de origem</label>
+                                                            <input type="text" name="perda_atividade_nome"
+                                                                id="perda_atividade_nome" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group lead-form-group-last">
+                                                        <label for="perda_motivo_texto">Justificativa</label>
+                                                        <textarea name="perda_motivo_texto" id="perda_motivo_texto"
+                                                            class="form-control" rows="3" readonly></textarea>
+                                                    </div>
+                                                </article>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- =========================================
                              AÇÕES DA ATIVIDADE
                         ========================================== -->
                         <section class="panel panel-default lead-panel lead-actions-panel" id="painelAcoes">
@@ -313,12 +464,70 @@
                                     as tentativas de contato.
                                 </p>
 
+                                <div id="painelRecuperacao" class="lead-recovery-selection lead-hidden">
+                                    <label class="label-obrigatorio">
+                                        Atividade para retomar
+                                    </label>
+
+                                    <p>
+                                        Selecione em qual etapa comercial o lead deverá retornar.
+                                    </p>
+
+                                    <div class="lead-recovery-grid">
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_4">
+                                            <input type="radio" name="atividade_recuperacao"
+                                                id="atividade_recuperacao_4" value="4">
+
+                                            <span class="lead-recovery-icon lead-recovery-contact" aria-hidden="true">
+                                                <i class="fa-solid fa-phone-volume"></i>
+                                            </span>
+
+                                            <span class="lead-funnel-content">
+                                                <strong>Tentativa de Contato</strong>
+                                                <span>Retoma o acompanhamento inicial do lead.</span>
+                                            </span>
+                                        </label>
+
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_19">
+                                            <input type="radio" name="atividade_recuperacao"
+                                                id="atividade_recuperacao_19" value="19">
+
+                                            <span class="lead-recovery-icon lead-recovery-opportunity" aria-hidden="true">
+                                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                            </span>
+
+                                            <span class="lead-funnel-content">
+                                                <strong>Oportunidade Gerada</strong>
+                                                <span>Retoma o lead na etapa de oportunidade.</span>
+                                            </span>
+                                        </label>
+
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_21">
+                                            <input type="radio" name="atividade_recuperacao"
+                                                id="atividade_recuperacao_21" value="21">
+
+                                            <span class="lead-recovery-icon lead-recovery-proposal" aria-hidden="true">
+                                                <i class="fa-solid fa-file-contract"></i>
+                                            </span>
+
+                                            <span class="lead-funnel-content">
+                                                <strong>Proposta comercial</strong>
+                                                <span>Retoma o lead diretamente na proposta.</span>
+                                            </span>
+                                        </label>
+                                    </div>
+
+                                    <div id="mensagemRecuperacao" class="lead-action-feedback" role="status"
+                                        aria-live="polite">
+                                    </div>
+                                </div>
+
                                 <div class="lead-action-grid">
                                     <button type="button" id="btnSalvarContinuar"
                                         class="lead-action-option lead-action-save lead-hidden">
 
                                         <span class="lead-action-icon">
-                                            <i class="flaticon flaticon-save"></i>
+                                            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
                                         </span>
 
                                         <span class="lead-action-content">
@@ -326,7 +535,7 @@
 
                                             <span>
                                                 Grava as informações e mantém a solicitação
-                                                na atividade 8 – Tentativa de contato.
+                                                na atividade 4 – Tentativa de contato.
                                             </span>
                                         </span>
                                     </button>
@@ -335,7 +544,7 @@
                                         class="lead-action-option lead-action-complete">
 
                                         <span class="lead-action-icon">
-                                            <i class="flaticon flaticon-check"></i>
+                                            <i class="fa-solid fa-right-long" aria-hidden="true"></i>
                                         </span>
 
                                         <span class="lead-action-content">
@@ -344,6 +553,22 @@
                                             <span>
                                                 Valida os registros e abre a movimentação
                                                 para encerrar o fluxo.
+                                            </span>
+                                        </span>
+                                    </button>
+
+                                    <button type="button" id="btnLeadPerdido"
+                                        class="lead-action-option lead-action-lost lead-hidden">
+
+                                        <span class="lead-action-icon">
+                                            <i class="fa-regular fa-circle-xmark" aria-hidden="true"></i>
+                                        </span>
+
+                                        <span class="lead-action-content">
+                                            <strong>Lead Perdido</strong>
+
+                                            <span>
+                                                Registra uma justificativa e envia o lead para o histórico de perdas.
                                             </span>
                                         </span>
                                     </button>
@@ -571,7 +796,10 @@
     <script type="text/javascript" src="form_contexto.js"></script>
     <script type="text/javascript" src="form_dados.js"></script>
     <script type="text/javascript" src="form_navegacao.js"></script>
+    <script type="text/javascript" src="form_funil.js"></script>
     <script type="text/javascript" src="form_tentativas.js"></script>
+    <script type="text/javascript" src="form_perdas.js"></script>
+    <script type="text/javascript" src="form_recuperacao.js"></script>
     <script type="text/javascript" src="form_visibilidade.js"></script>
     <script type="text/javascript" src="form_bloqueios.js"></script>
     <script type="text/javascript" src="form_obrigatoriedade.js"></script>

@@ -52,6 +52,10 @@ IRHOLeads.Tentativas = (function () {
         IRHOLeads.Dados.campoFilho("tent_hora", indice)
             .val(horaAtual());
 
+        atualizarIconeMeioContato(
+            IRHOLeads.Dados.campoFilho("tent_meio", indice)
+        );
+
         renumerar();
         atualizarEstadoVazio();
         focarNovaTentativa(indice);
@@ -105,6 +109,45 @@ IRHOLeads.Tentativas = (function () {
             IRHOLeads.Dados.campoFilho("tent_meio", indice)
                 .trigger("focus");
         }, 50);
+    }
+
+    function atualizarIconeMeioContato(campo) {
+        var meios = {
+            EMAIL: {
+                icone: "fa-regular fa-envelope",
+                classe: "lead-attempt-email"
+            },
+            LINKEDIN: {
+                icone: "fa-brands fa-linkedin",
+                classe: "lead-attempt-linkedin"
+            },
+            WHATSAPP: {
+                icone: "fa-brands fa-whatsapp",
+                classe: "lead-attempt-whatsapp"
+            },
+            TELEFONE: {
+                icone: "fa-solid fa-phone",
+                classe: "lead-attempt-telefone"
+            }
+        };
+        var seletor = $(campo);
+        var card = seletor.closest(".lead-attempt-card");
+        var icone = card.find(".lead-attempt-channel-icon i");
+        var valor = seletor.val() || "";
+
+        card.removeClass(
+            "lead-attempt-email lead-attempt-linkedin lead-attempt-whatsapp lead-attempt-telefone"
+        );
+
+        icone.removeClass(
+            "fa-regular fa-envelope fa-brands fa-linkedin fa-square-linkedin fa-whatsapp fa-solid fa-phone fa-phone-volume"
+        );
+
+        if (valor && meios[valor]) {
+            icone.addClass(meios[valor].icone);
+            card.addClass(meios[valor].classe);
+            return;
+        }
     }
 
     function mascararData(valor) {
@@ -184,6 +227,18 @@ IRHOLeads.Tentativas = (function () {
                 this.value = mascararData(this.value);
             }
         );
+
+        $("#tbTentativasContato").on(
+            "change",
+            '[name^="tent_meio___"]',
+            function () {
+                atualizarIconeMeioContato(this);
+            }
+        );
+
+        $('#tbTentativasContato [name^="tent_meio___"]').each(function () {
+            atualizarIconeMeioContato(this);
+        });
 
         $("#tbTentativasContato").on(
             "input",

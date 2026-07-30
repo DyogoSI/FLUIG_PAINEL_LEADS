@@ -28,7 +28,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Processo Comercial - Funil de Vendas</processId>
-      <version>5</version>
+      <version>20</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>13467</formId>
@@ -127,8 +127,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>185</positionX>
-      <positionY>351</positionY>
+      <positionX>200</positionX>
+      <positionY>348</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -163,6 +163,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;guilherme-af&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -177,8 +179,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>605</positionX>
-      <positionY>342</positionY>
+      <positionX>530</positionX>
+      <positionY>339</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -213,6 +215,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;guilherme-af&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -227,8 +231,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1045</positionX>
-      <positionY>351</positionY>
+      <positionX>910</positionX>
+      <positionY>348</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -263,6 +267,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;guilherme-af&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -375,8 +381,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1235</positionX>
-      <positionY>376</positionY>
+      <positionX>1290</positionX>
+      <positionY>373</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -422,8 +428,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>75</positionX>
-      <positionY>376</positionY>
+      <positionX>70</positionX>
+      <positionY>373</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -658,7 +664,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1620</positionX>
-      <positionY>290</positionY>
+      <positionY>310</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -705,7 +711,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1620</positionX>
-      <positionY>368</positionY>
+      <positionY>373</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -845,8 +851,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>220</positionX>
-      <positionY>450</positionY>
+      <positionX>200</positionX>
+      <positionY>460</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -892,7 +898,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>640</positionX>
+      <positionX>530</positionX>
       <positionY>460</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -939,7 +945,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1080</positionX>
+      <positionX>910</positionX>
       <positionY>460</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -997,8 +1003,8 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>415</positionX>
-      <positionY>335</positionY>
+      <positionX>390</positionX>
+      <positionY>332</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -1022,8 +1028,8 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>845</positionX>
-      <positionY>335</positionY>
+      <positionX>720</positionX>
+      <positionY>332</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -1048,7 +1054,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>1520</positionX>
-      <positionY>82</positionY>
+      <positionY>92</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -1074,6 +1080,31 @@
       <automatic>true</automatic>
       <positionX>1520</positionX>
       <positionY>323</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <sequence>66</sequence>
+      </processStatePK>
+      <stateName>Destino</stateName>
+      <stateDescription>Destino</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>1110</positionX>
+      <positionY>332</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -1130,7 +1161,140 @@
       <digitalSignature>false</digitalSignature>
     </ProcessState>
   </list>
-  <list/>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>9</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;funil_destino&quot;) == &quot;CLIENTE&quot;</condition>
+      <destinationSequenceId>11</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>27</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;) == &quot;LEAD_PERDIDO&quot;</condition>
+      <destinationSequenceId>33</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>20</version>
+        <sequence>27</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;) == &quot;AVANCAR&quot;</condition>
+      <destinationSequenceId>19</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>28</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;) == &quot;LEAD_PERDIDO&quot;</condition>
+      <destinationSequenceId>33</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>20</version>
+        <sequence>28</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;) == &quot;AVANCAR&quot;</condition>
+      <destinationSequenceId>21</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>38</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;funil_origem_perda&quot;) == &quot;CLIENTE&quot;</condition>
+      <destinationSequenceId>39</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>42</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;atividade_recuperacao&quot;) == &quot;4&quot;</condition>
+      <destinationSequenceId>43</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>20</version>
+        <sequence>42</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;atividade_recuperacao&quot;) == &quot;19&quot;</condition>
+      <destinationSequenceId>44</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>20</version>
+        <sequence>42</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;atividade_recuperacao&quot;) == &quot;21&quot;</condition>
+      <destinationSequenceId>47</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>66</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;) == &quot;LEAD_PERDIDO&quot;</condition>
+      <destinationSequenceId>33</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>20</version>
+        <sequence>66</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;) == &quot;AVANCAR&quot;</condition>
+      <destinationSequenceId>14</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
   <list>
     <ProcessLink>
       <processLinkPK>
@@ -1177,23 +1341,6 @@
       <returnPermited>false</returnPermited>
       <initialStateSequence>15</initialStateSequence>
       <finalStateSequence>4</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>IRHO-LEADS-001</processId>
-        <version>1</version>
-        <linkSequence>23</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>21</initialStateSequence>
-      <finalStateSequence>14</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -1494,29 +1641,14 @@
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
         <version>1</version>
-        <linkSequence>66</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>11</initialStateSequence>
-      <finalStateSequence>15</finalStateSequence>
-      <returnLabel></returnLabel>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>IRHO-LEADS-001</processId>
-        <version>1</version>
         <linkSequence>67</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>11</initialStateSequence>
-      <finalStateSequence>15</finalStateSequence>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>66</finalStateSequence>
       <returnLabel></returnLabel>
+      <name></name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -1530,9 +1662,10 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>14</initialStateSequence>
-      <finalStateSequence>24</finalStateSequence>
+      <initialStateSequence>66</initialStateSequence>
+      <finalStateSequence>14</finalStateSequence>
       <returnLabel></returnLabel>
+      <name></name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -1546,9 +1679,10 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>33</initialStateSequence>
-      <finalStateSequence>34</finalStateSequence>
+      <initialStateSequence>66</initialStateSequence>
+      <finalStateSequence>33</finalStateSequence>
       <returnLabel></returnLabel>
+      <name></name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -1562,8 +1696,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>33</initialStateSequence>
-      <finalStateSequence>34</finalStateSequence>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>15</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1578,8 +1712,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>39</initialStateSequence>
-      <finalStateSequence>49</finalStateSequence>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>15</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1594,8 +1728,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>44</initialStateSequence>
-      <finalStateSequence>60</finalStateSequence>
+      <initialStateSequence>33</initialStateSequence>
+      <finalStateSequence>34</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1610,8 +1744,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>43</initialStateSequence>
-      <finalStateSequence>59</finalStateSequence>
+      <initialStateSequence>33</initialStateSequence>
+      <finalStateSequence>34</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1626,8 +1760,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>47</initialStateSequence>
-      <finalStateSequence>61</finalStateSequence>
+      <initialStateSequence>39</initialStateSequence>
+      <finalStateSequence>49</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1642,8 +1776,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>39</initialStateSequence>
-      <finalStateSequence>49</finalStateSequence>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>60</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1674,8 +1808,8 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>44</initialStateSequence>
-      <finalStateSequence>60</finalStateSequence>
+      <initialStateSequence>47</initialStateSequence>
+      <finalStateSequence>61</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1690,8 +1824,88 @@
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
+      <initialStateSequence>39</initialStateSequence>
+      <finalStateSequence>49</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <linkSequence>79</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>43</initialStateSequence>
+      <finalStateSequence>59</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <linkSequence>80</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>60</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <linkSequence>81</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
       <initialStateSequence>47</initialStateSequence>
       <finalStateSequence>61</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <linkSequence>82</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>14</initialStateSequence>
+      <finalStateSequence>24</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>1</version>
+        <linkSequence>83</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>33</initialStateSequence>
+      <finalStateSequence>34</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -1722,71 +1936,195 @@
         <processId>IRHO-LEADS-001</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>var ATIVIDADE_TENTATIVA_CONTATO = 4;&#xd;
-&#xd;
-function beforeTaskSave(&#xd;
-    colleagueId,&#xd;
-    nextSequenceId,&#xd;
-    userList&#xd;
-) {&#xd;
-    var numSolicitacao =&#xd;
-        getValue(&quot;WKNumProces&quot;);&#xd;
-&#xd;
-    var atividadeAtual = parseInt(&#xd;
-        getValue(&quot;WKNumState&quot;),&#xd;
-        10&#xd;
-    );&#xd;
-&#xd;
-    var completandoAtividade =&#xd;
-        tarefaEstaSendoConcluida();&#xd;
-&#xd;
-    var prefixoLog =&#xd;
-        &quot;&gt;&gt;&gt; [IRHO-LEADS] beforeTaskSave&quot;;&#xd;
-&#xd;
-    log.info(&#xd;
-        prefixoLog&#xd;
-        + &quot; | Solicitação: &quot;&#xd;
-        + numSolicitacao&#xd;
-        + &quot; | Atividade atual: &quot;&#xd;
-        + atividadeAtual&#xd;
-        + &quot; | Destino: &quot;&#xd;
-        + nextSequenceId&#xd;
-        + &quot; | Completando: &quot;&#xd;
-        + completandoAtividade&#xd;
-        + &quot; | Usuário: &quot;&#xd;
-        + colleagueId&#xd;
-    );&#xd;
-&#xd;
-    if (&#xd;
-        atividadeAtual&#xd;
-        != ATIVIDADE_TENTATIVA_CONTATO&#xd;
-    ) {&#xd;
-        return;&#xd;
-    }&#xd;
-&#xd;
-    /*&#xd;
-     * A validação dos campos e da tabela pai x filho&#xd;
-     * ocorre no validateForm.js.&#xd;
-     *&#xd;
-     * Este evento apenas registra qual ação foi executada.&#xd;
-     */&#xd;
-    hAPI.setCardValue(&#xd;
-        &quot;acao_atividade&quot;,&#xd;
-        completandoAtividade&#xd;
-            ? &quot;MOVIMENTAR&quot;&#xd;
-            : &quot;SALVAR&quot;&#xd;
-    );&#xd;
-}&#xd;
-&#xd;
-function tarefaEstaSendoConcluida() {&#xd;
-    var valor = getValue(&#xd;
-        &quot;WKCompletTask&quot;&#xd;
-    );&#xd;
-&#xd;
-    return valor === true&#xd;
-        || String(valor).toLowerCase()&#xd;
-            == &quot;true&quot;;&#xd;
-}</eventDescription>
+      <eventDescription>var BTS_ATIVIDADE_INICIO = 6;
+var BTS_ATIVIDADE_TENTATIVA_CONTATO = 4;
+var BTS_ATIVIDADE_OPORTUNIDADE_GERADA = 19;
+var BTS_ATIVIDADE_PROPOSTA_COMERCIAL = 21;
+var BTS_TABELA_HISTORICO_PERDAS = &quot;tbHistoricoPerdas&quot;;
+
+function beforeTaskSave(
+    colleagueId,
+    nextSequenceId,
+    userList
+) {
+    var numSolicitacao = getValue(&quot;WKNumProces&quot;);
+    var atividadeAtual = parseInt(
+        getValue(&quot;WKNumState&quot;),
+        10
+    );
+    var completandoAtividade = btsTarefaEstaSendoConcluida();
+    var acaoFluxo = btsTexto(
+        hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;)
+    );
+    var prefixoLog = &quot;&gt;&gt;&gt; [IRHO-LEADS] beforeTaskSave&quot;;
+
+    log.info(
+        prefixoLog
+        + &quot; | Solicitação: &quot;
+        + numSolicitacao
+        + &quot; | Atividade atual: &quot;
+        + atividadeAtual
+        + &quot; | Destino: &quot;
+        + nextSequenceId
+        + &quot; | Completando: &quot;
+        + completandoAtividade
+        + &quot; | Ação comercial: &quot;
+        + acaoFluxo
+    );
+
+    if (
+        atividadeAtual == 0
+        || atividadeAtual == BTS_ATIVIDADE_INICIO
+    ) {
+        if (completandoAtividade) {
+            hAPI.setCardValue(&quot;acao_atividade&quot;, &quot;MOVIMENTAR&quot;);
+            hAPI.setCardValue(
+                &quot;acao_fluxo_comercial&quot;,
+                &quot;AVANCAR&quot;
+            );
+        }
+
+        return;
+    }
+
+    if (!btsEhAtividadeComercial(atividadeAtual)) {
+        return;
+    }
+
+    if (!completandoAtividade) {
+        hAPI.setCardValue(&quot;acao_atividade&quot;, &quot;SALVAR&quot;);
+        hAPI.setCardValue(&quot;acao_fluxo_comercial&quot;, &quot;&quot;);
+        return;
+    }
+
+    hAPI.setCardValue(&quot;acao_atividade&quot;, &quot;MOVIMENTAR&quot;);
+
+    if (acaoFluxo == &quot;LEAD_PERDIDO&quot;) {
+        btsRegistrarHistoricoPerda(atividadeAtual);
+        hAPI.setCardValue(&quot;atividade_recuperacao&quot;, &quot;&quot;);
+        return;
+    }
+
+    hAPI.setCardValue(
+        &quot;acao_fluxo_comercial&quot;,
+        &quot;AVANCAR&quot;
+    );
+}
+
+function btsRegistrarHistoricoPerda(atividadeAtual) {
+    var chavePendente = btsTexto(
+        hAPI.getCardValue(&quot;perda_chave_pendente&quot;)
+    );
+
+    if (chavePendente == &quot;&quot;) {
+        throw &quot;A chave de controle da perda não foi informada.&quot;;
+    }
+
+    var resumo = btsResumoHistorico(chavePendente);
+
+    if (resumo.jaExiste) {
+        log.info(
+            &quot;&gt;&gt;&gt; [IRHO-LEADS] Histórico de perda já registrado&quot;
+            + &quot; | Chave: &quot;
+            + chavePendente
+        );
+        return;
+    }
+
+    var filho = new java.util.HashMap();
+    var formato = new java.text.SimpleDateFormat(
+        &quot;dd/MM/yyyy HH:mm&quot;
+    );
+
+    filho.put(&quot;perda_id&quot;, chavePendente);
+    filho.put(&quot;perda_ordem&quot;, String(resumo.maiorOrdem + 1));
+    filho.put(
+        &quot;perda_data_hora&quot;,
+        formato.format(new java.util.Date())
+    );
+    filho.put(
+        &quot;perda_atividade_codigo&quot;,
+        String(atividadeAtual)
+    );
+    filho.put(
+        &quot;perda_atividade_nome&quot;,
+        btsTexto(hAPI.getCardValue(&quot;atividade_origem_nome&quot;))
+    );
+    filho.put(
+        &quot;perda_funil&quot;,
+        btsTexto(hAPI.getCardValue(&quot;funil_origem_perda&quot;))
+    );
+    filho.put(
+        &quot;perda_motivo_codigo&quot;,
+        btsTexto(hAPI.getCardValue(&quot;motivo_perda_codigo&quot;))
+    );
+    filho.put(
+        &quot;perda_motivo_texto&quot;,
+        btsTexto(hAPI.getCardValue(&quot;motivo_perda_texto&quot;))
+    );
+
+    hAPI.addCardChild(
+        BTS_TABELA_HISTORICO_PERDAS,
+        filho
+    );
+}
+
+function btsResumoHistorico(chavePendente) {
+    var indices = hAPI.getChildrenIndexes(
+        BTS_TABELA_HISTORICO_PERDAS
+    );
+    var resultado = {
+        jaExiste: false,
+        maiorOrdem: 0
+    };
+
+    if (indices == null) {
+        return resultado;
+    }
+
+    for (var i = 0; i &lt; indices.length; i++) {
+        var indice = String(indices[i]);
+        var perdaId = btsTexto(
+            hAPI.getCardValue(&quot;perda_id___&quot; + indice)
+        );
+        var ordem = parseInt(
+            hAPI.getCardValue(&quot;perda_ordem___&quot; + indice),
+            10
+        );
+
+        if (perdaId == chavePendente) {
+            resultado.jaExiste = true;
+        }
+
+        if (!isNaN(ordem) &amp;&amp; ordem &gt; resultado.maiorOrdem) {
+            resultado.maiorOrdem = ordem;
+        }
+    }
+
+    return resultado;
+}
+
+function btsEhAtividadeComercial(atividadeAtual) {
+    return atividadeAtual == BTS_ATIVIDADE_TENTATIVA_CONTATO
+        || atividadeAtual == BTS_ATIVIDADE_OPORTUNIDADE_GERADA
+        || atividadeAtual == BTS_ATIVIDADE_PROPOSTA_COMERCIAL;
+}
+
+function btsTarefaEstaSendoConcluida() {
+    var valor = getValue(&quot;WKCompletTask&quot;);
+
+    return valor === true
+        || String(valor).toLowerCase() == &quot;true&quot;;
+}
+
+function btsTexto(valor) {
+    if (valor == null) {
+        return &quot;&quot;;
+    }
+
+    return String(valor).replace(/^\s+|\s+$/g, &quot;&quot;);
+}
+</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -1795,191 +2133,235 @@ function tarefaEstaSendoConcluida() {&#xd;
         <processId>IRHO-LEADS-001</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>var ATIVIDADE_TENTATIVA_CONTATO = 4;&#xd;
-var TABELA_TENTATIVAS = &quot;tbTentativasContato&quot;;&#xd;
-&#xd;
-function afterTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
-    var numSolicitacao = getValue(&quot;WKNumProces&quot;);&#xd;
-    var atividadeAtual = parseInt(getValue(&quot;WKNumState&quot;), 10);&#xd;
-    var completandoAtividade = tarefaEstaSendoConcluida();&#xd;
-    var prefixoLog = &quot;&gt;&gt;&gt; [IRHO-LEADS] afterTaskSave&quot;;&#xd;
-&#xd;
-    log.info(&#xd;
-        prefixoLog&#xd;
-        + &quot; | Solicitação: &quot;&#xd;
-        + numSolicitacao&#xd;
-        + &quot; | Atividade atual: &quot;&#xd;
-        + atividadeAtual&#xd;
-        + &quot; | Destino: &quot;&#xd;
-        + nextSequenceId&#xd;
-        + &quot; | Completando: &quot;&#xd;
-        + completandoAtividade&#xd;
-    );&#xd;
-&#xd;
-    if (atividadeAtual != ATIVIDADE_TENTATIVA_CONTATO) {&#xd;
-        return;&#xd;
-    }&#xd;
-&#xd;
-    try {&#xd;
-        var dataHoraAtual = formatarDataHoraAtual();&#xd;
-&#xd;
-        hAPI.setCardValue(&#xd;
-            &quot;atividade_atual&quot;,&#xd;
-            String(atividadeAtual)&#xd;
-        );&#xd;
-&#xd;
-        if (texto(hAPI.getCardValue(&quot;numero_solicitacao&quot;)) == &quot;&quot;) {&#xd;
-            hAPI.setCardValue(&#xd;
-                &quot;numero_solicitacao&quot;,&#xd;
-                String(numSolicitacao)&#xd;
-            );&#xd;
-        }&#xd;
-&#xd;
-        if (texto(hAPI.getCardValue(&quot;data_inicio_contato&quot;)) == &quot;&quot;) {&#xd;
-            hAPI.setCardValue(&#xd;
-                &quot;data_inicio_contato&quot;,&#xd;
-                dataHoraAtual&#xd;
-            );&#xd;
-        }&#xd;
-        var resumo = calcularResumoTentativas();&#xd;
-&#xd;
-        hAPI.setCardValue(&#xd;
-            &quot;total_tentativas&quot;,&#xd;
-            String(resumo.total)&#xd;
-        );&#xd;
-&#xd;
-&#xd;
-&#xd;
-        hAPI.setCardValue(&#xd;
-            &quot;ultima_tent_data&quot;,&#xd;
-            resumo.ultimaData&#xd;
-        );&#xd;
-&#xd;
-        hAPI.setCardValue(&#xd;
-            &quot;ultima_tent_meio&quot;,&#xd;
-            resumo.ultimoMeio&#xd;
-        );&#xd;
-&#xd;
-        hAPI.setCardValue(&#xd;
-            &quot;acao_atividade&quot;,&#xd;
-            completandoAtividade ? &quot;MOVIMENTAR&quot; : &quot;SALVAR&quot;&#xd;
-        );&#xd;
-&#xd;
-        if (completandoAtividade) {&#xd;
-            hAPI.setCardValue(&#xd;
-                &quot;status_lead&quot;,&#xd;
-                &quot;CONTATO_FINALIZADO&quot;&#xd;
-            );&#xd;
-&#xd;
-            if (texto(hAPI.getCardValue(&quot;data_fim_contato&quot;)) == &quot;&quot;) {&#xd;
-                hAPI.setCardValue(&#xd;
-                    &quot;data_fim_contato&quot;,&#xd;
-                    formatarDataHoraAtual()&#xd;
-                );&#xd;
-            }&#xd;
-        } else {&#xd;
-            hAPI.setCardValue(&#xd;
-                &quot;status_lead&quot;,&#xd;
-                &quot;EM_CONTATO&quot;&#xd;
-            );&#xd;
-        }&#xd;
-&#xd;
-        log.info(&#xd;
-            prefixoLog&#xd;
-            + &quot; | Resumo atualizado. Total: &quot;&#xd;
-            + resumo.total&#xd;
-            + &quot; | Último meio: &quot;&#xd;
-            + resumo.ultimoMeio&#xd;
-            + &quot; | Última data: &quot;&#xd;
-            + resumo.ultimaData&#xd;
-        );&#xd;
-    } catch (e) {&#xd;
-        log.error(&#xd;
-            prefixoLog&#xd;
-            + &quot; | Erro ao atualizar o resumo da solicitação &quot;&#xd;
-            + numSolicitacao&#xd;
-            + &quot;: &quot;&#xd;
-            + e&#xd;
-        );&#xd;
-&#xd;
-        throw e;&#xd;
-    }&#xd;
-}&#xd;
-&#xd;
-function calcularResumoTentativas() {&#xd;
-    var indices = obterIndicesTentativas();&#xd;
-    var ultimaOrdem = -1;&#xd;
-    var ultimaData = &quot;&quot;;&#xd;
-    var ultimoMeio = &quot;&quot;;&#xd;
-&#xd;
-    for (var i = 0; i &lt; indices.length; i++) {&#xd;
-        var indice = indices[i];&#xd;
-&#xd;
-        var ordem = parseInt(&#xd;
-            hAPI.getCardValue(&quot;tent_ordem___&quot; + indice),&#xd;
-            10&#xd;
-        );&#xd;
-&#xd;
-        if (isNaN(ordem)) {&#xd;
-            ordem = i + 1;&#xd;
-        }&#xd;
-&#xd;
-        if (ordem &gt;= ultimaOrdem) {&#xd;
-            ultimaOrdem = ordem;&#xd;
-&#xd;
-            ultimaData = texto(&#xd;
-                hAPI.getCardValue(&quot;tent_data___&quot; + indice)&#xd;
-            );&#xd;
-&#xd;
-            ultimoMeio = texto(&#xd;
-                hAPI.getCardValue(&quot;tent_meio___&quot; + indice)&#xd;
-            );&#xd;
-        }&#xd;
-    }&#xd;
-&#xd;
-    return {&#xd;
-        total: indices.length,&#xd;
-        ultimaData: ultimaData,&#xd;
-        ultimoMeio: ultimoMeio&#xd;
-    };&#xd;
-}&#xd;
-&#xd;
-function obterIndicesTentativas() {&#xd;
-    var resultado = [];&#xd;
-    var indices = hAPI.getChildrenIndexes(TABELA_TENTATIVAS);&#xd;
-&#xd;
-    if (indices == null) {&#xd;
-        return resultado;&#xd;
-    }&#xd;
-&#xd;
-    for (var i = 0; i &lt; indices.size(); i++) {&#xd;
-        resultado.push(String(indices.get(i)));&#xd;
-    }&#xd;
-&#xd;
-    return resultado;&#xd;
-}&#xd;
-&#xd;
-function tarefaEstaSendoConcluida() {&#xd;
-    var valor = getValue(&quot;WKCompletTask&quot;);&#xd;
-&#xd;
-    return (&#xd;
-        valor === true&#xd;
-        || String(valor).toLowerCase() == &quot;true&quot;&#xd;
-    );&#xd;
-}&#xd;
-&#xd;
-function texto(valor) {&#xd;
-    if (valor == null) {&#xd;
-        return &quot;&quot;;&#xd;
-    }&#xd;
-&#xd;
-    return String(valor).replace(/^\s+|\s+$/g, &quot;&quot;);&#xd;
-}&#xd;
-&#xd;
-function formatarDataHoraAtual() {&#xd;
-    var formato = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);&#xd;
-    return formato.format(new java.util.Date());&#xd;
-}&#xd;
+      <eventDescription>var ATS_ATIVIDADE_TENTATIVA_CONTATO = 4;
+var ATS_ATIVIDADE_OPORTUNIDADE_GERADA = 19;
+var ATS_ATIVIDADE_PROPOSTA_COMERCIAL = 21;
+var ATS_TABELA_TENTATIVAS = &quot;tbTentativasContato&quot;;
+
+function afterTaskSave(colleagueId, nextSequenceId, userList) {
+    var numSolicitacao = getValue(&quot;WKNumProces&quot;);
+    var atividadeAtual = parseInt(getValue(&quot;WKNumState&quot;), 10);
+    var completandoAtividade = atsTarefaEstaSendoConcluida();
+    var acaoFluxo = atsTexto(
+        hAPI.getCardValue(&quot;acao_fluxo_comercial&quot;)
+    );
+    var perdendoLead = acaoFluxo == &quot;LEAD_PERDIDO&quot;;
+    var prefixoLog = &quot;&gt;&gt;&gt; [IRHO-LEADS] afterTaskSave&quot;;
+
+    log.info(
+        prefixoLog
+        + &quot; | Solicitação: &quot;
+        + numSolicitacao
+        + &quot; | Atividade atual: &quot;
+        + atividadeAtual
+        + &quot; | Destino: &quot;
+        + nextSequenceId
+        + &quot; | Completando: &quot;
+        + completandoAtividade
+        + &quot; | Ação comercial: &quot;
+        + acaoFluxo
+    );
+
+    try {
+        if (atividadeAtual == ATS_ATIVIDADE_TENTATIVA_CONTATO) {
+            atsAtualizarResumoContato(
+                numSolicitacao,
+                completandoAtividade,
+                perdendoLead,
+                prefixoLog
+            );
+        } else if (
+            completandoAtividade
+            &amp;&amp; perdendoLead
+            &amp;&amp; atsEhAtividadeComercial(atividadeAtual)
+        ) {
+            hAPI.setCardValue(&quot;status_lead&quot;, &quot;PERDIDO&quot;);
+        }
+
+        if (
+            completandoAtividade
+            &amp;&amp; perdendoLead
+            &amp;&amp; atsEhAtividadeComercial(atividadeAtual)
+        ) {
+            atsLimparCamposPendentes();
+        }
+    } catch (e) {
+        log.error(
+            prefixoLog
+            + &quot; | Erro ao atualizar a solicitação &quot;
+            + numSolicitacao
+            + &quot;: &quot;
+            + e
+        );
+
+        throw e;
+    }
+}
+
+function atsAtualizarResumoContato(
+    numSolicitacao,
+    completandoAtividade,
+    perdendoLead,
+    prefixoLog
+) {
+    var dataHoraAtual = atsFormatarDataHoraAtual();
+
+    hAPI.setCardValue(
+        &quot;atividade_atual&quot;,
+        String(ATS_ATIVIDADE_TENTATIVA_CONTATO)
+    );
+
+    if (atsTexto(hAPI.getCardValue(&quot;numero_solicitacao&quot;)) == &quot;&quot;) {
+        hAPI.setCardValue(
+            &quot;numero_solicitacao&quot;,
+            String(numSolicitacao)
+        );
+    }
+
+    if (atsTexto(hAPI.getCardValue(&quot;data_inicio_contato&quot;)) == &quot;&quot;) {
+        hAPI.setCardValue(
+            &quot;data_inicio_contato&quot;,
+            dataHoraAtual
+        );
+    }
+
+    var resumo = atsCalcularResumoTentativas();
+
+    hAPI.setCardValue(
+        &quot;total_tentativas&quot;,
+        String(resumo.total)
+    );
+    hAPI.setCardValue(
+        &quot;ultima_tent_data&quot;,
+        resumo.ultimaData
+    );
+    hAPI.setCardValue(
+        &quot;ultima_tent_meio&quot;,
+        resumo.ultimoMeio
+    );
+    hAPI.setCardValue(
+        &quot;acao_atividade&quot;,
+        completandoAtividade ? &quot;MOVIMENTAR&quot; : &quot;SALVAR&quot;
+    );
+
+    if (completandoAtividade &amp;&amp; perdendoLead) {
+        hAPI.setCardValue(&quot;status_lead&quot;, &quot;PERDIDO&quot;);
+    } else if (completandoAtividade) {
+        hAPI.setCardValue(
+            &quot;status_lead&quot;,
+            &quot;CONTATO_FINALIZADO&quot;
+        );
+    } else {
+        hAPI.setCardValue(&quot;status_lead&quot;, &quot;EM_CONTATO&quot;);
+    }
+
+    if (
+        completandoAtividade
+        &amp;&amp; atsTexto(hAPI.getCardValue(&quot;data_fim_contato&quot;)) == &quot;&quot;
+    ) {
+        hAPI.setCardValue(
+            &quot;data_fim_contato&quot;,
+            atsFormatarDataHoraAtual()
+        );
+    }
+
+    log.info(
+        prefixoLog
+        + &quot; | Resumo atualizado. Total: &quot;
+        + resumo.total
+        + &quot; | Último meio: &quot;
+        + resumo.ultimoMeio
+        + &quot; | Última data: &quot;
+        + resumo.ultimaData
+    );
+}
+
+function atsCalcularResumoTentativas() {
+    var indices = atsObterIndicesTentativas();
+    var ultimaOrdem = -1;
+    var ultimaData = &quot;&quot;;
+    var ultimoMeio = &quot;&quot;;
+
+    for (var i = 0; i &lt; indices.length; i++) {
+        var indice = indices[i];
+        var ordem = parseInt(
+            hAPI.getCardValue(&quot;tent_ordem___&quot; + indice),
+            10
+        );
+
+        if (isNaN(ordem)) {
+            ordem = i + 1;
+        }
+
+        if (ordem &gt;= ultimaOrdem) {
+            ultimaOrdem = ordem;
+            ultimaData = atsTexto(
+                hAPI.getCardValue(&quot;tent_data___&quot; + indice)
+            );
+            ultimoMeio = atsTexto(
+                hAPI.getCardValue(&quot;tent_meio___&quot; + indice)
+            );
+        }
+    }
+
+    return {
+        total: indices.length,
+        ultimaData: ultimaData,
+        ultimoMeio: ultimoMeio
+    };
+}
+
+function atsObterIndicesTentativas() {
+    var resultado = [];
+    var indices = hAPI.getChildrenIndexes(
+        ATS_TABELA_TENTATIVAS
+    );
+
+    if (indices == null) {
+        return resultado;
+    }
+
+    for (var i = 0; i &lt; indices.length; i++) {
+        resultado.push(String(indices[i]));
+    }
+
+    return resultado;
+}
+
+function atsLimparCamposPendentes() {
+    hAPI.setCardValue(&quot;motivo_perda_codigo&quot;, &quot;&quot;);
+    hAPI.setCardValue(&quot;motivo_perda_texto&quot;, &quot;&quot;);
+    hAPI.setCardValue(&quot;perda_chave_pendente&quot;, &quot;&quot;);
+}
+
+function atsEhAtividadeComercial(atividadeAtual) {
+    return atividadeAtual == ATS_ATIVIDADE_TENTATIVA_CONTATO
+        || atividadeAtual == ATS_ATIVIDADE_OPORTUNIDADE_GERADA
+        || atividadeAtual == ATS_ATIVIDADE_PROPOSTA_COMERCIAL;
+}
+
+function atsTarefaEstaSendoConcluida() {
+    var valor = getValue(&quot;WKCompletTask&quot;);
+
+    return valor === true
+        || String(valor).toLowerCase() == &quot;true&quot;;
+}
+
+function atsTexto(valor) {
+    if (valor == null) {
+        return &quot;&quot;;
+    }
+
+    return String(valor).replace(/^\s+|\s+$/g, &quot;&quot;);
+}
+
+function atsFormatarDataHoraAtual() {
+    var formato = new java.text.SimpleDateFormat(
+        &quot;yyyy-MM-dd HH:mm:ss&quot;
+    );
+
+    return formato.format(new java.util.Date());
+}
 </eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -2091,7 +2473,7 @@ function formatarDataHoraAtual() {&#xd;
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>1690</positionX>
-      <positionY>280</positionY>
+      <positionY>300</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
@@ -2115,7 +2497,7 @@ function formatarDataHoraAtual() {&#xd;
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>1690</positionX>
-      <positionY>358</positionY>
+      <positionY>363</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
@@ -2206,18 +2588,29 @@ function formatarDataHoraAtual() {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
-        <version>5</version>
+        <version>20</version>
+        <linkSequence>10</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>230</positionX>
+      <positionY>42</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
         <linkSequence>36</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>447</positionX>
+      <positionX>420</positionX>
       <positionY>295</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
-        <version>5</version>
+        <version>20</version>
         <linkSequence>36</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2228,34 +2621,177 @@ function formatarDataHoraAtual() {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
-        <version>5</version>
+        <version>20</version>
         <linkSequence>36</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
-      <positionX>1360</positionX>
+      <positionX>1357</positionX>
       <positionY>295</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
-        <version>5</version>
+        <version>20</version>
         <linkSequence>37</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>876</positionX>
-      <positionY>289</positionY>
+      <positionX>749</positionX>
+      <positionY>295</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>IRHO-LEADS-001</processId>
-        <version>5</version>
+        <version>20</version>
         <linkSequence>37</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
+      <positionX>1053</positionX>
+      <positionY>295</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>37</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
       <positionX>1357</positionX>
-      <positionY>289</positionY>
+      <positionY>295</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>41</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1553</positionX>
+      <positionY>47</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>46</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1597</positionX>
+      <positionY>390</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>46</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1597</positionX>
+      <positionY>326</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>48</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1597</positionX>
+      <positionY>390</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>48</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1597</positionX>
+      <positionY>456</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>62</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>253</positionX>
+      <positionY>477</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>63</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>565</positionX>
+      <positionY>477</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>63</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>565</positionX>
+      <positionY>477</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>63</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>582</positionX>
+      <positionY>477</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>64</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>962</positionX>
+      <positionY>474</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>69</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1138</positionX>
+      <positionY>295</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>IRHO-LEADS-001</processId>
+        <version>20</version>
+        <linkSequence>69</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1357</positionX>
+      <positionY>295</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
