@@ -114,62 +114,199 @@
                             </div>
 
                             <div class="panel-body">
-                                <div class="lead-info-message">
-                                    Os dados abaixo são recebidos automaticamente
-                                    pelo CRM no início da solicitação.
+                                <div class="lead-company-contact-source" aria-hidden="true">
+                                    <input type="hidden" name="lead_id" id="lead_id">
+                                    <input type="hidden" name="empresa_site" id="empresa_site">
+                                    <input type="hidden" name="tipo_registro" id="tipo_registro">
+                                    <input type="hidden" name="segmento" id="segmento">
+                                    <input type="hidden" name="cidade" id="cidade">
+                                    <input type="hidden" name="score_percentual" id="score_percentual">
+                                    <input type="hidden" name="score_classificacao" id="score_classificacao">
+                                    <input type="hidden" name="qual_mais_50" id="qual_mais_50">
+                                    <input type="hidden" name="qual_decisor" id="qual_decisor">
+                                    <input type="hidden" name="qual_filiais" id="qual_filiais">
+                                    <input type="hidden" name="qual_conhece_empresa" id="qual_conhece_empresa">
+                                    <input type="hidden" name="qual_diagnostico_rh" id="qual_diagnostico_rh">
+
+                                    <input type="text" name="empresa_nome" id="empresa_nome" class="form-control" readonly>
+                                    <input type="text" name="empresa_cnpj" id="empresa_cnpj" class="form-control" readonly>
+                                    <input type="text" name="crm_origem" id="crm_origem" class="form-control" readonly>
+                                    <input type="text" name="contato_nome" id="contato_nome" class="form-control" readonly>
+                                    <input type="text" name="contato_cargo" id="contato_cargo" class="form-control" readonly>
+                                    <input type="text" name="contato_telefone" id="contato_telefone" class="form-control" readonly>
+                                    <input type="text" name="contato_email" id="contato_email" class="form-control" readonly>
+                                    <input type="text" name="contato_linkedin" id="contato_linkedin" class="form-control" readonly>
+
+                                    <table tablename="tbContatosSecundarios" id="tbContatosSecundarios"
+                                        noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                            <tr>
+                                                <th>Contato secundário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="hidden" name="cont_sec_ordem" id="cont_sec_ordem">
+                                                    <input type="hidden" name="cont_sec_nome" id="cont_sec_nome">
+                                                    <input type="hidden" name="cont_sec_cargo" id="cont_sec_cargo">
+                                                    <input type="hidden" name="cont_sec_telefone" id="cont_sec_telefone">
+                                                    <input type="hidden" name="cont_sec_email" id="cont_sec_email">
+                                                    <input type="hidden" name="cont_sec_linkedin" id="cont_sec_linkedin">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label for="empresa_nome">Empresa</label>
-                                        <input type="text" name="empresa_nome" id="empresa_nome" class="form-control"
-                                            readonly>
+                                <div class="lead-company-contact-layout">
+                                    <div class="lead-summary-column">
+                                        <section class="lead-summary-card">
+                                            <h3>Empresa</h3>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Nome</span>
+                                                <span class="lead-data-value" data-lead-field="empresa_nome"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">CNPJ</span>
+                                                <span class="lead-data-value" data-lead-field="empresa_cnpj"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Site</span>
+                                                <span class="lead-data-value" data-lead-field="empresa_site"
+                                                    data-link-type="url"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Tipo de registro</span>
+                                                <span class="lead-data-value" data-lead-field="tipo_registro"></span>
+                                            </div>
+                                        </section>
+
+                                        <section class="lead-summary-card">
+                                            <h3>Contato principal</h3>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Código</span>
+                                                <span class="lead-data-value" data-lead-field="lead_id"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Nome</span>
+                                                <span class="lead-data-value" data-lead-field="contato_nome"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Cargo</span>
+                                                <span class="lead-data-value" data-lead-field="contato_cargo"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Telefone</span>
+                                                <span class="lead-data-value" data-lead-field="contato_telefone"
+                                                    data-link-type="tel"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">E-mail</span>
+                                                <span class="lead-data-value" data-lead-field="contato_email"
+                                                    data-link-type="email"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">LinkedIn</span>
+                                                <span class="lead-data-value" data-lead-field="contato_linkedin"
+                                                    data-link-type="url"></span>
+                                            </div>
+                                        </section>
+
+                                        <section class="lead-summary-card lead-score-summary">
+                                            <h3>Score de Qualificação</h3>
+                                            <strong class="lead-score-value" data-score-percentual></strong>
+                                            <span class="lead-score-classification" data-score-classificacao></span>
+                                        </section>
                                     </div>
 
-                                    <div class="col-md-3 form-group">
-                                        <label for="empresa_cnpj">CNPJ</label>
-                                        <input type="text" name="empresa_cnpj" id="empresa_cnpj" class="form-control"
-                                            readonly>
-                                    </div>
+                                    <div class="lead-details-column">
+                                        <div class="lead-info-carousel" aria-label="Informações do lead">
+                                            <div class="lead-info-carousel-header">
+                                                <div>
+                                                    <h3 data-carousel-title>Qualificação do Lead</h3>
+                                                    <span data-carousel-position>1 de 3</span>
+                                                </div>
+                                                <div class="lead-info-controls">
+                                                    <button type="button" id="btnInfoAnterior" aria-label="Informação anterior">
+                                                        Anterior
+                                                    </button>
+                                                    <button type="button" id="btnInfoProximo" aria-label="Próxima informação">
+                                                        Próximo
+                                                    </button>
+                                                </div>
+                                            </div>
 
-                                    <div class="col-md-3 form-group">
-                                        <label for="crm_origem">Origem do lead</label>
-                                        <input type="text" name="crm_origem" id="crm_origem" class="form-control"
-                                            readonly>
-                                    </div>
-                                </div>
+                                            <div class="lead-info-slides">
+                                                <section class="lead-info-slide is-active" id="infoSlideQualificacao"
+                                                    role="tabpanel" aria-hidden="false"
+                                                    data-slide-title="Qualificação do Lead">
+                                                    <div class="lead-question-row">
+                                                        <span>A empresa possui mais de 50 funcionários?</span>
+                                                        <span class="lead-answer-badge" data-qualificacao-field="qual_mais_50"></span>
+                                                    </div>
+                                                    <div class="lead-question-row">
+                                                        <span>O contato possui cargo de decisor?</span>
+                                                        <span class="lead-answer-badge" data-qualificacao-field="qual_decisor"></span>
+                                                    </div>
+                                                    <div class="lead-question-row">
+                                                        <span>A empresa possui filiais ou outras unidades?</span>
+                                                        <span class="lead-answer-badge" data-qualificacao-field="qual_filiais"></span>
+                                                    </div>
+                                                    <div class="lead-question-row">
+                                                        <span>Já conhece a nossa empresa?</span>
+                                                        <span class="lead-answer-badge" data-qualificacao-field="qual_conhece_empresa"></span>
+                                                    </div>
+                                                    <div class="lead-question-row">
+                                                        <span>Realizou nosso diagnóstico de RH?</span>
+                                                        <span class="lead-answer-badge" data-qualificacao-field="qual_diagnostico_rh"></span>
+                                                    </div>
+                                                </section>
 
-                                <div class="row">
-                                    <div class="col-md-4 form-group">
-                                        <label for="contato_nome">Contato</label>
-                                        <input type="text" name="contato_nome" id="contato_nome" class="form-control"
-                                            readonly>
-                                    </div>
+                                                <section class="lead-info-slide" id="infoSlideContatos" aria-hidden="true"
+                                                    role="tabpanel" data-slide-title="Contatos Secundários">
+                                                    <div class="lead-secondary-contacts" data-secondary-contacts></div>
+                                                </section>
 
-                                    <div class="col-md-4 form-group">
-                                        <label for="contato_cargo">Cargo</label>
-                                        <input type="text" name="contato_cargo" id="contato_cargo" class="form-control"
-                                            readonly>
-                                    </div>
+                                                <section class="lead-info-slide" id="infoSlideAdicionais" aria-hidden="true"
+                                                    role="tabpanel" data-slide-title="Dados Adicionais">
+                                                    <div data-additional-rows>
+                                                        <div class="lead-data-row">
+                                                            <span class="lead-data-label">Segmento</span>
+                                                            <span class="lead-data-value" data-lead-field="segmento"></span>
+                                                        </div>
+                                                        <div class="lead-data-row">
+                                                            <span class="lead-data-label">Cidade</span>
+                                                            <span class="lead-data-value" data-lead-field="cidade"></span>
+                                                        </div>
+                                                        <div class="lead-data-row">
+                                                            <span class="lead-data-label">Telefone do contato</span>
+                                                            <span class="lead-data-value" data-lead-field="contato_telefone"
+                                                                data-link-type="tel"></span>
+                                                        </div>
+                                                        <div class="lead-data-row">
+                                                            <span class="lead-data-label">Origem do lead</span>
+                                                            <span class="lead-data-value" data-lead-field="crm_origem"></span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="lead-secondary-empty lead-hidden" data-additional-empty>
+                                                        Nenhum dado adicional informado.
+                                                    </p>
+                                                </section>
+                                            </div>
 
-                                    <div class="col-md-4 form-group">
-                                        <label for="contato_email">E-mail</label>
-                                        <input type="text" name="contato_email" id="contato_email" class="form-control"
-                                            readonly>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label for="contato_telefone">Telefone</label>
-                                        <input type="text" name="contato_telefone" id="contato_telefone"
-                                            class="form-control" readonly>
-                                    </div>
-
-                                    <div class="col-md-6 form-group">
-                                        <label for="contato_linkedin">LinkedIn</label>
-                                        <input type="text" name="contato_linkedin" id="contato_linkedin"
-                                            class="form-control" readonly>
+                                            <div class="lead-info-indicators" role="tablist" aria-label="Slides de informações">
+                                                <button type="button" class="lead-info-indicator is-active"
+                                                    data-slide-index="0" aria-controls="infoSlideQualificacao"
+                                                    role="tab" aria-selected="true" tabindex="0">1</button>
+                                                <button type="button" class="lead-info-indicator" data-slide-index="1"
+                                                    aria-controls="infoSlideContatos" aria-selected="false"
+                                                    role="tab" tabindex="-1">2</button>
+                                                <button type="button" class="lead-info-indicator" data-slide-index="2"
+                                                    aria-controls="infoSlideAdicionais" aria-selected="false"
+                                                    role="tab" tabindex="-1">3</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -805,6 +942,7 @@
     <script type="text/javascript" src="form_obrigatoriedade.js"></script>
     <script type="text/javascript" src="form_classificacao.js"></script>
     <script type="text/javascript" src="form_salvamento.js"></script>
+    <script type="text/javascript" src="form_empresa_contato.js"></script>
     <script type="text/javascript" src="form_init.js"></script>
 </body>
 

@@ -30,6 +30,7 @@ IRHOLeads.Init = (function () {
         inicializarModulo("Bloqueios", "aplicar");
         inicializarModulo("Classificacao", "inicializar");
         inicializarModulo("Salvamento", "inicializar");
+        inicializarModulo("EmpresaContato", "inicializar");
     }
 
     return {

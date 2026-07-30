@@ -3,6 +3,7 @@ var EF_ATIVIDADE_TENTATIVA_CONTATO = 4;
 var EF_ATIVIDADE_LEAD_PERDIDO = 26;
 var EF_TABELA_TENTATIVAS = "tbTentativasContato";
 var EF_TABELA_HISTORICO_PERDAS = "tbHistoricoPerdas";
+var EF_TABELA_CONTATOS_SECUNDARIOS = "tbContatosSecundarios";
 
 function enableFields(form) {
     var atividadeAtual = parseInt(
@@ -14,6 +15,7 @@ function enableFields(form) {
     configurarFunil(form, atividadeAtual);
     configurarRecuperacao(form, atividadeAtual);
     bloquearHistoricoPerdas(form);
+    bloquearContatosSecundarios(form);
 
     if (atividadeAtual !== EF_ATIVIDADE_TENTATIVA_CONTATO) {
         bloquearHistoricoTentativas(form);
@@ -66,7 +68,19 @@ function bloquearCamposIntegracao(form) {
         "contato_cargo",
         "contato_email",
         "contato_telefone",
-        "contato_linkedin"
+        "contato_linkedin",
+        "lead_id",
+        "empresa_site",
+        "tipo_registro",
+        "segmento",
+        "cidade",
+        "score_percentual",
+        "score_classificacao",
+        "qual_mais_50",
+        "qual_decisor",
+        "qual_filiais",
+        "qual_conhece_empresa",
+        "qual_diagnostico_rh"
     ];
 
     for (var i = 0; i < camposIntegracao.length; i++) {
@@ -75,6 +89,32 @@ function bloquearCamposIntegracao(form) {
             false,
             true
         );
+    }
+}
+
+function bloquearContatosSecundarios(form) {
+    var indices = form.getChildrenIndexes(
+        EF_TABELA_CONTATOS_SECUNDARIOS
+    );
+    var camposFilhos = [
+        "cont_sec_ordem",
+        "cont_sec_nome",
+        "cont_sec_cargo",
+        "cont_sec_telefone",
+        "cont_sec_email",
+        "cont_sec_linkedin"
+    ];
+
+    for (var i = 0; i < indices.length; i++) {
+        var indice = indices[i];
+
+        for (var j = 0; j < camposFilhos.length; j++) {
+            form.setEnabled(
+                camposFilhos[j] + "___" + indice,
+                false,
+                true
+            );
+        }
     }
 }
 
