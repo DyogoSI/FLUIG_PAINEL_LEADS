@@ -8,6 +8,8 @@ IRHOLeads.Contexto = (function () {
     var ATIVIDADE_OPORTUNIDADE_GERADA = 19;
     var ATIVIDADE_PROPOSTA_COMERCIAL = 21;
     var ATIVIDADE_LEAD_PERDIDO = 26;
+    var ATIVIDADE_PARCEIRO = 72;
+    var ATIVIDADE_NUTRICAO = 87;
 
     function valorCampo(nomeCampo) {
         var campo = document.querySelector(
@@ -84,6 +86,33 @@ IRHOLeads.Contexto = (function () {
         ).toUpperCase();
     }
 
+    function funilDestino() {
+        var funilPersistido = valorCampo("funil_origem_fluxo");
+
+        if (funilPersistido !== "") {
+            return funilPersistido.toUpperCase();
+        }
+
+        if (
+            window.IRHO_FORM_CONTEXT
+            && window.IRHO_FORM_CONTEXT.funilDestino
+        ) {
+            return String(
+                window.IRHO_FORM_CONTEXT.funilDestino
+            ).toUpperCase();
+        }
+
+        funilPersistido = $(
+            'input[name="funil_destino"]:checked'
+        ).val() || "";
+
+        if (funilPersistido !== "") {
+            return funilPersistido.toUpperCase();
+        }
+
+        return valorCampo("funil_origem_perda").toUpperCase();
+    }
+
     function somenteLeitura() {
         return modoFormulario() === "VIEW";
     }
@@ -104,11 +133,24 @@ IRHOLeads.Contexto = (function () {
 
         return atividade === ATIVIDADE_TENTATIVA_CONTATO
             || atividade === ATIVIDADE_OPORTUNIDADE_GERADA
-            || atividade === ATIVIDADE_PROPOSTA_COMERCIAL;
+            || atividade === ATIVIDADE_PROPOSTA_COMERCIAL
+            || atividade === ATIVIDADE_PARCEIRO;
     }
 
     function ehLeadPerdido() {
         return atividadeAtual() === ATIVIDADE_LEAD_PERDIDO;
+    }
+
+    function ehAtividadeParceiro() {
+        return atividadeAtual() === ATIVIDADE_PARCEIRO;
+    }
+
+    function ehNutricao() {
+        return atividadeAtual() === ATIVIDADE_NUTRICAO;
+    }
+
+    function ehRedirecionamento() {
+        return ehLeadPerdido() || ehNutricao();
     }
 
     return {
@@ -127,11 +169,20 @@ IRHOLeads.Contexto = (function () {
         ATIVIDADE_LEAD_PERDIDO:
             ATIVIDADE_LEAD_PERDIDO,
 
+        ATIVIDADE_PARCEIRO:
+            ATIVIDADE_PARCEIRO,
+
+        ATIVIDADE_NUTRICAO:
+            ATIVIDADE_NUTRICAO,
+
         atividadeAtual:
             atividadeAtual,
 
         modoFormulario:
             modoFormulario,
+
+        funilDestino:
+            funilDestino,
 
         somenteLeitura:
             somenteLeitura,
@@ -146,6 +197,15 @@ IRHOLeads.Contexto = (function () {
             ehAtividadeComercial,
 
         ehLeadPerdido:
-            ehLeadPerdido
+            ehLeadPerdido,
+
+        ehAtividadeParceiro:
+            ehAtividadeParceiro,
+
+        ehNutricao:
+            ehNutricao,
+
+        ehRedirecionamento:
+            ehRedirecionamento
     };
 }());

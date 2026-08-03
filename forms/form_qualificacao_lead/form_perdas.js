@@ -60,7 +60,8 @@ IRHOLeads.Perdas = (function () {
         var nomes = {
             4: "Tentativa de Contato",
             19: "Oportunidade Gerada",
-            21: "Proposta comercial"
+            21: "Proposta comercial",
+            72: "Atividade Parceiro"
         };
 
         return nomes[codigo] || "";
@@ -148,6 +149,7 @@ IRHOLeads.Perdas = (function () {
         var motivo = localizarMotivo(codigoMotivo);
         var atividadeAtual = IRHOLeads.Contexto.atividadeAtual();
         var atividadeNome = nomeAtividade(atividadeAtual);
+        var funilOrigem = obterFunilOrigem();
 
         if (!motivo) {
             $("#mensagemMotivoPerda")
@@ -163,8 +165,15 @@ IRHOLeads.Perdas = (function () {
             return;
         }
 
+        if (funilOrigem === "") {
+            $("#mensagemMotivoPerda")
+                .addClass("is-visible")
+                .text("O funil original do lead não foi informado.");
+            return;
+        }
+
         $("#acao_fluxo_comercial").val("LEAD_PERDIDO");
-        $("#funil_origem_perda").val("CLIENTE");
+        $("#funil_origem_perda").val(funilOrigem);
         $("#atividade_origem_perda").val(String(atividadeAtual));
         $("#atividade_origem_nome").val(atividadeNome);
         $("#motivo_perda_codigo").val(motivo.codigo);
@@ -177,6 +186,10 @@ IRHOLeads.Perdas = (function () {
 
         modalPerda = null;
         IRHOLeads.Salvamento.movimentarLeadPerdido();
+    }
+
+    function obterFunilOrigem() {
+        return IRHOLeads.Contexto.funilDestino();
     }
 
     function localizarMotivo(codigo) {

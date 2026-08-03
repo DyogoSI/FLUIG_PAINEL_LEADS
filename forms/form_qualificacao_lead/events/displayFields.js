@@ -10,6 +10,17 @@ function displayFields(form, customHTML) {
     var modoFormulario =
         form.getFormMode();
 
+    var funilDestino = form.getValue("funil_origem_fluxo");
+
+    if (funilDestino == null || String(funilDestino) === "") {
+        funilDestino = form.getValue("funil_destino");
+    }
+
+    if (funilDestino == null || String(funilDestino) === "") {
+        funilDestino = form.getValue("funil_origem_perda");
+    }
+    var contatosSecundarios = montarContatosSecundarios(form);
+
     if (isNaN(atividadeAtual)) {
         atividadeAtual = 0;
     }
@@ -23,6 +34,10 @@ function displayFields(form, customHTML) {
         modoFormulario == null
             ? ""
             : String(modoFormulario);
+
+    funilDestino = funilDestino == null
+        ? ""
+        : String(funilDestino);
 
     /*
      * Persiste o contexto nos campos ocultos.
@@ -65,7 +80,12 @@ function displayFields(form, customHTML) {
         + "\","
         + "numeroSolicitacao: \""
         + escaparJavaScript(numeroSolicitacao)
-        + "\""
+        + "\","
+        + "funilDestino: \""
+        + escaparJavaScript(funilDestino)
+        + "\","
+        + "contatosSecundarios: "
+        + contatosSecundarios
         + "};"
     );
 
@@ -98,6 +118,43 @@ function displayFields(form, customHTML) {
     );
 }
 
+function montarContatosSecundarios(form) {
+    var campos = [
+        "ordem",
+        "nome",
+        "cargo",
+        "telefone",
+        "email",
+        "linkedin"
+    ];
+    var indices = form.getChildrenIndexes("tbContatosSecundarios") || [];
+    var resultado = [];
+
+    for (var i = 0; i < indices.length; i++) {
+        var indice = String(indices[i]);
+        var contato = [];
+
+        contato.push("indice: \"" + escaparJavaScript(indice) + "\"");
+
+        for (var j = 0; j < campos.length; j++) {
+            contato.push(
+                campos[j]
+                + ": \""
+                + escaparJavaScript(
+                    form.getValue(
+                        "cont_sec_" + campos[j] + "___" + indice
+                    )
+                )
+                + "\""
+            );
+        }
+
+        resultado.push("{" + contato.join(",") + "}");
+    }
+
+    return "[" + resultado.join(",") + "]";
+}
+
 function escaparJavaScript(valor) {
     if (valor == null) {
         return "";
@@ -105,5 +162,7 @@ function escaparJavaScript(valor) {
 
     return String(valor)
         .replace(/\\/g, "\\\\")
-        .replace(/"/g, "\\\"");
+        .replace(/"/g, "\\\"")
+        .replace(/\r/g, "\\r")
+        .replace(/\n/g, "\\n");
 }

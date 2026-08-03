@@ -25,6 +25,7 @@ var PainelLeadsWidget = SuperWidget.extend({
         // De: Propriedade do lead na Tabela SQL -> Para: 'name' do input no formulário de qualificação
         campos: {
             documentId: "lead_id_referencia", // Fundamental para atualizar o status do painel no futuro
+            idContato: "lead_id",
             nomeContato: "contato_nome",
             cargo: "contato_cargo",
             telefone: "contato_telefone",
@@ -32,7 +33,11 @@ var PainelLeadsWidget = SuperWidget.extend({
             linkedin: "contato_linkedin",
             nomeEmpresa: "empresa_nome",
             cnpj: "empresa_cnpj",
-            site: "empresa_site"
+            site: "empresa_site",
+            tipoRegistro: "tipo_registro",
+            segmento: "segmento",
+            cidade: "cidade",
+            fonteInsercao: "fonte_insercao"
         }
     },
 
@@ -565,6 +570,9 @@ var PainelLeadsWidget = SuperWidget.extend({
             nomeEmpresa: String(row["empresa_nome"] || "").trim(),
             cnpj: String(row["empresa_cnpj"] || "").trim(),
             site: String(row["empresa_site"] || "").trim(),
+            tipoRegistro: String(extraData.tipo_registro || "").trim(),
+            segmento: String(extraData.segmento || "").trim(),
+            cidade: String(extraData.cidade || "").trim(),
             origem: String(row["lead_origem"] || "Site").trim(),
             status: String(row["lead_status"] || "Novo").trim(),
             fonteInsercao: String(row["fonte_insercao"] || "Manualmente").trim(),
@@ -697,6 +705,13 @@ var PainelLeadsWidget = SuperWidget.extend({
                 FLUIGC.toast({ title: 'Erro:', message: linha.mensagem || 'Falha na gravação.', type: 'danger' });
                 return;
             }
+            var idGravado = parseInt(linha.id, 10);
+            if (isNaN(idGravado) || idGravado <= 0) {
+                that.ocultarOverlayLoading();
+                FLUIGC.toast({ title: 'Erro:', message: 'O banco não retornou um ID válido para o lead.', type: 'danger' });
+                return;
+            }
+            leadObj.documentId = String(idGravado);
             that.concluirSalvamentoModal();
         }).fail(function() {
             that.ocultarOverlayLoading(); FLUIGC.toast({ title: 'Erro:', message: 'Falha na gravação.', type: 'danger' });
@@ -1362,6 +1377,15 @@ var PainelLeadsWidget = SuperWidget.extend({
     iniciarClassificacaoLead: function(lead) {
         var that = this;
         if (!lead) return;
+        var idReferencia = parseInt(lead.documentId, 10);
+        if (isNaN(idReferencia) || idReferencia <= 0) {
+            FLUIGC.toast({
+                title: 'Erro:',
+                message: 'O lead não possui um ID SQL válido. A solicitação não foi iniciada.',
+                type: 'danger'
+            });
+            return;
+        }
         if (!confirm('Iniciar a classificação/tentativa de contato para "' + (lead.nomeContato || lead.nomeEmpresa || 'este lead') + '"?')) return;
         
         var cfg = this.CONFIG_PROCESSO_CLASSIFICACAO;
@@ -1372,6 +1396,20 @@ var PainelLeadsWidget = SuperWidget.extend({
             var nomeCampoProcesso = cfg.campos[chaveLead];
             var valor = String(lead[chaveLead] || "");
             formFields[nomeCampoProcesso] = valor;
+        });
+        formFields.lead_id_referencia = String(idReferencia);
+
+        var contatosSecundarios = $.isArray(lead.contatosSecundarios)
+            ? lead.contatosSecundarios
+            : [];
+        contatosSecundarios.forEach(function(contato, posicao) {
+            var indice = posicao + 1;
+            formFields["cont_sec_ordem___" + indice] = String(indice);
+            formFields["cont_sec_nome___" + indice] = String(contato.nome || "");
+            formFields["cont_sec_cargo___" + indice] = String(contato.cargo || "");
+            formFields["cont_sec_telefone___" + indice] = String(contato.telefone || "");
+            formFields["cont_sec_email___" + indice] = String(contato.email || "");
+            formFields["cont_sec_linkedin___" + indice] = String(contato.linkedin || "");
         });
 
         that.mostrarOverlayLoading('Iniciando processo...', 'Abrindo classificação do lead...');

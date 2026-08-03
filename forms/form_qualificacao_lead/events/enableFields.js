@@ -1,6 +1,7 @@
 var EF_ATIVIDADE_INICIO = 6;
 var EF_ATIVIDADE_TENTATIVA_CONTATO = 4;
 var EF_ATIVIDADE_LEAD_PERDIDO = 26;
+var EF_ATIVIDADE_NUTRICAO = 87;
 var EF_TABELA_TENTATIVAS = "tbTentativasContato";
 var EF_TABELA_HISTORICO_PERDAS = "tbHistoricoPerdas";
 var EF_TABELA_CONTATOS_SECUNDARIOS = "tbContatosSecundarios";
@@ -11,11 +12,11 @@ function enableFields(form) {
         10
     );
 
-    bloquearCamposIntegracao(form);
+    bloquearCamposIntegracao(form, atividadeAtual);
     configurarFunil(form, atividadeAtual);
     configurarRecuperacao(form, atividadeAtual);
     bloquearHistoricoPerdas(form);
-    bloquearContatosSecundarios(form);
+    bloquearContatosSecundarios(form, atividadeAtual);
 
     if (atividadeAtual !== EF_ATIVIDADE_TENTATIVA_CONTATO) {
         bloquearHistoricoTentativas(form);
@@ -26,7 +27,8 @@ function enableFields(form) {
 function configurarRecuperacao(form, atividadeAtual) {
     form.setEnabled(
         "atividade_recuperacao",
-        atividadeAtual === EF_ATIVIDADE_LEAD_PERDIDO,
+        atividadeAtual === EF_ATIVIDADE_LEAD_PERDIDO
+            || atividadeAtual === EF_ATIVIDADE_NUTRICAO,
         true
     );
 }
@@ -47,7 +49,8 @@ function bloquearClassificacao(form) {
         "class_orcamento",
         "class_timeline",
         "class_autoridade",
-        "class_comunicacao"
+        "class_comunicacao",
+        "class_potencial"
     ];
 
     for (var i = 0; i < campos.length; i++) {
@@ -59,7 +62,7 @@ function bloquearClassificacao(form) {
     }
 }
 
-function bloquearCamposIntegracao(form) {
+function bloquearCamposIntegracao(form, atividadeAtual) {
     var camposIntegracao = [
         "empresa_nome",
         "empresa_cnpj",
@@ -70,6 +73,7 @@ function bloquearCamposIntegracao(form) {
         "contato_telefone",
         "contato_linkedin",
         "lead_id",
+        "fonte_insercao",
         "empresa_site",
         "tipo_registro",
         "segmento",
@@ -82,17 +86,43 @@ function bloquearCamposIntegracao(form) {
         "qual_conhece_empresa",
         "qual_diagnostico_rh"
     ];
+    var camposEditaveisTentativa = [
+        "empresa_nome",
+        "empresa_cnpj",
+        "empresa_site",
+        "tipo_registro",
+        "segmento",
+        "cidade",
+        "contato_nome",
+        "contato_cargo",
+        "contato_email",
+        "contato_telefone",
+        "contato_linkedin"
+    ];
+
+    form.setEnabled("lead_id_referencia", false, true);
 
     for (var i = 0; i < camposIntegracao.length; i++) {
+        var permitirDadosTeste = atividadeAtual === 0
+            || atividadeAtual === EF_ATIVIDADE_INICIO;
+        var campoAtual = camposIntegracao[i];
+        var editavelNaTentativa = camposEditaveisTentativa.indexOf(campoAtual) >= 0;
+
         form.setEnabled(
-            camposIntegracao[i],
-            false,
+            campoAtual,
+            campoAtual !== "lead_id"
+                && campoAtual !== "fonte_insercao"
+                && (permitirDadosTeste
+                || (
+                    editavelNaTentativa
+                    && atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO
+                )),
             true
         );
     }
 }
 
-function bloquearContatosSecundarios(form) {
+function bloquearContatosSecundarios(form, atividadeAtual) {
     var indices = form.getChildrenIndexes(
         EF_TABELA_CONTATOS_SECUNDARIOS
     );
@@ -111,7 +141,9 @@ function bloquearContatosSecundarios(form) {
         for (var j = 0; j < camposFilhos.length; j++) {
             form.setEnabled(
                 camposFilhos[j] + "___" + indice,
-                false,
+                atividadeAtual === 0
+                    || atividadeAtual === EF_ATIVIDADE_INICIO
+                    || atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO,
                 true
             );
         }
@@ -127,6 +159,8 @@ function bloquearHistoricoTentativas(form) {
         "tent_id",
         "tent_ordem",
         "tent_numero",
+        "tent_contato_ref",
+        "tent_contato_nome",
         "tent_meio",
         "tent_data",
         "tent_hora",

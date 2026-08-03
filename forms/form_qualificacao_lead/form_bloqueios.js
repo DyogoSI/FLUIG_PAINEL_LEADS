@@ -28,7 +28,7 @@ IRHOLeads.Bloqueios = (function () {
             bloquearFunil();
         }
 
-        if (!IRHOLeads.Contexto.ehLeadPerdido()) {
+        if (!IRHOLeads.Contexto.ehRedirecionamento()) {
             bloquearRecuperacao();
         }
 

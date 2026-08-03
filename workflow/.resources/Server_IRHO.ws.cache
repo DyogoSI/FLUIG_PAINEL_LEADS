@@ -22,6 +22,16 @@
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso ao Painel de Leads</string>
+      </void>
+      <void property="groupId">
+       <string>Leads</string>
+      </void>
+     </object>
+    </void>
    </object>
   </void>
   <void method="put">
@@ -33,245 +43,153 @@
    </array>
   </void>
   <void method="put">
-   <string>processosServidor</string>
-   <object class="java.util.ArrayList">
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Listar Tarefas</string>
-      </void>
-      <void property="processId">
-       <string>FLUIGADHOC</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Solicitações  Gerais</string>
-      </void>
-      <void property="processId">
-       <string>IRHO-001</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Movimentação de Pessoal</string>
-      </void>
-      <void property="processId">
-       <string>IRHO-002</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Afastamento</string>
-      </void>
-      <void property="processId">
-       <string>IRHO-003</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Desligamento</string>
-      </void>
-      <void property="processId">
-       <string>IRHO-004</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Solicitação Ferias </string>
-      </void>
-      <void property="processId">
-       <string>IRHO-005</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>Processo Comercial - Funil de Vendas</string>
-      </void>
-      <void property="processId">
-       <string>IRHO-LEADS-001</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>PROCESSO_RH_DIAGNOSTICO</string>
-      </void>
-      <void property="processId">
-       <string>PROCESSO_RH_DIAGNOSTICO</string>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.ProcessDefinitionDto">
-      <void property="companyId">
-       <int>1</int>
-      </void>
-      <void property="processDescription">
-       <string>validador_bancario</string>
-      </void>
-      <void property="processId">
-       <string>validador_bancario</string>
-      </void>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="put">
    <string>camposFormulario, documentoId = 13467</string>
-   <array class="java.lang.String" length="32">
+   <array class="java.lang.String" length="48">
     <void index="0">
      <string>acao_atividade</string>
     </void>
     <void index="1">
-     <string>atividade_atual</string>
+     <string>acao_fluxo_comercial</string>
     </void>
     <void index="2">
-     <string>class_autoridade</string>
+     <string>atividade_atual</string>
     </void>
     <void index="3">
-     <string>class_comunicacao</string>
+     <string>atividade_origem_nome</string>
     </void>
     <void index="4">
-     <string>class_interesse</string>
+     <string>atividade_origem_perda</string>
     </void>
     <void index="5">
-     <string>class_necessidades</string>
+     <string>class_autoridade</string>
     </void>
     <void index="6">
-     <string>class_orcamento</string>
+     <string>class_comunicacao</string>
     </void>
     <void index="7">
-     <string>class_timeline</string>
+     <string>class_interesse</string>
     </void>
     <void index="8">
-     <string>contato_cargo</string>
+     <string>class_necessidades</string>
     </void>
     <void index="9">
-     <string>contato_email</string>
+     <string>class_orcamento</string>
     </void>
     <void index="10">
-     <string>contato_linkedin</string>
+     <string>class_timeline</string>
     </void>
     <void index="11">
-     <string>contato_nome</string>
+     <string>contato_cargo</string>
     </void>
     <void index="12">
-     <string>contato_telefone</string>
+     <string>contato_email</string>
     </void>
     <void index="13">
-     <string>crm_origem</string>
+     <string>contato_linkedin</string>
     </void>
     <void index="14">
-     <string>data_fim_contato</string>
+     <string>contato_nome</string>
     </void>
     <void index="15">
-     <string>data_inicio_contato</string>
+     <string>contato_telefone</string>
     </void>
     <void index="16">
-     <string>empresa_cnpj</string>
+     <string>crm_origem</string>
     </void>
     <void index="17">
-     <string>empresa_nome</string>
+     <string>data_fim_contato</string>
     </void>
     <void index="18">
-     <string>lead_id_referencia</string>
+     <string>data_inicio_contato</string>
     </void>
     <void index="19">
-     <string>modo_formulario</string>
+     <string>empresa_cnpj</string>
     </void>
     <void index="20">
-     <string>numero_solicitacao</string>
+     <string>empresa_nome</string>
     </void>
     <void index="21">
-     <string>status_lead</string>
+     <string>funil_destino</string>
     </void>
     <void index="22">
-     <string>tent_data</string>
+     <string>funil_origem_perda</string>
     </void>
     <void index="23">
-     <string>tent_descricao</string>
+     <string>lead_id_referencia</string>
     </void>
     <void index="24">
-     <string>tent_hora</string>
+     <string>modo_formulario</string>
     </void>
     <void index="25">
-     <string>tent_id</string>
+     <string>motivo_perda_codigo</string>
     </void>
     <void index="26">
-     <string>tent_meio</string>
+     <string>motivo_perda_texto</string>
     </void>
     <void index="27">
-     <string>tent_numero</string>
+     <string>numero_solicitacao</string>
     </void>
     <void index="28">
-     <string>tent_ordem</string>
+     <string>perda_atividade_codigo</string>
     </void>
     <void index="29">
-     <string>total_tentativas</string>
+     <string>perda_atividade_nome</string>
     </void>
     <void index="30">
-     <string>ultima_tent_data</string>
+     <string>perda_chave_pendente</string>
     </void>
     <void index="31">
+     <string>perda_data_hora</string>
+    </void>
+    <void index="32">
+     <string>perda_funil</string>
+    </void>
+    <void index="33">
+     <string>perda_id</string>
+    </void>
+    <void index="34">
+     <string>perda_motivo_codigo</string>
+    </void>
+    <void index="35">
+     <string>perda_motivo_texto</string>
+    </void>
+    <void index="36">
+     <string>perda_ordem</string>
+    </void>
+    <void index="37">
+     <string>status_lead</string>
+    </void>
+    <void index="38">
+     <string>tent_data</string>
+    </void>
+    <void index="39">
+     <string>tent_descricao</string>
+    </void>
+    <void index="40">
+     <string>tent_hora</string>
+    </void>
+    <void index="41">
+     <string>tent_id</string>
+    </void>
+    <void index="42">
+     <string>tent_meio</string>
+    </void>
+    <void index="43">
+     <string>tent_numero</string>
+    </void>
+    <void index="44">
+     <string>tent_ordem</string>
+    </void>
+    <void index="45">
+     <string>total_tentativas</string>
+    </void>
+    <void index="46">
+     <string>ultima_tent_data</string>
+    </void>
+    <void index="47">
      <string>ultima_tent_meio</string>
     </void>
    </array>
-  </void>
-  <void method="put">
-   <string>mecanismoPapel</string>
-   <object class="java.util.ArrayList">
-    <void method="add">
-     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
-      <void property="companyId">
-       <long>1</long>
-      </void>
-      <void property="roleDescription">
-       <string>admin</string>
-      </void>
-      <void property="roleId">
-       <string>admin</string>
-      </void>
-     </object>
-    </void>
-   </object>
   </void>
   <void method="put">
    <string>mecanismo</string>
@@ -367,151 +285,6 @@
      </array>
     </void>
    </array>
-  </void>
-  <void method="put">
-   <string>forms</string>
-   <object class="java.util.LinkedList">
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>FLUIGADHOC</string>
-      </void>
-      <void property="documentId">
-       <int>3</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>FLUIGADHOCPROCESS</string>
-      </void>
-      <void property="documentId">
-       <int>4</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>Validador Cnab Bancário</string>
-      </void>
-      <void property="documentId">
-       <int>5</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>form_leads_rh</string>
-      </void>
-      <void property="documentId">
-       <int>6</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>cronograma</string>
-      </void>
-      <void property="documentId">
-       <int>540</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>Solicitacoes Gerais </string>
-      </void>
-      <void property="documentId">
-       <int>744</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>Solicitacao Ferias</string>
-      </void>
-      <void property="documentId">
-       <int>745</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>movimentacao pessoal</string>
-      </void>
-      <void property="documentId">
-       <int>747</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>desligamento</string>
-      </void>
-      <void property="documentId">
-       <int>748</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>Afastamento </string>
-      </void>
-      <void property="documentId">
-       <int>749</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>FORM PAINEL DE LEADS</string>
-      </void>
-      <void property="documentId">
-       <int>1555</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>Forms-Dados-RHTracker</string>
-      </void>
-      <void property="documentId">
-       <int>9357</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>controle_painel</string>
-      </void>
-      <void property="documentId">
-       <int>13427</int>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
-      <void property="documentDescription">
-       <string>form_qualificação</string>
-      </void>
-      <void property="documentId">
-       <int>13467</int>
-      </void>
-     </object>
-    </void>
-   </object>
   </void>
  </object>
 </java>

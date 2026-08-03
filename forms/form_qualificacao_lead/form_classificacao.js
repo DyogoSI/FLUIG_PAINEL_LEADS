@@ -76,6 +76,17 @@ IRHOLeads.Classificacao = (function () {
             })
             .first();
 
+        if (
+            !primeiroCampo.length
+            && !$("#painelClassificacao")
+                .find('input[name="class_potencial"]:checked')
+                .length
+        ) {
+            primeiroCampo = $("#painelClassificacao")
+                .find('input[name="class_potencial"]')
+                .first();
+        }
+
         if (primeiroCampo.length) {
             primeiroCampo.trigger("focus");
         }
@@ -93,6 +104,15 @@ IRHOLeads.Classificacao = (function () {
             .html(mensagem);
     }
 
+    function atualizarVisualPotencial() {
+        $(".lead-potential-options > label").each(function () {
+            $(this).toggleClass(
+                "is-selected",
+                $(this).find('input[name="class_potencial"]').is(":checked")
+            );
+        });
+    }
+
     function inicializar() {
         $("#btnMovimentarClassificacao")
             .off("click.irhoClassificacao")
@@ -100,6 +120,16 @@ IRHOLeads.Classificacao = (function () {
                 "click.irhoClassificacao",
                 movimentar
             );
+
+        $(".lead-potential-options")
+            .off("change.irhoClassificacao", 'input[name="class_potencial"]')
+            .on(
+                "change.irhoClassificacao",
+                'input[name="class_potencial"]',
+                atualizarVisualPotencial
+            );
+
+        atualizarVisualPotencial();
     }
 
     return {

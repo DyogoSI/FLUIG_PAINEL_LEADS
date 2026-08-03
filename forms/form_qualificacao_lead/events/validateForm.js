@@ -3,7 +3,10 @@ var VF_ATIVIDADE_TENTATIVA_CONTATO = 4;
 var VF_ATIVIDADE_OPORTUNIDADE_GERADA = 19;
 var VF_ATIVIDADE_PROPOSTA_COMERCIAL = 21;
 var VF_ATIVIDADE_LEAD_PERDIDO = 26;
+var VF_ATIVIDADE_PARCEIRO = 72;
+var VF_ATIVIDADE_NUTRICAO = 87;
 var VF_TABELA_TENTATIVAS = "tbTentativasContato";
+var VF_TABELA_CONTATOS_SECUNDARIOS = "tbContatosSecundarios";
 
 function validateForm(form) {
     var atividadeAtual = parseInt(getValue("WKNumState"), 10);
@@ -12,6 +15,7 @@ function validateForm(form) {
         form.getValue("acao_fluxo_comercial")
     );
     var perdendoLead = acaoFluxo == "LEAD_PERDIDO";
+    var nutrindoLead = acaoFluxo == "NUTRICAO";
     var erros = [];
 
     if (
@@ -35,6 +39,7 @@ function validateForm(form) {
             completandoAtividade
             && funilDestino != ""
             && funilDestino != "CLIENTE"
+            && funilDestino != "PARCEIRO"
         ) {
             erros.push("O funil de destino selecionado é inválido.");
         }
@@ -44,22 +49,39 @@ function validateForm(form) {
     }
 
     if (atividadeAtual == VF_ATIVIDADE_TENTATIVA_CONTATO) {
+        vfValidarEmpresaContatos(form, erros);
         vfValidarTentativas(
             form,
             erros,
-            completandoAtividade && !perdendoLead
+            completandoAtividade && !perdendoLead && !nutrindoLead
         );
 
-        if (completandoAtividade && !perdendoLead) {
+        if (
+            completandoAtividade
+            && !perdendoLead
+            && !nutrindoLead
+        ) {
             vfValidarClassificacao(form, erros);
         }
     }
 
     if (
-        atividadeAtual == VF_ATIVIDADE_LEAD_PERDIDO
+        (atividadeAtual == VF_ATIVIDADE_LEAD_PERDIDO
+            || atividadeAtual == VF_ATIVIDADE_NUTRICAO)
         && completandoAtividade
     ) {
-        vfValidarRecuperacao(form, erros);
+        vfValidarRecuperacao(form, erros, atividadeAtual);
+    }
+
+    if (
+        completandoAtividade
+        && vfEhAtividadeComercial(atividadeAtual)
+        && acaoFluxo != ""
+        && acaoFluxo != "AVANCAR"
+        && acaoFluxo != "LEAD_PERDIDO"
+        && acaoFluxo != "NUTRICAO"
+    ) {
+        erros.push("A ação comercial informada é inválida.");
     }
 
     if (
@@ -71,6 +93,115 @@ function validateForm(form) {
     }
 
     vfLancarErros(erros);
+}
+
+function vfValidarEmpresaContatos(form, erros) {
+    var idReferencia = vfTexto(form.getValue("lead_id_referencia"));
+    var numeroId = parseInt(idReferencia, 10);
+
+    if (!/^\d+$/.test(idReferencia) || isNaN(numeroId) || numeroId <= 0) {
+        erros.push("O identificador SQL do lead não foi informado ou é inválido.");
+    }
+
+    var contatos = [{
+        rotulo: "contato principal",
+        nome: vfTexto(form.getValue("contato_nome")),
+        cargo: vfTexto(form.getValue("contato_cargo")),
+        telefone: vfTexto(form.getValue("contato_telefone")),
+        email: vfTexto(form.getValue("contato_email")),
+        linkedin: vfTexto(form.getValue("contato_linkedin"))
+    }];
+    var indices = form.getChildrenIndexes(VF_TABELA_CONTATOS_SECUNDARIOS) || [];
+
+    for (var i = 0; i < indices.length; i++) {
+        var indice = indices[i];
+        contatos.push({
+            rotulo: "contato secundário " + (i + 1),
+            nome: vfTexto(form.getValue("cont_sec_nome___" + indice)),
+            cargo: vfTexto(form.getValue("cont_sec_cargo___" + indice)),
+            telefone: vfTexto(form.getValue("cont_sec_telefone___" + indice)),
+            email: vfTexto(form.getValue("cont_sec_email___" + indice)),
+            linkedin: vfTexto(form.getValue("cont_sec_linkedin___" + indice))
+        });
+    }
+
+    var vistos = { email: {}, telefone: {}, linkedin: {} };
+    for (var c = 0; c < contatos.length; c++) {
+        var contato = contatos[c];
+        var valores = [
+            contato.nome,
+            contato.cargo,
+            contato.telefone,
+            contato.email,
+            contato.linkedin
+        ];
+
+        if (
+            c > 0
+            && valores.join("") == ""
+        ) {
+            erros.push("O " + contato.rotulo + " está vazio; preencha algum dado ou remova a linha.");
+            continue;
+        }
+
+        for (var v = 0; v < valores.length; v++) {
+            if (vfPossuiSeparadorReservado(valores[v])) {
+                erros.push("O " + contato.rotulo + " contém um separador reservado (~~~ ou |||).");
+                break;
+            }
+        }
+
+        if (contato.email != "" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contato.email)) {
+            erros.push("O e-mail do " + contato.rotulo + " é inválido.");
+        }
+        if (contato.telefone != "" && contato.telefone.replace(/\D/g, "").length < 8) {
+            erros.push("O telefone do " + contato.rotulo + " é inválido.");
+        }
+        if (contato.linkedin != "" && !vfUrlValida(contato.linkedin)) {
+            erros.push("O LinkedIn do " + contato.rotulo + " é inválido.");
+        }
+
+        vfValidarDuplicidadeContato(erros, vistos.email, contato.email.toLowerCase(), "e-mail");
+        vfValidarDuplicidadeContato(erros, vistos.telefone, contato.telefone.replace(/\D/g, ""), "telefone");
+        vfValidarDuplicidadeContato(
+            erros,
+            vistos.linkedin,
+            vfNormalizarLinkedin(contato.linkedin),
+            "LinkedIn"
+        );
+    }
+}
+
+function vfValidarDuplicidadeContato(erros, vistos, valor, campo) {
+    if (valor == "") {
+        return;
+    }
+    if (vistos[valor]) {
+        erros.push("Há contatos duplicados pelo campo " + campo + ".");
+        return;
+    }
+    vistos[valor] = true;
+}
+
+function vfPossuiSeparadorReservado(valor) {
+    var texto = String(valor || "");
+    return texto.indexOf("~~~") >= 0 || texto.indexOf("|||") >= 0;
+}
+
+function vfNormalizarLinkedin(valor) {
+    return vfTexto(valor)
+        .toLowerCase()
+        .replace(/^https?:\/\//, "")
+        .replace(/^www\./, "")
+        .replace(/\/+$/, "");
+}
+
+function vfUrlValida(valor) {
+    var url = vfTexto(valor);
+    if (!/^https?:\/\//i.test(url)) {
+        url = "https://" + url;
+    }
+    return /^https?:\/\/[a-z0-9][a-z0-9.-]*\.[a-z]{2,}(\/.*)?$/i.test(url);
 }
 
 function vfValidarTentativas(form, erros, exigirAoMenosUma) {
@@ -200,6 +331,10 @@ function vfValidarClassificacao(form, erros) {
         {
             nome: "class_comunicacao",
             rotulo: "Preferências de Comunicação"
+        },
+        {
+            nome: "class_potencial",
+            rotulo: "Potencial do Lead"
         }
     ];
 
@@ -217,13 +352,24 @@ function vfValidarClassificacao(form, erros) {
             );
         }
 
-        if (valor.length > 2000) {
+        if (campo.nome != "class_potencial" && valor.length > 2000) {
             erros.push(
                 "A resposta de “"
                 + campo.rotulo
                 + "” ultrapassa 2.000 caracteres."
             );
         }
+    }
+
+    var potencial = vfTexto(form.getValue("class_potencial"));
+
+    if (
+        potencial != ""
+        && potencial != "ALTO"
+        && potencial != "MEDIO"
+        && potencial != "BAIXO"
+    ) {
+        erros.push("O Potencial do Lead informado é inválido.");
     }
 }
 
@@ -311,15 +457,48 @@ function vfValidarPerda(form, erros, atividadeAtual) {
         erros.push("O nome da atividade de origem da perda é inválido.");
     }
 
-    if (funilOrigem != "" && funilOrigem != "CLIENTE") {
+    if (
+        funilOrigem != ""
+        && funilOrigem != "CLIENTE"
+        && funilOrigem != "PARCEIRO"
+    ) {
         erros.push("O funil de origem da perda é inválido.");
+    }
+
+    if (
+        atividadeAtual == VF_ATIVIDADE_PARCEIRO
+        && funilOrigem != "PARCEIRO"
+    ) {
+        erros.push("A atividade Parceiro deve registrar perda no Funil Parceiro.");
+    }
+
+    if (
+        atividadeAtual != VF_ATIVIDADE_PARCEIRO
+        && funilOrigem != "CLIENTE"
+    ) {
+        erros.push("A atividade comercial do Cliente deve registrar perda no Funil Cliente.");
     }
 }
 
-function vfValidarRecuperacao(form, erros) {
+function vfValidarRecuperacao(form, erros, atividadeAtual) {
     var atividadeRecuperacao = vfTexto(
         form.getValue("atividade_recuperacao")
     );
+    var funilDestino = vfTexto(
+        form.getValue("funil_origem_fluxo")
+    );
+
+    if (funilDestino == "") {
+        funilDestino = vfTexto(
+            form.getValue("funil_destino")
+        );
+    }
+
+    if (funilDestino == "") {
+        funilDestino = vfTexto(
+            form.getValue("funil_origem_perda")
+        );
+    }
 
     if (atividadeRecuperacao == "") {
         erros.push(
@@ -328,12 +507,20 @@ function vfValidarRecuperacao(form, erros) {
         return;
     }
 
-    if (
-        atividadeRecuperacao != "4"
-        && atividadeRecuperacao != "19"
-        && atividadeRecuperacao != "21"
-    ) {
-        erros.push("A atividade de recuperação selecionada é inválida.");
+    if (funilDestino == "CLIENTE") {
+        if (
+            atividadeRecuperacao != "4"
+            && atividadeRecuperacao != "19"
+            && atividadeRecuperacao != "21"
+        ) {
+            erros.push("A atividade de recuperação selecionada é inválida para o Funil Cliente.");
+        }
+    } else if (funilDestino == "PARCEIRO") {
+        if (atividadeRecuperacao != "72") {
+            erros.push("A atividade de recuperação selecionada é inválida para o Funil Parceiro.");
+        }
+    } else {
+        erros.push("O funil original do lead não foi informado ou é inválido.");
     }
 }
 
@@ -375,13 +562,18 @@ function vfNomeAtividade(atividadeAtual) {
         return "Proposta comercial";
     }
 
+    if (atividadeAtual == VF_ATIVIDADE_PARCEIRO) {
+        return "Atividade Parceiro";
+    }
+
     return "";
 }
 
 function vfEhAtividadeComercial(atividadeAtual) {
     return atividadeAtual == VF_ATIVIDADE_TENTATIVA_CONTATO
         || atividadeAtual == VF_ATIVIDADE_OPORTUNIDADE_GERADA
-        || atividadeAtual == VF_ATIVIDADE_PROPOSTA_COMERCIAL;
+        || atividadeAtual == VF_ATIVIDADE_PROPOSTA_COMERCIAL
+        || atividadeAtual == VF_ATIVIDADE_PARCEIRO;
 }
 
 function vfLancarErros(erros) {

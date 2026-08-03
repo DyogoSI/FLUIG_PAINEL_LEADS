@@ -1,6 +1,7 @@
 var ATS_ATIVIDADE_TENTATIVA_CONTATO = 4;
 var ATS_ATIVIDADE_OPORTUNIDADE_GERADA = 19;
 var ATS_ATIVIDADE_PROPOSTA_COMERCIAL = 21;
+var ATS_ATIVIDADE_PARCEIRO = 72;
 var ATS_TABELA_TENTATIVAS = "tbTentativasContato";
 
 function afterTaskSave(colleagueId, nextSequenceId, userList) {
@@ -11,6 +12,7 @@ function afterTaskSave(colleagueId, nextSequenceId, userList) {
         hAPI.getCardValue("acao_fluxo_comercial")
     );
     var perdendoLead = acaoFluxo == "LEAD_PERDIDO";
+    var nutrindoLead = acaoFluxo == "NUTRICAO";
     var prefixoLog = ">>> [IRHO-LEADS] afterTaskSave";
 
     log.info(
@@ -33,6 +35,7 @@ function afterTaskSave(colleagueId, nextSequenceId, userList) {
                 numSolicitacao,
                 completandoAtividade,
                 perdendoLead,
+                nutrindoLead,
                 prefixoLog
             );
         } else if (
@@ -41,6 +44,12 @@ function afterTaskSave(colleagueId, nextSequenceId, userList) {
             && atsEhAtividadeComercial(atividadeAtual)
         ) {
             hAPI.setCardValue("status_lead", "PERDIDO");
+        } else if (
+            completandoAtividade
+            && nutrindoLead
+            && atsEhAtividadeComercial(atividadeAtual)
+        ) {
+            hAPI.setCardValue("status_lead", "NUTRICAO");
         }
 
         if (
@@ -67,6 +76,7 @@ function atsAtualizarResumoContato(
     numSolicitacao,
     completandoAtividade,
     perdendoLead,
+    nutrindoLead,
     prefixoLog
 ) {
     var dataHoraAtual = atsFormatarDataHoraAtual();
@@ -111,6 +121,8 @@ function atsAtualizarResumoContato(
 
     if (completandoAtividade && perdendoLead) {
         hAPI.setCardValue("status_lead", "PERDIDO");
+    } else if (completandoAtividade && nutrindoLead) {
+        hAPI.setCardValue("status_lead", "NUTRICAO");
     } else if (completandoAtividade) {
         hAPI.setCardValue(
             "status_lead",
@@ -202,7 +214,8 @@ function atsLimparCamposPendentes() {
 function atsEhAtividadeComercial(atividadeAtual) {
     return atividadeAtual == ATS_ATIVIDADE_TENTATIVA_CONTATO
         || atividadeAtual == ATS_ATIVIDADE_OPORTUNIDADE_GERADA
-        || atividadeAtual == ATS_ATIVIDADE_PROPOSTA_COMERCIAL;
+        || atividadeAtual == ATS_ATIVIDADE_PROPOSTA_COMERCIAL
+        || atividadeAtual == ATS_ATIVIDADE_PARCEIRO;
 }
 
 function atsTarefaEstaSendoConcluida() {

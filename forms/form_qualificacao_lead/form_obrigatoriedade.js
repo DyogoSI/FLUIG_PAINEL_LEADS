@@ -147,15 +147,31 @@ IRHOLeads.Obrigatoriedade = (function () {
 
                 rotulo:
                     "Preferências de Comunicação"
+            },
+            {
+                nome:
+                    "class_potencial",
+
+                rotulo:
+                    "Potencial do Lead"
             }
         ];
 
         campos.forEach(function (campo) {
-            var valor = $.trim(
-                $("#" + campo.nome)
-                    .val()
-                || ""
-            );
+            var valor;
+
+            if (campo.nome === "class_potencial") {
+                valor = $.trim(
+                    $('input[name="class_potencial"]:checked').val()
+                    || ""
+                );
+            } else {
+                valor = $.trim(
+                    $("#" + campo.nome)
+                        .val()
+                    || ""
+                );
+            }
 
             if (valor === "") {
                 erros.push(
@@ -165,7 +181,7 @@ IRHOLeads.Obrigatoriedade = (function () {
                 );
             }
 
-            if (valor.length > 2000) {
+            if (campo.nome !== "class_potencial" && valor.length > 2000) {
                 erros.push(
                     "A resposta de “"
                     + campo.rotulo
@@ -173,6 +189,15 @@ IRHOLeads.Obrigatoriedade = (function () {
                 );
             }
         });
+
+        if (
+            $('input[name="class_potencial"]:checked').length
+            && ["ALTO", "MEDIO", "BAIXO"].indexOf(
+                $('input[name="class_potencial"]:checked').val()
+            ) === -1
+        ) {
+            erros.push("O Potencial do Lead informado é inválido.");
+        }
 
         return erros;
     }

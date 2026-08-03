@@ -9,9 +9,15 @@ IRHOLeads.Funil = (function () {
 
     function validar() {
         var erros = [];
+        var selecionado = obterSelecionado();
 
-        if (obterSelecionado() === "") {
+        if (selecionado === "") {
             erros.push("Selecione o funil de destino antes de avançar.");
+        } else if (
+            selecionado !== "CLIENTE"
+            && selecionado !== "PARCEIRO"
+        ) {
+            erros.push("O funil de destino selecionado é inválido.");
         }
 
         return erros;
@@ -30,10 +36,19 @@ IRHOLeads.Funil = (function () {
         $('input[name="funil_destino"]')
             .off("change.irhoFunil")
             .on("change.irhoFunil", function () {
+                $("#funil_origem_fluxo").val(obterSelecionado());
+
                 $("#mensagemDefinicaoFunil")
                     .removeClass("is-visible is-error")
                     .html("");
             });
+
+        if (
+            IRHOLeads.Contexto.ehEtapaInicial()
+            && obterSelecionado() !== ""
+        ) {
+            $("#funil_origem_fluxo").val(obterSelecionado());
+        }
     }
 
     return {

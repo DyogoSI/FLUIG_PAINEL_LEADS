@@ -42,8 +42,14 @@ IRHOLeads.Salvamento = (function () {
         ]
     };
 
+    var destinoEspecialEmTransito = false;
+
     function salvarEContinuar() {
-        var erros = IRHOLeads.Obrigatoriedade.validarTentativas(false);
+        var erros = [];
+
+        if (!IRHOLeads.Contexto.ehAtividadeParceiro()) {
+            erros = IRHOLeads.Obrigatoriedade.validarTentativas(false);
+        }
 
         if (erros.length) {
             $("#acao_atividade").val("");
@@ -51,6 +57,7 @@ IRHOLeads.Salvamento = (function () {
             return;
         }
 
+        $("#acao_fluxo_comercial").val("");
         $("#acao_atividade").val("SALVAR");
 
         acionarSalvarNativo();
@@ -79,7 +86,7 @@ IRHOLeads.Salvamento = (function () {
             return;
         }
 
-        if (IRHOLeads.Contexto.ehLeadPerdido()) {
+        if (IRHOLeads.Contexto.ehRedirecionamento()) {
             var errosRecuperacao = IRHOLeads.Recuperacao.validar();
 
             if (errosRecuperacao.length > 0) {
@@ -105,6 +112,10 @@ IRHOLeads.Salvamento = (function () {
             var erros = IRHOLeads.Obrigatoriedade
                 .validarTentativas(true);
 
+            erros = erros.concat(
+                IRHOLeads.Obrigatoriedade.validarClassificacao()
+            );
+
             if (erros.length > 0) {
                 $("#acao_atividade").val("");
 
@@ -115,22 +126,7 @@ IRHOLeads.Salvamento = (function () {
 
                 return;
             }
-
-            if (
-                !IRHOLeads.Classificacao
-                || typeof IRHOLeads.Classificacao.abrir !== "function"
-            ) {
-                mostrarFeedback(
-                    "O módulo de classificação não foi carregado. Verifique a publicação do arquivo form_classificacao.js.",
-                    "error"
-                );
-
-                return;
-            }
-
-            $("#acao_atividade").val("");
-            IRHOLeads.Classificacao.abrir();
-
+            movimentarAtividade();
             return;
         }
 
@@ -138,9 +134,14 @@ IRHOLeads.Salvamento = (function () {
     }
 
     function movimentarComDestino(destinoFluxo) {
+        destinoEspecialEmTransito = destinoFluxo !== "AVANCAR";
         $("#acao_fluxo_comercial").val(destinoFluxo);
         $("#acao_atividade").val("MOVIMENTAR");
         acionarAcaoNativa("enviar");
+
+        setTimeout(function () {
+            destinoEspecialEmTransito = false;
+        }, 0);
     }
 
     function movimentarAtividade() {
@@ -166,8 +167,19 @@ IRHOLeads.Salvamento = (function () {
         movimentarComDestino("LEAD_PERDIDO");
     }
 
+    function movimentarNutricao() {
+        if (!IRHOLeads.Contexto.ehAtividadeComercial()) {
+            return;
+        }
+
+        movimentarComDestino("NUTRICAO");
+    }
+
     function acionarSalvarNativo() {
-        prepararCamposParaEnvio();
+        if (!prepararCamposParaEnvio()) {
+            $("#acao_atividade").val("");
+            return;
+        }
         definirProcessando(true);
 
         console.log(
@@ -236,7 +248,12 @@ IRHOLeads.Salvamento = (function () {
     function acionarAcaoNativa(tipo) {
         var elemento;
 
-        prepararCamposParaEnvio();
+        if (!prepararCamposParaEnvio()) {
+            $("#acao_atividade").val("");
+            $("#acao_fluxo_comercial").val("");
+            destinoEspecialEmTransito = false;
+            return;
+        }
         definirProcessando(true);
 
         elemento = localizarAcao(tipo);
@@ -279,13 +296,43 @@ IRHOLeads.Salvamento = (function () {
 
     function prepararCamposParaEnvio() {
         var ativo = document.activeElement;
+        var errosEmpresaContato = [];
 
         if (ativo && typeof ativo.blur === "function") {
             ativo.blur();
         }
 
+        if (
+            IRHOLeads.Contexto.ehTentativaContato()
+            && IRHOLeads.EmpresaContato
+            && typeof IRHOLeads.EmpresaContato.prepararParaSalvar === "function"
+        ) {
+            errosEmpresaContato = IRHOLeads.EmpresaContato.prepararParaSalvar() || [];
+            if (errosEmpresaContato.length > 0) {
+                mostrarFeedback(errosEmpresaContato.join("<br>"), "error");
+                definirProcessando(false);
+                return false;
+            }
+        }
+
         $("form").find("input, select, textarea").trigger("change");
         IRHOLeads.Tentativas.renumerar();
+
+        if (
+            IRHOLeads.Contexto.ehRedirecionamento()
+            && $("#acao_atividade").val() === "MOVIMENTAR"
+        ) {
+            IRHOLeads.Recuperacao.garantirFunilParaRetorno();
+        }
+
+        if (
+            IRHOLeads.EmpresaContato
+            && typeof IRHOLeads.EmpresaContato.inicializar === "function"
+        ) {
+            IRHOLeads.EmpresaContato.inicializar();
+        }
+
+        return true;
     }
 
     function localizarAcao(tipo) {
@@ -734,7 +781,8 @@ IRHOLeads.Salvamento = (function () {
             "#btnSalvarContinuar, "
             + "#btnConcluirAtividade, "
             + "#btnMovimentarClassificacao, "
-            + "#btnLeadPerdido"
+            + "#btnLeadPerdido, "
+            + "#btnNutricao"
         )
             .prop("disabled", processando)
             .attr(
@@ -767,6 +815,32 @@ IRHOLeads.Salvamento = (function () {
                 "click.irhoSalvamento",
                 concluirAtividade
             );
+
+        vincularEnviarNativo();
+    }
+
+    function vincularEnviarNativo() {
+        var documentos = obterDocumentosHospedeiros();
+
+        for (var i = 0; i < documentos.length; i++) {
+            $(documentos[i])
+                .off("click.irhoEnviarNativo", SELETORES.enviar.join(", "))
+                .on(
+                    "click.irhoEnviarNativo",
+                    SELETORES.enviar.join(", "),
+                    function () {
+                        if (
+                            destinoEspecialEmTransito
+                            || !IRHOLeads.Contexto.ehAtividadeComercial()
+                        ) {
+                            return;
+                        }
+
+                        $("#acao_atividade").val("MOVIMENTAR");
+                        $("#acao_fluxo_comercial").val("AVANCAR");
+                    }
+                );
+        }
     }
 
     return {
@@ -783,6 +857,9 @@ IRHOLeads.Salvamento = (function () {
             movimentarAtividade,
 
         movimentarLeadPerdido:
-            movimentarLeadPerdido
+            movimentarLeadPerdido,
+
+        movimentarNutricao:
+            movimentarNutricao
     };
 }());

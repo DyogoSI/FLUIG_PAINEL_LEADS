@@ -25,6 +25,7 @@ IRHOLeads.Init = (function () {
         inicializarModulo("Funil", "inicializar");
         inicializarModulo("Tentativas", "inicializar");
         inicializarModulo("Perdas", "inicializar");
+        inicializarModulo("Nutricao", "inicializar");
         inicializarModulo("Recuperacao", "inicializar");
         inicializarModulo("Visibilidade", "aplicar");
         inicializarModulo("Bloqueios", "aplicar");

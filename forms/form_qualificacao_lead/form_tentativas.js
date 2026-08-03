@@ -52,6 +52,8 @@ IRHOLeads.Tentativas = (function () {
         IRHOLeads.Dados.campoFilho("tent_hora", indice)
             .val(horaAtual());
 
+        atualizarContatos();
+
         atualizarIconeMeioContato(
             IRHOLeads.Dados.campoFilho("tent_meio", indice)
         );
@@ -102,6 +104,151 @@ IRHOLeads.Tentativas = (function () {
 
         $("#tentativasEstadoVazio")
             .toggleClass("lead-hidden", possuiTentativas);
+    }
+
+    function textoLimpo(valor) {
+        return $.trim(String(valor || ""));
+    }
+
+    function contatosDisponiveis() {
+        var contatos = [];
+        var nomePrincipal = textoLimpo($("#contato_nome").val());
+
+        if (nomePrincipal !== "") {
+            contatos.push({
+                referencia: "PRINCIPAL",
+                nome: nomePrincipal,
+                rotulo: "Principal — " + nomePrincipal
+            });
+        }
+
+        $("#tbContatosSecundarios")
+            .find('[name^="cont_sec_nome___"]')
+            .each(function () {
+                var nomeCampo = $(this).attr("name") || "";
+                var partes = nomeCampo.split("___");
+                var indice = partes.length === 2 ? partes[1] : "";
+                var nome = textoLimpo($(this).val());
+
+                if (indice === "" || nome === "") {
+                    return;
+                }
+
+                contatos.push({
+                    referencia: "SECUNDARIO___" + indice,
+                    nome: nome,
+                    rotulo: "Secundário — " + nome
+                });
+            });
+
+        return contatos;
+    }
+
+    function referenciasContato(valor) {
+        if (!valor) {
+            return [];
+        }
+
+        return String(valor).split("|").filter(function (referencia) {
+            return referencia !== "";
+        });
+    }
+
+    function atualizarContatoSelecionado(campo) {
+        var campoReferencia = $(campo);
+        var indice = IRHOLeads.Dados.obterIndiceFilho(campoReferencia);
+        var nomes = [];
+        var campoNome = IRHOLeads.Dados.campoFilho("tent_contato_nome", indice);
+
+        campoReferencia
+            .closest(".form-group")
+            .find('[data-contact-selector] input:checked')
+            .each(function () {
+                nomes.push($(this).attr("data-contato-nome") || "");
+            });
+
+        if (nomes.length > 0 || textoLimpo(campoReferencia.val()) === "") {
+            campoNome.val(nomes.join(" | "));
+        }
+    }
+
+    function atualizarContatos() {
+        var contatos = contatosDisponiveis();
+
+        $('#tbTentativasContato [name^="tent_contato_ref___"]').each(function () {
+            var campoReferencia = $(this);
+            var referenciasAtuais = referenciasContato(campoReferencia.val());
+            var indiceTentativa = IRHOLeads.Dados.obterIndiceFilho(campoReferencia);
+            var nomesHistoricos = textoLimpo(
+                IRHOLeads.Dados.campoFilho("tent_contato_nome", indiceTentativa).val()
+            ).split(" | ");
+            var seletor = campoReferencia
+                .closest(".form-group")
+                .find("[data-contact-selector]");
+
+            seletor.empty();
+
+            if (contatos.length === 0) {
+                seletor.append(
+                    $("<span></span>")
+                        .addClass("lead-attempt-contact-empty")
+                        .text("Nenhum contato cadastrado.")
+                );
+            }
+
+            contatos.forEach(function (contato) {
+                var identificador = "tentContato_"
+                    + (campoReferencia.attr("name") || "").replace(/[^a-zA-Z0-9]/g, "_")
+                    + "_"
+                    + contato.referencia.replace(/[^a-zA-Z0-9]/g, "_");
+                var marcado = referenciasAtuais.indexOf(contato.referencia) !== -1;
+                var opcao = $("<label></label>")
+                    .addClass("lead-attempt-contact-choice")
+                    .toggleClass("is-selected", marcado)
+                    .attr("for", identificador);
+
+                opcao.append(
+                    $("<input>")
+                        .attr("type", "checkbox")
+                        .attr("id", identificador)
+                        .attr("data-contato-ref", contato.referencia)
+                        .attr("data-contato-nome", contato.nome)
+                        .prop("checked", marcado)
+                );
+
+                seletor.append(
+                    opcao.append(
+                        $("<span></span>").text(contato.rotulo)
+                    )
+                );
+            });
+
+            referenciasAtuais.forEach(function (referencia, posicao) {
+                var disponivel = contatos.some(function (contato) {
+                    return contato.referencia === referencia;
+                });
+                if (disponivel) {
+                    return;
+                }
+
+                var nomeHistorico = nomesHistoricos[posicao] || "Contato removido";
+                seletor.append(
+                    $("<label></label>")
+                        .addClass("lead-attempt-contact-choice is-selected is-historical")
+                        .append(
+                            $("<input>")
+                                .attr("type", "checkbox")
+                                .attr("data-contato-ref", referencia)
+                                .attr("data-contato-nome", nomeHistorico)
+                                .prop("checked", true)
+                                .prop("disabled", true)
+                        )
+                        .append($("<span></span>").text("Histórico — " + nomeHistorico))
+                );
+            });
+
+            atualizarContatoSelecionado(campoReferencia);
+        });
     }
 
     function focarNovaTentativa(indice) {
@@ -236,6 +383,27 @@ IRHOLeads.Tentativas = (function () {
             }
         );
 
+        $("#tbTentativasContato").on(
+            "change",
+            '[data-contact-selector] input[type="checkbox"]',
+            function () {
+                var grupo = $(this).closest(".form-group");
+                var referencias = [];
+                var campoReferencia = grupo.find('[name^="tent_contato_ref___"]');
+
+                $(this)
+                    .closest(".lead-attempt-contact-choice")
+                    .toggleClass("is-selected", $(this).is(":checked"));
+
+                grupo.find('[data-contact-selector] input:checked').each(function () {
+                    referencias.push($(this).attr("data-contato-ref") || "");
+                });
+
+                campoReferencia.val(referencias.join("|"));
+                atualizarContatoSelecionado(campoReferencia);
+            }
+        );
+
         $('#tbTentativasContato [name^="tent_meio___"]').each(function () {
             atualizarIconeMeioContato(this);
         });
@@ -248,6 +416,7 @@ IRHOLeads.Tentativas = (function () {
             }
         );
 
+        atualizarContatos();
         renumerar();
         atualizarEstadoVazio();
     }
@@ -257,6 +426,7 @@ IRHOLeads.Tentativas = (function () {
         adicionar: adicionar,
         remover: remover,
         renumerar: renumerar,
-        atualizarEstadoVazio: atualizarEstadoVazio
+        atualizarEstadoVazio: atualizarEstadoVazio,
+        atualizarContatos: atualizarContatos
     };
 }());

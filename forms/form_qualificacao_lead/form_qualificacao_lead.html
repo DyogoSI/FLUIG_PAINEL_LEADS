@@ -33,6 +33,7 @@
             <input type="hidden" name="modo_formulario" id="modo_formulario">
             <input type="hidden" name="acao_atividade" id="acao_atividade">
             <input type="hidden" name="acao_fluxo_comercial" id="acao_fluxo_comercial">
+            <input type="hidden" name="funil_origem_fluxo" id="funil_origem_fluxo">
             <input type="hidden" name="funil_origem_perda" id="funil_origem_perda">
             <input type="hidden" name="atividade_origem_perda" id="atividade_origem_perda">
             <input type="hidden" name="atividade_origem_nome" id="atividade_origem_nome">
@@ -80,7 +81,7 @@
                         </a>
 
                         <a href="#painelClassificacao" class="lead-hidden">
-                            Classificação Lead
+                            Diagnóstico Lead
                         </a>
 
                         <a href="#painelHistoricoPerdas" class="lead-hidden">
@@ -111,11 +112,22 @@
                                     <i class="flaticon flaticon-company"></i>
                                     Empresa e contato
                                 </h2>
+
+                                <button type="button" id="btnPreencherDadosTeste"
+                                    class="lead-btn-test-data lead-hidden">
+                                    Preencher dados de teste
+                                </button>
+
+                                <button type="button" id="btnEditarEmpresaContato"
+                                    class="lead-btn-edit-company lead-hidden">
+                                    Editar empresa e contatos
+                                </button>
                             </div>
 
                             <div class="panel-body">
                                 <div class="lead-company-contact-source" aria-hidden="true">
                                     <input type="hidden" name="lead_id" id="lead_id">
+                                    <input type="hidden" name="fonte_insercao" id="fonte_insercao">
                                     <input type="hidden" name="empresa_site" id="empresa_site">
                                     <input type="hidden" name="tipo_registro" id="tipo_registro">
                                     <input type="hidden" name="segmento" id="segmento">
@@ -159,6 +171,74 @@
                                     </table>
                                 </div>
 
+                                <div id="editorEmpresaContato" class="lead-company-contact-editor lead-hidden">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="edit_empresa_nome">Empresa</label>
+                                            <input type="text" name="ui_edit_empresa_nome" id="edit_empresa_nome" class="form-control" maxlength="255">
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="edit_empresa_cnpj">CNPJ</label>
+                                            <input type="text" name="ui_edit_empresa_cnpj" id="edit_empresa_cnpj" class="form-control" maxlength="50">
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="edit_empresa_site">Site</label>
+                                            <input type="text" name="ui_edit_empresa_site" id="edit_empresa_site" class="form-control" maxlength="255">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group">
+                                            <label for="edit_tipo_registro">Tipo de registro</label>
+                                            <input type="text" name="ui_edit_tipo_registro" id="edit_tipo_registro" class="form-control" maxlength="100">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="edit_segmento">Segmento</label>
+                                            <input type="text" name="ui_edit_segmento" id="edit_segmento" class="form-control" maxlength="255">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="edit_cidade">Cidade</label>
+                                            <input type="text" name="ui_edit_cidade" id="edit_cidade" class="form-control" maxlength="255">
+                                        </div>
+                                    </div>
+                                    <h3>Contato principal</h3>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group">
+                                            <label for="edit_contato_nome">Nome</label>
+                                            <input type="text" name="ui_edit_contato_nome" id="edit_contato_nome" class="form-control" maxlength="255">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="edit_contato_cargo">Cargo</label>
+                                            <input type="text" name="ui_edit_contato_cargo" id="edit_contato_cargo" class="form-control" maxlength="255">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="edit_contato_telefone">Telefone</label>
+                                            <input type="text" name="ui_edit_contato_telefone" id="edit_contato_telefone" class="form-control" maxlength="50">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="edit_contato_email">E-mail</label>
+                                            <input type="email" name="ui_edit_contato_email" id="edit_contato_email" class="form-control" maxlength="255">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="edit_contato_linkedin">LinkedIn</label>
+                                            <input type="text" name="ui_edit_contato_linkedin" id="edit_contato_linkedin" class="form-control" maxlength="500">
+                                        </div>
+                                    </div>
+                                    <div class="lead-editor-secondary-header">
+                                        <h3>Contatos secundários</h3>
+                                        <button type="button" id="btnAdicionarContatoSecundario" class="btn btn-default">
+                                            Adicionar contato
+                                        </button>
+                                    </div>
+                                    <div id="editorContatosSecundarios"></div>
+                                    <div id="mensagemEmpresaContato" class="lead-feedback" role="alert"></div>
+                                    <div class="lead-editor-actions">
+                                        <button type="button" id="btnCancelarEmpresaContato" class="btn btn-default">Cancelar</button>
+                                        <button type="button" id="btnSalvarEmpresaContato" class="btn btn-primary">Aplicar alterações</button>
+                                    </div>
+                                </div>
+
                                 <div class="lead-company-contact-layout">
                                     <div class="lead-summary-column">
                                         <section class="lead-summary-card">
@@ -185,8 +265,12 @@
                                         <section class="lead-summary-card">
                                             <h3>Contato principal</h3>
                                             <div class="lead-data-row">
-                                                <span class="lead-data-label">Código</span>
+                                                <span class="lead-data-label">ID do lead</span>
                                                 <span class="lead-data-value" data-lead-field="lead_id"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Origem dos dados</span>
+                                                <span class="lead-data-value" data-lead-field="fonte_insercao"></span>
                                             </div>
                                             <div class="lead-data-row">
                                                 <span class="lead-data-label">Nome</span>
@@ -344,6 +428,20 @@
                                             <span>Encaminha o lead para o fluxo comercial de clientes.</span>
                                         </span>
                                     </label>
+
+                                    <label class="lead-funnel-option" for="funil_destino_parceiro">
+                                        <input type="radio" name="funil_destino" id="funil_destino_parceiro"
+                                            value="PARCEIRO">
+
+                                        <span class="lead-funnel-avatar lead-funnel-avatar-partner" aria-hidden="true">
+                                            <i class="fa-regular fa-handshake"></i>
+                                        </span>
+
+                                        <span class="lead-funnel-content">
+                                            <strong>Funil Parceiro</strong>
+                                            <span>Encaminha o lead para o fluxo comercial de parceiros.</span>
+                                        </span>
+                                    </label>
                                 </div>
 
                                 <div id="mensagemDefinicaoFunil" class="lead-action-feedback" role="status"
@@ -416,6 +514,8 @@
 
                                                     <input type="hidden" name="tent_ordem" id="tent_ordem">
 
+                                                    <input type="hidden" name="tent_contato_nome" id="tent_contato_nome">
+
                                                     <div class="lead-attempt-header">
                                                         <div class="lead-attempt-title">
                                                             <span class="lead-attempt-number-label">
@@ -435,6 +535,17 @@
                                                             aria-label="Remover tentativa">
                                                             <i class="flaticon flaticon-trash"></i>
                                                         </button>
+                                                    </div>
+
+                                                    <div class="form-group lead-attempt-contact-group">
+                                                        <label for="tent_contato_ref">Contato</label>
+
+                                                        <div class="lead-attempt-contact-selector"
+                                                            data-contact-selector>
+                                                        </div>
+
+                                                        <input type="hidden" name="tent_contato_ref"
+                                                            id="tent_contato_ref">
                                                     </div>
 
                                                     <div class="row">
@@ -611,7 +722,8 @@
                                     </p>
 
                                     <div class="lead-recovery-grid">
-                                        <label class="lead-funnel-option" for="atividade_recuperacao_4">
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_4"
+                                            data-funil-recuperacao="CLIENTE">
                                             <input type="radio" name="atividade_recuperacao"
                                                 id="atividade_recuperacao_4" value="4">
 
@@ -625,7 +737,8 @@
                                             </span>
                                         </label>
 
-                                        <label class="lead-funnel-option" for="atividade_recuperacao_19">
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_19"
+                                            data-funil-recuperacao="CLIENTE">
                                             <input type="radio" name="atividade_recuperacao"
                                                 id="atividade_recuperacao_19" value="19">
 
@@ -639,7 +752,8 @@
                                             </span>
                                         </label>
 
-                                        <label class="lead-funnel-option" for="atividade_recuperacao_21">
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_21"
+                                            data-funil-recuperacao="CLIENTE">
                                             <input type="radio" name="atividade_recuperacao"
                                                 id="atividade_recuperacao_21" value="21">
 
@@ -650,6 +764,21 @@
                                             <span class="lead-funnel-content">
                                                 <strong>Proposta comercial</strong>
                                                 <span>Retoma o lead diretamente na proposta.</span>
+                                            </span>
+                                        </label>
+
+                                        <label class="lead-funnel-option" for="atividade_recuperacao_72"
+                                            data-funil-recuperacao="PARCEIRO">
+                                            <input type="radio" name="atividade_recuperacao"
+                                                id="atividade_recuperacao_72" value="72">
+
+                                            <span class="lead-recovery-icon lead-recovery-partner" aria-hidden="true">
+                                                <i class="fa-regular fa-handshake"></i>
+                                            </span>
+
+                                            <span class="lead-funnel-content">
+                                                <strong>Atividade Parceiro</strong>
+                                                <span>Retoma o acompanhamento no Funil Parceiro.</span>
                                             </span>
                                         </label>
                                     </div>
@@ -709,6 +838,22 @@
                                             </span>
                                         </span>
                                     </button>
+
+                                    <button type="button" id="btnNutricao"
+                                        class="lead-action-option lead-action-nutrition lead-hidden">
+
+                                        <span class="lead-action-icon">
+                                            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                                        </span>
+
+                                        <span class="lead-action-content">
+                                            <strong>Nutrição</strong>
+
+                                            <span>
+                                                Encaminha o lead para nutrição sem registrar perda.
+                                            </span>
+                                        </span>
+                                    </button>
                                 </div>
 
                                 <div id="mensagemAcaoAtividade" class="lead-action-feedback" role="status"
@@ -726,7 +871,7 @@
                             <div class="panel-heading">
                                 <h2 class="panel-title">
                                     <i class="flaticon flaticon-assignment"></i>
-                                    Classificação Lead
+                                    Diagnóstico Lead
                                 </h2>
                             </div>
 
@@ -893,26 +1038,47 @@
                                         </div>
                                     </div>
 
+                                    <!-- 7. Potencial do Lead -->
+                                    <div class="lead-question-card lead-potential-card">
+                                        <div class="lead-question-header">
+                                            <span class="lead-question-number">7</span>
+
+                                            <div>
+                                                <label class="label-obrigatorio">
+                                                    Potencial do Lead
+                                                </label>
+
+                                                <p>
+                                                    Indique a avaliação consolidada do potencial comercial do lead.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="lead-potential-options" role="radiogroup"
+                                            aria-label="Potencial do Lead">
+                                            <label for="class_potencial_alto">
+                                                <input type="radio" name="class_potencial"
+                                                    id="class_potencial_alto" value="ALTO">
+                                                <span>Alto</span>
+                                            </label>
+
+                                            <label for="class_potencial_medio">
+                                                <input type="radio" name="class_potencial"
+                                                    id="class_potencial_medio" value="MEDIO">
+                                                <span>Médio</span>
+                                            </label>
+
+                                            <label for="class_potencial_baixo">
+                                                <input type="radio" name="class_potencial"
+                                                    id="class_potencial_baixo" value="BAIXO">
+                                                <span>Baixo</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="lead-classification-footer">
-                                    <button type="button" id="btnMovimentarClassificacao"
-                                        class="lead-action-option lead-action-complete lead-classification-submit">
-
-                                        <span class="lead-action-icon">
-                                            <i class="flaticon flaticon-check"></i>
-                                        </span>
-
-                                        <span class="lead-action-content">
-                                            <strong>Movimentar atividade</strong>
-
-                                            <span>
-                                                Valida a classificação e abre a movimentação
-                                                nativa do Fluig.
-                                            </span>
-                                        </span>
-                                    </button>
-
                                     <div id="mensagemClassificacao" class="lead-action-feedback" role="status"
                                         aria-live="polite">
                                     </div>
@@ -936,6 +1102,7 @@
     <script type="text/javascript" src="form_funil.js"></script>
     <script type="text/javascript" src="form_tentativas.js"></script>
     <script type="text/javascript" src="form_perdas.js"></script>
+    <script type="text/javascript" src="form_nutricao.js"></script>
     <script type="text/javascript" src="form_recuperacao.js"></script>
     <script type="text/javascript" src="form_visibilidade.js"></script>
     <script type="text/javascript" src="form_bloqueios.js"></script>
