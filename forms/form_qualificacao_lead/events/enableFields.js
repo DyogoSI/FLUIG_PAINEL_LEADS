@@ -49,8 +49,7 @@ function bloquearClassificacao(form) {
         "class_orcamento",
         "class_timeline",
         "class_autoridade",
-        "class_comunicacao",
-        "class_potencial"
+        "class_comunicacao"
     ];
 
     for (var i = 0; i < campos.length; i++) {
@@ -63,6 +62,9 @@ function bloquearClassificacao(form) {
 }
 
 function bloquearCamposIntegracao(form, atividadeAtual) {
+    var possuiTentativasRegistradas =
+        atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO
+        && form.getChildrenIndexes(EF_TABELA_TENTATIVAS).length > 0;
     var camposIntegracao = [
         "empresa_nome",
         "empresa_cnpj",
@@ -116,6 +118,7 @@ function bloquearCamposIntegracao(form, atividadeAtual) {
                 || (
                     editavelNaTentativa
                     && atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO
+                    && !possuiTentativasRegistradas
                 )),
             true
         );
@@ -126,6 +129,9 @@ function bloquearContatosSecundarios(form, atividadeAtual) {
     var indices = form.getChildrenIndexes(
         EF_TABELA_CONTATOS_SECUNDARIOS
     );
+    var possuiTentativasRegistradas =
+        atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO
+        && form.getChildrenIndexes(EF_TABELA_TENTATIVAS).length > 0;
     var camposFilhos = [
         "cont_sec_ordem",
         "cont_sec_nome",
@@ -141,9 +147,12 @@ function bloquearContatosSecundarios(form, atividadeAtual) {
         for (var j = 0; j < camposFilhos.length; j++) {
             form.setEnabled(
                 camposFilhos[j] + "___" + indice,
-                atividadeAtual === 0
+                    atividadeAtual === 0
                     || atividadeAtual === EF_ATIVIDADE_INICIO
-                    || atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO,
+                    || (
+                        atividadeAtual === EF_ATIVIDADE_TENTATIVA_CONTATO
+                        && !possuiTentativasRegistradas
+                    ),
                 true
             );
         }

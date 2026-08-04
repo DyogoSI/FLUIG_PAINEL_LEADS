@@ -128,6 +128,12 @@ IRHOLeads.Contexto = (function () {
             === ATIVIDADE_TENTATIVA_CONTATO;
     }
 
+    function possuiTentativasRegistradas() {
+        return $('[name^="tent_id___"]').filter(function () {
+            return String($(this).val() || "").trim() !== "";
+        }).length > 0;
+    }
+
     function ehAtividadeComercial() {
         var atividade = atividadeAtual();
 
@@ -192,6 +198,9 @@ IRHOLeads.Contexto = (function () {
 
         ehTentativaContato:
             ehTentativaContato,
+
+        possuiTentativasRegistradas:
+            possuiTentativasRegistradas,
 
         ehAtividadeComercial:
             ehAtividadeComercial,

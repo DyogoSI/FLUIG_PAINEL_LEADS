@@ -162,8 +162,7 @@ IRHOLeads.Obrigatoriedade = (function () {
 
             if (campo.nome === "class_potencial") {
                 valor = $.trim(
-                    $('input[name="class_potencial"]:checked').val()
-                    || ""
+                    $("#class_potencial").val() || ""
                 );
             } else {
                 valor = $.trim(
@@ -191,9 +190,9 @@ IRHOLeads.Obrigatoriedade = (function () {
         });
 
         if (
-            $('input[name="class_potencial"]:checked').length
+            $("#class_potencial").val() !== ""
             && ["ALTO", "MEDIO", "BAIXO"].indexOf(
-                $('input[name="class_potencial"]:checked').val()
+                $("#class_potencial").val()
             ) === -1
         ) {
             erros.push("O Potencial do Lead informado é inválido.");

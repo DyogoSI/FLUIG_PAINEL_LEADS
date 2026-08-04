@@ -131,6 +131,8 @@
                                     <input type="hidden" name="lead_id" id="lead_id">
                                     <input type="hidden" name="fonte_insercao" id="fonte_insercao">
                                     <input type="hidden" name="empresa_site" id="empresa_site">
+                                    <input type="hidden" name="empresa_telefone" id="empresa_telefone">
+                                    <input type="hidden" name="empresa_razao_social" id="empresa_razao_social">
                                     <input type="hidden" name="tipo_registro" id="tipo_registro">
                                     <input type="hidden" name="segmento" id="segmento">
                                     <input type="hidden" name="cidade" id="cidade">
@@ -248,6 +250,15 @@
                                             <div class="lead-data-row">
                                                 <span class="lead-data-label">CNPJ</span>
                                                 <span class="lead-data-value" data-lead-field="empresa_cnpj"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Razão social</span>
+                                                <span class="lead-data-value" data-lead-field="empresa_razao_social"></span>
+                                            </div>
+                                            <div class="lead-data-row">
+                                                <span class="lead-data-label">Telefone</span>
+                                                <span class="lead-data-value" data-lead-field="empresa_telefone"
+                                                    data-link-type="tel"></span>
                                             </div>
                                             <div class="lead-data-row">
                                                 <span class="lead-data-label">Site</span>
@@ -1058,25 +1069,24 @@
                                             </div>
                                         </div>
 
-                                        <div class="lead-potential-options" role="radiogroup"
+                                        <input type="hidden" name="class_potencial" id="class_potencial">
+
+                                        <div class="lead-potential-options" role="group"
                                             aria-label="Potencial do Lead">
-                                            <label for="class_potencial_alto">
-                                                <input type="radio" name="class_potencial"
-                                                    id="class_potencial_alto" value="ALTO">
-                                                <span>Alto</span>
-                                            </label>
+                                            <button type="button" class="lead-potential-option"
+                                                data-potential-value="ALTO" aria-pressed="false">
+                                                Alto
+                                            </button>
 
-                                            <label for="class_potencial_medio">
-                                                <input type="radio" name="class_potencial"
-                                                    id="class_potencial_medio" value="MEDIO">
-                                                <span>Médio</span>
-                                            </label>
+                                            <button type="button" class="lead-potential-option"
+                                                data-potential-value="MEDIO" aria-pressed="false">
+                                                Médio
+                                            </button>
 
-                                            <label for="class_potencial_baixo">
-                                                <input type="radio" name="class_potencial"
-                                                    id="class_potencial_baixo" value="BAIXO">
-                                                <span>Baixo</span>
-                                            </label>
+                                            <button type="button" class="lead-potential-option"
+                                                data-potential-value="BAIXO" aria-pressed="false">
+                                                Baixo
+                                            </button>
                                         </div>
                                     </div>
 

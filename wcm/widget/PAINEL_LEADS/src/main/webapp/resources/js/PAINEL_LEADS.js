@@ -34,6 +34,8 @@ var PainelLeadsWidget = SuperWidget.extend({
             nomeEmpresa: "empresa_nome",
             cnpj: "empresa_cnpj",
             site: "empresa_site",
+            empresaTelefone: "empresa_telefone",
+            empresaRazaoSocial: "empresa_razao_social",
             tipoRegistro: "tipo_registro",
             segmento: "segmento",
             cidade: "cidade",

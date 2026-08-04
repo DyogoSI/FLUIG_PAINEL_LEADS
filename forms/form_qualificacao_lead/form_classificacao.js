@@ -78,12 +78,10 @@ IRHOLeads.Classificacao = (function () {
 
         if (
             !primeiroCampo.length
-            && !$("#painelClassificacao")
-                .find('input[name="class_potencial"]:checked')
-                .length
+            && obterPotencial() === ""
         ) {
             primeiroCampo = $("#painelClassificacao")
-                .find('input[name="class_potencial"]')
+                .find("[data-potential-value]")
                 .first();
         }
 
@@ -105,12 +103,33 @@ IRHOLeads.Classificacao = (function () {
     }
 
     function atualizarVisualPotencial() {
-        $(".lead-potential-options > label").each(function () {
-            $(this).toggleClass(
-                "is-selected",
-                $(this).find('input[name="class_potencial"]').is(":checked")
-            );
+        var potencial = obterPotencial();
+
+        $("[data-potential-value]").each(function () {
+            var selecionado = $(this).attr("data-potential-value") === potencial;
+
+            $(this)
+                .toggleClass("is-selected", selecionado)
+                .attr("aria-pressed", selecionado ? "true" : "false");
         });
+    }
+
+    function obterPotencial() {
+        return $.trim($("#class_potencial").val() || "");
+    }
+
+    function selecionarPotencial() {
+        if (
+            IRHOLeads.Contexto.somenteLeitura()
+            || !IRHOLeads.Contexto.ehTentativaContato()
+        ) {
+            return;
+        }
+
+        $("#class_potencial").val(
+            $(this).attr("data-potential-value") || ""
+        );
+        atualizarVisualPotencial();
     }
 
     function inicializar() {
@@ -122,11 +141,11 @@ IRHOLeads.Classificacao = (function () {
             );
 
         $(".lead-potential-options")
-            .off("change.irhoClassificacao", 'input[name="class_potencial"]')
+            .off("click.irhoClassificacao", "[data-potential-value]")
             .on(
-                "change.irhoClassificacao",
-                'input[name="class_potencial"]',
-                atualizarVisualPotencial
+                "click.irhoClassificacao",
+                "[data-potential-value]",
+                selecionarPotencial
             );
 
         atualizarVisualPotencial();

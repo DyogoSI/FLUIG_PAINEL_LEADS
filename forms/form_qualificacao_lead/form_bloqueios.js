@@ -37,6 +37,7 @@ IRHOLeads.Bloqueios = (function () {
                 .addClass("lead-history-mode");
 
             bloquearTentativas();
+            bloquearClassificacao();
         }
     }
 
@@ -70,6 +71,18 @@ IRHOLeads.Bloqueios = (function () {
         $("#tbHistoricoPerdas")
             .find("input:not([type='hidden']), textarea")
             .prop("readonly", true)
+            .attr("tabindex", "-1");
+    }
+
+    function bloquearClassificacao() {
+        $("#painelClassificacao")
+            .find("textarea")
+            .prop("readonly", true)
+            .attr("tabindex", "-1");
+
+        $("#painelClassificacao")
+            .find("[data-potential-value]")
+            .prop("disabled", true)
             .attr("tabindex", "-1");
     }
 

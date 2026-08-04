@@ -72,6 +72,13 @@ IRHOLeads.Tentativas = (function () {
             return;
         }
 
+        if ($(botao).closest("tr").attr("data-tentativa-registrada") === "true") {
+            exibirErro(
+                "As tentativas jÃ¡ registradas nÃ£o podem ser alteradas ou excluÃ­das."
+            );
+            return;
+        }
+
         if (typeof fnWdkRemoveChild !== "function") {
             exibirErro(
                 "Não foi possível localizar a função nativa de remoção do Fluig."
@@ -249,6 +256,39 @@ IRHOLeads.Tentativas = (function () {
 
             atualizarContatoSelecionado(campoReferencia);
         });
+
+        bloquearTentativasRegistradas();
+    }
+
+    function marcarTentativasRegistradas() {
+        IRHOLeads.Dados.indicesTentativas().forEach(function (indice) {
+            var idTentativa = textoLimpo(
+                IRHOLeads.Dados.campoFilho("tent_id", indice).val()
+            );
+
+            if (idTentativa !== "") {
+                IRHOLeads.Dados.campoFilho("tent_id", indice)
+                    .closest("tr")
+                    .attr("data-tentativa-registrada", "true");
+            }
+        });
+    }
+
+    function bloquearTentativasRegistradas() {
+        $('#tbTentativasContato tr[data-tentativa-registrada="true"]')
+            .find("input:not([type='hidden']), textarea")
+            .prop("readonly", true)
+            .attr("tabindex", "-1");
+
+        $('#tbTentativasContato tr[data-tentativa-registrada="true"]')
+            .find("select, input[type='checkbox']")
+            .prop("disabled", true)
+            .attr("tabindex", "-1");
+
+        $('#tbTentativasContato tr[data-tentativa-registrada="true"]')
+            .find(".lead-btn-remove")
+            .addClass("lead-hidden")
+            .prop("disabled", true);
     }
 
     function focarNovaTentativa(indice) {
@@ -357,6 +397,8 @@ IRHOLeads.Tentativas = (function () {
     }
 
     function inicializar() {
+        marcarTentativasRegistradas();
+
         $("#btnAdicionarTentativa").on("click", adicionar);
 
         $("#tbTentativasContato").on(

@@ -2046,7 +2046,7 @@ select.form-control {
     margin-top: auto;
 }
 
-.lead-potential-options > label {
+.lead-potential-option {
     display: inline-flex;
     flex: 1 1 180px;
     align-items: center;
@@ -2068,18 +2068,21 @@ select.form-control {
     border-radius: 8px;
 }
 
-.lead-potential-options > label.is-selected {
+.lead-potential-option.is-selected {
     color: var(--lead-orange-dark) !important;
 
     background: var(--lead-orange-soft);
     border-color: rgba(250, 92, 5, 0.5);
 }
 
-.lead-potential-options input {
-    width: 15px;
-    height: 15px;
-    margin: 0 !important;
-    accent-color: var(--lead-orange);
+.lead-potential-option:focus {
+    outline: 2px solid rgba(250, 92, 5, 0.45);
+    outline-offset: 2px;
+}
+
+.lead-potential-option:disabled {
+    cursor: default;
+    opacity: 1;
 }
 
 .lead-classification-footer {

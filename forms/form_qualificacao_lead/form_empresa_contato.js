@@ -349,7 +349,8 @@ IRHOLeads.EmpresaContato = (function () {
         return window.IRHOLeads
             && IRHOLeads.Contexto
             && !IRHOLeads.Contexto.somenteLeitura()
-            && IRHOLeads.Contexto.ehTentativaContato();
+            && IRHOLeads.Contexto.ehTentativaContato()
+            && !IRHOLeads.Contexto.possuiTentativasRegistradas();
     }
 
     function podeEditarEmpresaContato() {
