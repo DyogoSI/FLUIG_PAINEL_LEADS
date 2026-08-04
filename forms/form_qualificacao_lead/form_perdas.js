@@ -189,7 +189,26 @@ IRHOLeads.Perdas = (function () {
     }
 
     function obterFunilOrigem() {
-        return IRHOLeads.Contexto.funilDestino();
+        var funil = IRHOLeads.Contexto.funilDestino();
+        var atividadeAtual = IRHOLeads.Contexto.atividadeAtual();
+
+        if (funil === "") {
+            if (atividadeAtual === IRHOLeads.Contexto.ATIVIDADE_PARCEIRO) {
+                funil = "PARCEIRO";
+            } else if (
+                atividadeAtual === IRHOLeads.Contexto.ATIVIDADE_TENTATIVA_CONTATO
+                || atividadeAtual === IRHOLeads.Contexto.ATIVIDADE_OPORTUNIDADE_GERADA
+                || atividadeAtual === IRHOLeads.Contexto.ATIVIDADE_PROPOSTA_COMERCIAL
+            ) {
+                funil = "CLIENTE";
+            }
+        }
+
+        if (funil !== "") {
+            $("#funil_origem_fluxo").val(funil);
+        }
+
+        return funil;
     }
 
     function localizarMotivo(codigo) {

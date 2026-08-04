@@ -390,7 +390,7 @@ IRHOLeads.EmpresaContato = (function () {
     function preencherEditorPrincipal() {
         var campos = [
             "empresa_nome", "empresa_cnpj", "empresa_site",
-            "tipo_registro", "segmento", "cidade",
+            "segmento", "cidade",
             "contato_nome", "contato_cargo", "contato_telefone",
             "contato_email", "contato_linkedin"
         ];
@@ -528,7 +528,10 @@ IRHOLeads.EmpresaContato = (function () {
             linkedin: valorLimpo($("#edit_contato_linkedin").val())
         }];
 
-        if (!/^\d+$/.test(idReferencia) || isNaN(idNumerico) || idNumerico <= 0) {
+        if (
+            idReferencia !== ""
+            && (!/^\d+$/.test(idReferencia) || isNaN(idNumerico) || idNumerico <= 0)
+        ) {
             erros.push("O identificador SQL do lead não foi informado ou é inválido.");
         }
 
@@ -644,6 +647,43 @@ IRHOLeads.EmpresaContato = (function () {
         return false;
     }
 
+    function contatosSecundariosForamAlterados() {
+        var campos = ["ordem", "nome", "cargo", "telefone", "email", "linkedin"];
+
+        for (var i = 0; i < contatosEdicao.length; i++) {
+            var contato = contatosEdicao[i];
+            if (contato.novo || contato.removido) {
+                return true;
+            }
+
+            for (var c = 0; c < campos.length; c++) {
+                var campo = campos[c];
+                if (
+                    valorLimpo(contato[campo])
+                    !== valorLimpo(obterValorFilho("cont_sec_" + campo, contato.indice))
+                ) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    function registrarCamposAlterados(campos) {
+        var registrados = String($("#ec_campos_alterados").val() || "")
+            .split(",")
+            .filter(function (campo) { return campo !== ""; });
+
+        for (var i = 0; i < campos.length; i++) {
+            if (registrados.indexOf(campos[i]) < 0) {
+                registrados.push(campos[i]);
+            }
+        }
+
+        $("#ec_campos_alterados").val(registrados.join(","));
+    }
+
     function consolidarEdicao() {
         if (!edicaoAberta) {
             return [];
@@ -670,12 +710,19 @@ IRHOLeads.EmpresaContato = (function () {
 
         var campos = [
             "empresa_nome", "empresa_cnpj", "empresa_site",
-            "tipo_registro", "segmento", "cidade",
+            "segmento", "cidade",
             "contato_nome", "contato_cargo", "contato_telefone",
             "contato_email", "contato_linkedin"
         ];
+        var camposAlterados = [];
+        var contatosAlterados = contatosSecundariosForamAlterados();
         for (var i = 0; i < campos.length; i++) {
-            $("#" + campos[i]).val(valorLimpo($("#edit_" + campos[i]).val()));
+            var valorAtual = valorLimpo($("#" + campos[i]).val());
+            var valorEditado = valorLimpo($("#edit_" + campos[i]).val());
+            if (valorAtual !== valorEditado) {
+                camposAlterados.push(campos[i]);
+            }
+            $("#" + campos[i]).val(valorEditado);
         }
 
         var ordem = 0;
@@ -710,6 +757,11 @@ IRHOLeads.EmpresaContato = (function () {
         if (erros.length) {
             mostrarMensagemEdicao(erros);
             return erros;
+        }
+
+        registrarCamposAlterados(camposAlterados);
+        if (contatosAlterados) {
+            $("#ec_contatos_alterados").val("true");
         }
 
         if (IRHOLeads.Tentativas && typeof IRHOLeads.Tentativas.atualizarContatos === "function") {
@@ -889,6 +941,15 @@ IRHOLeads.EmpresaContato = (function () {
             $("[name='cont_sec_" + campos[j] + "___" + indiceSecundario + "']")
                 .val(valoresPrincipais[campos[j]]);
         }
+
+        registrarCamposAlterados([
+            "contato_nome",
+            "contato_cargo",
+            "contato_telefone",
+            "contato_email",
+            "contato_linkedin"
+        ]);
+        $("#ec_contatos_alterados").val("true");
 
         atualizarTentativasAposTroca(
             indiceSecundario,

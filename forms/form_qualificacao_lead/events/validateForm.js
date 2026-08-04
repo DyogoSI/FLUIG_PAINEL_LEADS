@@ -99,7 +99,10 @@ function vfValidarEmpresaContatos(form, erros) {
     var idReferencia = vfTexto(form.getValue("lead_id_referencia"));
     var numeroId = parseInt(idReferencia, 10);
 
-    if (!/^\d+$/.test(idReferencia) || isNaN(numeroId) || numeroId <= 0) {
+    if (
+        idReferencia != ""
+        && (!/^\d+$/.test(idReferencia) || isNaN(numeroId) || numeroId <= 0)
+    ) {
         erros.push("O identificador SQL do lead não foi informado ou é inválido.");
     }
 

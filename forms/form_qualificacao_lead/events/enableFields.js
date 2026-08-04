@@ -90,7 +90,6 @@ function bloquearCamposIntegracao(form, atividadeAtual) {
         "empresa_nome",
         "empresa_cnpj",
         "empresa_site",
-        "tipo_registro",
         "segmento",
         "cidade",
         "contato_nome",
@@ -112,6 +111,7 @@ function bloquearCamposIntegracao(form, atividadeAtual) {
             campoAtual,
             campoAtual !== "lead_id"
                 && campoAtual !== "fonte_insercao"
+                && campoAtual !== "tipo_registro"
                 && (permitirDadosTeste
                 || (
                     editavelNaTentativa

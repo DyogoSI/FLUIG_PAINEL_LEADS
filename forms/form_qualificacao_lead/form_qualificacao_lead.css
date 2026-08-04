@@ -659,6 +659,31 @@ form {
     border-color: rgba(250, 92, 5, 0.35);
 }
 
+#painelEmpresaContato .lead-score-summary-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 1fr);
+    gap: 18px;
+    align-items: center;
+}
+
+#painelEmpresaContato .lead-score-metadata {
+    min-width: 0;
+    display: grid;
+    gap: 8px;
+}
+
+#painelEmpresaContato .lead-score-metadata .lead-data-row {
+    grid-template-columns: minmax(100px, 42%) minmax(0, 1fr);
+    align-items: center;
+
+    padding: 10px 12px;
+
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(250, 92, 5, 0.2);
+    border-radius: 9px;
+    box-shadow: 0 1px 3px rgba(114, 54, 18, 0.06);
+}
+
 #painelEmpresaContato .lead-score-summary h3 {
     margin-bottom: 8px;
 }
@@ -948,6 +973,14 @@ form {
 
     #painelEmpresaContato .lead-score-summary {
         grid-column: auto;
+    }
+
+    #painelEmpresaContato .lead-score-summary-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #painelEmpresaContato .lead-score-metadata {
+        padding-top: 12px;
     }
 }
 

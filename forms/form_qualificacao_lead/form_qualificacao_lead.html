@@ -33,6 +33,8 @@
             <input type="hidden" name="modo_formulario" id="modo_formulario">
             <input type="hidden" name="acao_atividade" id="acao_atividade">
             <input type="hidden" name="acao_fluxo_comercial" id="acao_fluxo_comercial">
+            <input type="hidden" name="ec_campos_alterados" id="ec_campos_alterados">
+            <input type="hidden" name="ec_contatos_alterados" id="ec_contatos_alterados">
             <input type="hidden" name="funil_origem_fluxo" id="funil_origem_fluxo">
             <input type="hidden" name="funil_origem_perda" id="funil_origem_perda">
             <input type="hidden" name="atividade_origem_perda" id="atividade_origem_perda">
@@ -187,15 +189,11 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4 form-group">
-                                            <label for="edit_tipo_registro">Tipo de registro</label>
-                                            <input type="text" name="ui_edit_tipo_registro" id="edit_tipo_registro" class="form-control" maxlength="100">
-                                        </div>
-                                        <div class="col-md-4 form-group">
+                                        <div class="col-md-6 form-group">
                                             <label for="edit_segmento">Segmento</label>
                                             <input type="text" name="ui_edit_segmento" id="edit_segmento" class="form-control" maxlength="255">
                                         </div>
-                                        <div class="col-md-4 form-group">
+                                        <div class="col-md-6 form-group">
                                             <label for="edit_cidade">Cidade</label>
                                             <input type="text" name="ui_edit_cidade" id="edit_cidade" class="form-control" maxlength="255">
                                         </div>
@@ -265,14 +263,6 @@
                                         <section class="lead-summary-card">
                                             <h3>Contato principal</h3>
                                             <div class="lead-data-row">
-                                                <span class="lead-data-label">ID do lead</span>
-                                                <span class="lead-data-value" data-lead-field="lead_id"></span>
-                                            </div>
-                                            <div class="lead-data-row">
-                                                <span class="lead-data-label">Origem dos dados</span>
-                                                <span class="lead-data-value" data-lead-field="fonte_insercao"></span>
-                                            </div>
-                                            <div class="lead-data-row">
                                                 <span class="lead-data-label">Nome</span>
                                                 <span class="lead-data-value" data-lead-field="contato_nome"></span>
                                             </div>
@@ -298,9 +288,23 @@
                                         </section>
 
                                         <section class="lead-summary-card lead-score-summary">
-                                            <h3>Score de Qualificação</h3>
-                                            <strong class="lead-score-value" data-score-percentual></strong>
-                                            <span class="lead-score-classification" data-score-classificacao></span>
+                                            <div class="lead-score-summary-layout">
+                                                <div class="lead-score-main">
+                                                    <h3>Score de Qualificação</h3>
+                                                    <strong class="lead-score-value" data-score-percentual></strong>
+                                                    <span class="lead-score-classification" data-score-classificacao></span>
+                                                </div>
+                                                <div class="lead-score-metadata">
+                                                    <div class="lead-data-row">
+                                                        <span class="lead-data-label">ID do lead</span>
+                                                        <span class="lead-data-value" data-lead-field="lead_id"></span>
+                                                    </div>
+                                                    <div class="lead-data-row">
+                                                        <span class="lead-data-label">Origem dos dados</span>
+                                                        <span class="lead-data-value" data-lead-field="fonte_insercao"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </section>
                                     </div>
 

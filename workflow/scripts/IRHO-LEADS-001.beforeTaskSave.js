@@ -236,37 +236,59 @@ function btsSincronizarEmpresaContatos() {
     );
     var idNumerico = parseInt(idReferencia, 10);
 
+    if (idReferencia == "") {
+        hAPI.setCardValue("ec_campos_alterados", "");
+        hAPI.setCardValue("ec_contatos_alterados", "");
+        return;
+    }
+
     if (!/^\d+$/.test(idReferencia) || isNaN(idNumerico) || idNumerico <= 0) {
         throw "Não foi possível sincronizar os dados do lead com o painel: identificador SQL inválido.";
     }
 
-    var loteContatos = btsMontarLoteContatos();
+    var camposAlterados = btsObterCamposEmpresaContatoAlterados();
+    var contatosAlterados = btsTexto(
+        hAPI.getCardValue("ec_contatos_alterados")
+    ).toLowerCase() == "true";
+
+    if (camposAlterados.lista.length == 0 && !contatosAlterados) {
+        return;
+    }
+
+    var dadosAtuais = btsCarregarDadosAtuaisPainel(idNumerico);
     var valores = {
         operacao: "sincronizar_processo",
         id: String(idNumerico),
         lead_id: btsTexto(hAPI.getCardValue("lead_id")),
-        lead_nome: btsTexto(hAPI.getCardValue("contato_nome")),
-        lead_cargo: btsTexto(hAPI.getCardValue("contato_cargo")),
-        lead_telefone: btsTexto(hAPI.getCardValue("contato_telefone")),
-        lead_email: btsTexto(hAPI.getCardValue("contato_email")),
-        lead_linkedin: btsTexto(hAPI.getCardValue("contato_linkedin")),
-        empresa_nome: btsTexto(hAPI.getCardValue("empresa_nome")),
-        empresa_cnpj: btsTexto(hAPI.getCardValue("empresa_cnpj")),
-        empresa_site: btsTexto(hAPI.getCardValue("empresa_site")),
-        lead_origem: btsTexto(hAPI.getCardValue("crm_origem")),
-        tipo_registro: btsTexto(hAPI.getCardValue("tipo_registro")),
-        segmento: btsTexto(hAPI.getCardValue("segmento")),
-        cidade: btsTexto(hAPI.getCardValue("cidade")),
-        substituirContatos: "true",
-        loteContatos: loteContatos
+        lead_nome: btsValorSincronizacao(camposAlterados, "contato_nome", "lead_nome", dadosAtuais),
+        lead_cargo: btsValorSincronizacao(camposAlterados, "contato_cargo", "lead_cargo", dadosAtuais),
+        lead_telefone: btsValorSincronizacao(camposAlterados, "contato_telefone", "lead_telefone", dadosAtuais),
+        lead_email: btsValorSincronizacao(camposAlterados, "contato_email", "lead_email", dadosAtuais),
+        lead_linkedin: btsValorSincronizacao(camposAlterados, "contato_linkedin", "lead_linkedin", dadosAtuais),
+        empresa_nome: btsValorSincronizacao(camposAlterados, "empresa_nome", "empresa_nome", dadosAtuais),
+        empresa_cnpj: btsValorSincronizacao(camposAlterados, "empresa_cnpj", "empresa_cnpj", dadosAtuais),
+        empresa_site: btsValorSincronizacao(camposAlterados, "empresa_site", "empresa_site", dadosAtuais),
+        substituirContatos: contatosAlterados ? "true" : "false"
     };
     var constraints = [];
     var campos = [
         "operacao", "id", "lead_id", "lead_nome", "lead_cargo",
         "lead_telefone", "lead_email", "lead_linkedin", "empresa_nome",
-        "empresa_cnpj", "empresa_site", "lead_origem", "tipo_registro",
-        "segmento", "cidade", "substituirContatos", "loteContatos"
+        "empresa_cnpj", "empresa_site", "substituirContatos"
     ];
+
+    if (camposAlterados.mapa["segmento"]) {
+        valores.segmento = btsTexto(hAPI.getCardValue("segmento"));
+        campos.push("segmento");
+    }
+    if (camposAlterados.mapa["cidade"]) {
+        valores.cidade = btsTexto(hAPI.getCardValue("cidade"));
+        campos.push("cidade");
+    }
+    if (contatosAlterados) {
+        valores.loteContatos = btsMontarLoteContatos();
+        campos.push("loteContatos");
+    }
 
     for (var i = 0; i < campos.length; i++) {
         constraints.push(
@@ -296,6 +318,77 @@ function btsSincronizarEmpresaContatos() {
         throw "Não foi possível sincronizar os dados do lead com o painel: "
             + (mensagem == "" ? "falha não detalhada." : mensagem);
     }
+
+    hAPI.setCardValue("ec_campos_alterados", "");
+    hAPI.setCardValue("ec_contatos_alterados", "");
+}
+
+function btsObterCamposEmpresaContatoAlterados() {
+    var permitidos = {
+        empresa_nome: true,
+        empresa_cnpj: true,
+        empresa_site: true,
+        segmento: true,
+        cidade: true,
+        contato_nome: true,
+        contato_cargo: true,
+        contato_telefone: true,
+        contato_email: true,
+        contato_linkedin: true
+    };
+    var partes = btsTexto(
+        hAPI.getCardValue("ec_campos_alterados")
+    ).split(",");
+    var lista = [];
+    var mapa = {};
+
+    for (var i = 0; i < partes.length; i++) {
+        var campo = btsTexto(partes[i]);
+        if (permitidos[campo] && !mapa[campo]) {
+            mapa[campo] = true;
+            lista.push(campo);
+        }
+    }
+
+    return { lista: lista, mapa: mapa };
+}
+
+function btsCarregarDadosAtuaisPainel(idNumerico) {
+    var constraints = [
+        DatasetFactory.createConstraint(
+            "id",
+            String(idNumerico),
+            String(idNumerico),
+            ConstraintType.MUST
+        )
+    ];
+    var retorno = DatasetFactory.getDataset(
+        "ds_painel_leads_sql",
+        null,
+        constraints,
+        null
+    );
+
+    if (retorno == null || retorno.rowsCount != 1) {
+        throw "Não foi possível sincronizar os dados do lead com o painel: registro atual não localizado.";
+    }
+
+    var campos = [
+        "lead_nome", "lead_cargo", "lead_telefone", "lead_email", "lead_linkedin",
+        "empresa_nome", "empresa_cnpj", "empresa_site"
+    ];
+    var dados = {};
+    for (var i = 0; i < campos.length; i++) {
+        dados[campos[i]] = btsTexto(retorno.getValue(0, campos[i]));
+    }
+    return dados;
+}
+
+function btsValorSincronizacao(camposAlterados, campoFormulario, campoBanco, dadosAtuais) {
+    if (camposAlterados.mapa[campoFormulario]) {
+        return btsTexto(hAPI.getCardValue(campoFormulario));
+    }
+    return btsTexto(dadosAtuais[campoBanco]);
 }
 
 function btsMontarLoteContatos() {
